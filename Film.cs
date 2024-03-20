@@ -2,17 +2,15 @@
 
 public class Film
 {
-    private string Name;
-    private string Genre;
-    private int Duration_in_minutes;
-    private double Price;
-    private string Director;
-    private string Description;
-    private int Auditorium;
-    // Auditorium = zaal waar je de film kijkt
-    private List<DateTime> Showings;
+    public string Name;
+    public string Genre;
+    public int Duration_in_minutes;
+    public double Price;
+    public string Director;
+    public string Description;
+    public List<DateTime> Showings { set; get; }
 
-    public Film(string name, string genre, int duration, double price, string director, string description, int auditorium, List<DateTime> showings)
+    public Film(string name, string genre, int duration, double price, string director, string description, List<DateTime> showings)
     {
         Name = name;
         Genre = genre;
@@ -20,7 +18,6 @@ public class Film
         Price = price;
         Director = director;
         Description = description;
-        Auditorium = auditorium;
         Showings = showings;
     }
 
@@ -33,7 +30,6 @@ public class Film
         $"Director: {Director}\n" +
         $"\nBeschrijving:\n{Description}\n" +
         $"\nFilm wordt afgespeeld op deze tijden: {Showings}" +
-        $"\nZaal: {Auditorium}" +
         $"Prijs: {Price}€\n";
     }
 
