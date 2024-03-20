@@ -7,8 +7,10 @@ public class Program
 {
     public static void Main()
     {
-        int a = SeatSelection.SelectSeat();
-        Console.WriteLine(a);
+        // int a = SeatSelection.SelectSeat();
+        // Console.WriteLine(a);
+        MainMenu.ShowMenu();
+
     }
 }
 //
