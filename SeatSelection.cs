@@ -4,10 +4,9 @@ namespace Project_B;
 
 public static class SeatSelection
 {
-    private static int SelectSeatCode()
+    private static int SelectSeatCode(int size)
     {
         bool selecting_seat = true;
-        int size = 7;
         List<int> unavailableSeats = new List<int> { 1, 5, 12, 18 };
 
         int selectedIndex = 0;
@@ -144,12 +143,12 @@ public static class SeatSelection
 
         }
     }
-    public static int SelectSeat()
+    public static int SelectSeat(int theathre_size)
     {
         int seat = -1;
         while (seat < 0)
         {
-            seat = SelectSeatCode();
+            seat = SelectSeatCode(theathre_size);
         }
         return seat;
     }
