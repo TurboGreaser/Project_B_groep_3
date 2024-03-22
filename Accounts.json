@@ -1,0 +1,22 @@
+//Hier worden de accounts opgeslagen
+[
+  {
+    "Username": "blank",
+    "Email": "blank",
+    "Age": 0,
+    "Password": "blank",
+    "SavedInformation": {
+      []
+    }
+  },
+
+  {
+    "Username": "Peter",
+    "Email": "Peter2@gmail.com",
+    "Age": 24,
+    "Password": "PeterF",
+    "SavedInformation": {
+      []
+    }
+  }
+]
