@@ -2,7 +2,7 @@
 
 public class AddAccountToJson
 {
-    public string jsonfilepath = "Project_B/Accounts.json";
+    public string jsonfilepath = "Accounts.json";
     public string UserName;
     public string Email;
     public int Age;

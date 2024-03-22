@@ -23,7 +23,7 @@ static class MainMenu
                     break;
                     case "3":
                     Console.WriteLine("Making Account");
-                    // MakeAccount();
+                    // MakeAccount();                   Voeg Deleting Account toe.
                     break;
                     case "4":
                     Console.WriteLine("Showing restaurant menu");

@@ -18,7 +18,7 @@ public class AddAccount
         {
 
             string text = File.ReadAllText(jsonfilepath);
-            var person = JsonConvert.DeserializeObject<List<Accounts>>(text);
+            var useraccounts = JsonConvert.DeserializeObject<List<Accounts>>(text);
 
             bool valid = false;
             do
@@ -27,9 +27,9 @@ public class AddAccount
                 string wantedusername = Console.ReadLine();
                 //Kijk of de UserName all bestaat in de Json, als het nog niet bestaat in de Json dan mag de gebruiker deze UserName hebben anders niet.
                 bool usernamexists = false;
-                foreach (var per in person)
+                foreach (var user in useraccounts)
                 {
-                    if (wantedusername.ToUpper() == per.Username.ToUpper())
+                    if (wantedusername.ToUpper() == user.Username.ToUpper())
                     {
                         Console.WriteLine("The name was Already taken. Try another username");
                         usernamexists = true;
@@ -54,7 +54,7 @@ public class AddAccount
                 //Kijk of de email al bestaat:
 
                 bool emailexists = false;
-                foreach (var per in person)
+                foreach (var per in useraccounts)
                 {
                     if (wantedemail == per.Email)
                     {
