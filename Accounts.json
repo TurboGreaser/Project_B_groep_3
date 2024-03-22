@@ -5,9 +5,11 @@
     "Email": "blank",
     "Age": 0,
     "Password": "blank",
-    "SavedInformation": {
-      []
-    }
+    "SavedInformation": [
+      {
+        "FavMovies": []
+      }
+    ]
   },
 
   {
@@ -15,8 +17,10 @@
     "Email": "Peter2@gmail.com",
     "Age": 24,
     "Password": "PeterF",
-    "SavedInformation": {
-      []
-    }
+    "SavedInformation": [
+      {
+        "FavMovies": []
+      }
+    ]
   }
 ]
