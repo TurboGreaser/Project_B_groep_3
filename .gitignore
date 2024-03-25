@@ -224,3 +224,5 @@ AppPackages/
 #####
 # End of core ignore list, below put you custom 'per project' settings (patterns or path)
 #####
+Test/Test.csproj
+Projce_B_Code/Films_test.json

@@ -5,7 +5,7 @@ using Newtonsoft.Json.Linq;
 
 public static class JsonReader
 {
-    public static void ReadFilmJson()
+    public static List<Film> ReadFilmJson()
     {
         // Read the JSON file into a string
         string jsonFilePath = "Films.json";
@@ -15,12 +15,14 @@ public static class JsonReader
 
         // var data = JsonConvert.DeserializeObject<List<object>>(jsonText);
 
-        List<Film> data = JsonConvert.DeserializeObject<List<Film>>(jsonText);
+        List<Film> List_of_films = JsonConvert.DeserializeObject<List<Film>>(jsonText);
 
-        foreach (var film in data)
-        {
-            Console.WriteLine(film.Info());
-        }
+        // foreach (var film in data)
+        // {
+        //     Console.WriteLine(film.Info());
+        // }
+
+        return List_of_films;
 
     }
 }
