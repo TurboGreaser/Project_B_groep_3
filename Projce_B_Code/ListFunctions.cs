@@ -22,11 +22,24 @@ public static class ListFunctions
         }
     }
 
-    public static void Display(List<Film> list)
+    public static void Display(List<Film> Filmlist)
     {
-        foreach (Film film in list)
+        foreach (Film film in Filmlist)
         {
             Console.WriteLine(film.Info());
         }
+    }
+
+    public static string Search (List<Film> Filmlist, string Name)
+    {
+        string? output = "";
+        foreach (Film film in Filmlist)
+        {
+            if (film.Name == Name)
+            {
+                output += film.Info();
+            }
+        }
+        return output;
     }
 }
