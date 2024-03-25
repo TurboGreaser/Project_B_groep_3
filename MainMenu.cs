@@ -2,8 +2,8 @@ static class MainMenu
 {
     public static void ShowMenu()
     {
-        bool ValidInput = false;
-        string? Choice = "";   
+        bool ValidInput;
+        string? Choice ;   
         do
         {
             Console.WriteLine("1. Films bekijken\n2. reserveren\n3. account maken\n4. Menu bioscoop restaurant bekijken");
@@ -16,17 +16,21 @@ static class MainMenu
                     case "1":
                     Console.WriteLine("opening the list");
                     // FilmList();
+                    ValidInput = true;
                     break;
                     case "2":
                     Console.WriteLine("reserving");
                     // Reserveren();
+                    ValidInput = true;
                     break;
                     case "3":
                     Console.WriteLine("Making Account");
-                    // MakeAccount();                   Voeg Deleting Account toe.
+                    // MakeAccount();
+                    ValidInput = true;
                     break;
                     case "4":
                     Console.WriteLine("Showing restaurant menu");
+                    ValidInput = true;
                     // RestaurantMenu();
                     break;
                     default:
