@@ -35,7 +35,7 @@ public class Film
         $"\nBeschrijving:\n{Description}\n" +
         $"\nFilm wordt afgespeeld op deze tijden: {Showings}\n" +
         $"Prijs: {Price} Euro\n" +
-        $"Je kan hem zien op:" +
+        $"Je kan hem zien op:\n" +
         $"{FormatShowings()}";
     }
 
