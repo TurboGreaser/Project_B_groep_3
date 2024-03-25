@@ -8,13 +8,8 @@ public class Film
     public double Price;
     public string Director;
     public string Description;
-    public List<Showing> Showings
-    {
-        set;
-        get;
-    }
-
-    public Film(string name, string genre, int duration, double price, string director, string description, List<Showing> showings)
+    public Dictionary<string, int> Showings;
+    public Film(string name, string genre, int duration, double price, string director, string description, Dictionary<string, int> showings)
     {
         Name = name;
         Genre = genre;
@@ -36,7 +31,7 @@ public class Film
         $"\nFilm wordt afgespeeld op deze tijden: {Showings}\n" +
         $"Prijs: {Price} Euro\n" +
         $"Je kan hem zien op:\n" +
-        $"{FormatShowings()}";
+        $"{FormatShowings()}\n";
     }
 
     private string FormatShowings()
@@ -44,14 +39,32 @@ public class Film
         if (Showings.Count > 0)
         {
             string formattedShowings = "";
-            foreach (Showing showing in Showings)
+            foreach (var showing in Showings)
             {
-                formattedShowings += showing + "\n";
+                formattedShowings += $"Datum: {showing.Key}, Zaal: {showing.Value}\n";
             }
             return formattedShowings;
         }
         return "geen tijden gevonden";
     }
+
+    public static DateTime StringToDatetime(string dateString)
+    {
+        string format = "yyyy-MM-dd HH:mm";
+
+        // Parse the string to DateTime using ParseExact method
+        if (DateTime.TryParseExact(dateString, format, null, System.Globalization.DateTimeStyles.None, out DateTime dateTime))
+        {
+            return dateTime;
+        }
+        else
+        {
+            DateTime noDate = new(2000, 1, 1, 1, 1, 1);
+            return noDate;
+        }
+    }
+
+
 
 
 
