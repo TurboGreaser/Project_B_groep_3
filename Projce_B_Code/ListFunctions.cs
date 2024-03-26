@@ -37,7 +37,7 @@ public static class ListFunctions
         {
             if (film.Name == Name)
             {
-                output += film.Info();
+                output += film.CompactInfo();
             }
         }
         return output;
