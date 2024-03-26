@@ -34,6 +34,11 @@ public class Film
         $"{FormatShowings()}\n";
     }
 
+    public string CompactInfo()
+    {
+        return $"{Name} | {Director} | {Genre} | {Duration_in_minutes}";
+    }
+
     private string FormatShowings()
     {
         if (Showings.Count > 0)

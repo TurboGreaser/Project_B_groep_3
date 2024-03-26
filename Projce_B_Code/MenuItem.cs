@@ -1,9 +1,9 @@
 class MenuItem
 {
     public string Name { get; }
-    public decimal Price { get; }
+    public double Price { get; }
 
-    public MenuItem(string name, decimal price)
+    public MenuItem(string name, double price)
     {
         Name = name;
         Price = price;

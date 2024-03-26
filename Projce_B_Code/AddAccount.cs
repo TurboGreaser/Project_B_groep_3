@@ -1,14 +1,14 @@
 ﻿using Newtonsoft.Json;
 
-public class AddAccount
+public static class AddAccount
 {
-    public string jsonfilepath = "Accounts.json";
-    public string UserName;
-    public string Email;
-    public int Age;
-    public string Password;
+    public static string jsonfilepath = "Accounts.json";
+    public static string UserName;
+    public static string Email;
+    public static int Age;
+    public static string Password;
 
-    public void MakeAccount()
+    public static void MakeAccount()
     {
         Console.WriteLine("You can create an account here, for this you will need to enter your wanted username, email, age and a wanted password\nDo you accept the Terms and Conditions?\n(yes/no)");
         string acceptedTandC = Console.ReadLine().ToUpper();

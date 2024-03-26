@@ -103,7 +103,6 @@ public static class SeatSelection
                                             // Choosing = false;
                                             // selecting_seat = false;
 
-                                            Console.WriteLine($"You have selected seat {selectedSeat}");
                                             return selectedSeat;
                                         }
                                         // break;
@@ -150,6 +149,8 @@ public static class SeatSelection
         {
             seat = SelectSeatCode(theathre_size);
         }
+        Console.WriteLine($"You have selected seat {seat}");
+        Console.ReadLine();
         return seat;
     }
 

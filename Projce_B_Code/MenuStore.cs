@@ -7,7 +7,7 @@ class MenuStore
         menuItems = new List<MenuItem>();
     }
 
-    public void AddItem(string name, decimal price)
+    public void AddItem(string name, double price)
     {
         MenuItem newItem = new MenuItem(name, price);
         menuItems.Add(newItem);

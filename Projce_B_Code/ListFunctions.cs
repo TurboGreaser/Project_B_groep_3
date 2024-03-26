@@ -26,11 +26,11 @@ public static class ListFunctions
     {
         foreach (Film film in Filmlist)
         {
-            Console.WriteLine(film.Info());
+            Console.WriteLine(film.CompactInfo());
         }
     }
 
-    public static string Search (List<Film> Filmlist, string Name)
+    public static string Search(List<Film> Filmlist, string Name)
     {
         string? output = "";
         foreach (Film film in Filmlist)

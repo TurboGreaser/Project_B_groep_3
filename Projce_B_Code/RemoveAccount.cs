@@ -1,9 +1,9 @@
 ﻿using Newtonsoft.Json;
 
-public class RemoveAccount
+public static class RemoveAccount
 {
-    public string jsonfilepath = "Accounts.json";
-    public void GetInfo()
+    public static string jsonfilepath = "Accounts.json";
+    public static void GetInfo()
     {
         Console.WriteLine("To remove your account you must enter Your accounts Email and Password");
         Console.WriteLine("What is your email?");
@@ -15,7 +15,7 @@ public class RemoveAccount
         //Roep de removeAccount method aan
         RemoveAccountByPassAndEmail(enteredemail, enteredpassword);
     }
-    public void RemoveAccountByPassAndEmail(string email, string password)
+    public static void RemoveAccountByPassAndEmail(string email, string password)
     {
         string text = File.ReadAllText(jsonfilepath);
         var useraccounts = JsonConvert.DeserializeObject<List<Accounts>>(text);
