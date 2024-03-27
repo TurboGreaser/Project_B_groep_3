@@ -59,6 +59,12 @@ public static class Demo
         SeatSelection.SelectSeat(9);
 
 
+        Console.ReadLine();
+        Console.Clear();
+
+        DigitalCard.DrawSquare("Spider-man ", 1, 10);
+
+
 
 
 
