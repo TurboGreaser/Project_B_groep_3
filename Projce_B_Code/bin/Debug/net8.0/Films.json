@@ -1,0 +1,59 @@
+[
+    {
+        "Name": "test_name",
+        "Genre": "test_genre",
+        "Duration_in_minutes": 75,
+        "Price": 12.5,
+        "Director": "test_director",
+        "Description": "test descrition",
+        "Showings": {
+            "2022-12-30 12:30": 1,
+            "2024-11-25 15:12": 1
+        }
+    },
+    {
+        "Name": "The Godfather",
+        "Genre": "Drama",
+        "Duration_in_minutes": 175,
+        "Price": 12.5,
+        "Director": "Francis Ford Coppola",
+        "Description": "Een episch verhaal over de opkomst van de maffia in Amerika, gericht op de familie Corleone en de complexe dynamiek van macht, verraad en loyaliteit.",
+        "Showings": {}
+    },
+    {
+        "Name": "Inception",
+        "Genre": "Sci-Fi, Thriller",
+        "Duration_in_minutes": 148,
+        "Price": 12.5,
+        "Director": "Christopher Nolan",
+        "Description": "Een meesterdief, gespecialiseerd in het stelen van waardevolle geheimen uit het onderbewustzijn tijdens de droomstaat, krijgt een laatste kans om zijn eigen verleden te herstellen door een idee in te planten in het onderbewustzijn van een CEO.",
+        "Showings": {}
+    },
+    {
+        "Name": "The Shawshank Redemption",
+        "Genre": "Drama",
+        "Duration_in_minutes": 142,
+        "Price": 12.5,
+        "Director": "Frank Darabonts",
+        "Description": "Het verhaal van Andy Dufresne, een bankier die onterecht wordt veroordeeld voor moord en zijn ongelooflijke doorzettingsvermogen en vriendschap gebruikt om te overleven in de harde omstandigheden van de Shawshank-gevangenis.",
+        "Showings": {}
+    },
+    {
+        "Name": "Spider-man: no way home",
+        "Genre": "Action",
+        "Duration_in_minutes": 148,
+        "Price": 12.5,
+        "Director": "Jon Watts",
+        "Description": "Peter Parker's identiteit als Spider-Man is onthuld, en hij vraagt Doctor Strange om hulp. Dit leidt tot een gevaarlijke reis door verschillende dimensies waarin hij oude vijanden ontmoet en nieuwe bondgenoten vindt.",
+        "Showings": {}
+    },
+    {
+        "Name": "Forrest Gump",
+        "Genre": "Drama, Romantiek",
+        "Duration_in_minutes": 142,
+        "Price": 12.5,
+        "Director": "Robert Zemeckis",
+        "Description": "Het levensverhaal van Forrest Gump, een man met een laag IQ maar een goed hart, die betrokken raakt bij belangrijke gebeurtenissen in de Amerikaanse geschiedenis.",
+        "Showings": {}
+    }
+]
