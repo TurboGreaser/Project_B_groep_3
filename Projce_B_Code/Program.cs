@@ -7,7 +7,15 @@ public class Program
 {
     public static void Main()
     {
-        Demo.PlayDemo();
+        var films = JsonReader.ReadFilmJson();
+
+        string date = "";
+        foreach (var showing in films[0].Showings)
+        {
+            date = showing.Key;
+            break;
+        }
+
+        Reservation.MakeReservation(films[0], date);
     }
 }
-//

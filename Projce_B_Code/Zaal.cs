@@ -4,7 +4,7 @@ public class Zaal
 {
     public int ID;
     public int Size;
-    public List<int> TakenSeats;
+    // public List<int> TakenSeats;
 
     public Zaal(int id, int size)
     {

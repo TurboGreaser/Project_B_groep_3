@@ -4,11 +4,9 @@ namespace Project_B;
 
 public static class SeatSelection
 {
-    private static int SelectSeatCode(int size)
+    private static int SelectSeatCode(int size, List<int> unavailableSeats)
     {
         bool selecting_seat = true;
-        List<int> unavailableSeats = new List<int> { 1, 5, 12, 18 };
-
         int selectedIndex = 0;
         ConsoleKeyInfo keyInfo;
         do
@@ -19,6 +17,7 @@ public static class SeatSelection
             int index = 1;
             for (int i = 0; i < size; i++)
             {
+
                 for (int j = 0; j < size; j++)
                 {
                     Console.ForegroundColor = unavailableSeats.Contains(index) ? ConsoleColor.Red : (selectedIndex == index - 1 ? ConsoleColor.Cyan : ConsoleColor.Green);
@@ -36,6 +35,11 @@ public static class SeatSelection
             // Process user input
             switch (keyInfo.Key)
             {
+                case ConsoleKey.Escape:
+                    {
+                        Console.Clear();
+                        return -10;
+                    }
                 case ConsoleKey.UpArrow:
                     selectedIndex = Math.Max(0, selectedIndex - size);
                     break;
@@ -100,9 +104,6 @@ public static class SeatSelection
                                         }
                                         else
                                         {
-                                            // Choosing = false;
-                                            // selecting_seat = false;
-
                                             return selectedSeat;
                                         }
                                         // break;
@@ -142,12 +143,16 @@ public static class SeatSelection
 
         }
     }
-    public static int SelectSeat(int theathre_size)
+    public static int SelectSeat(int theathre_size, List<int> unavailableSeats)
     {
         int seat = -1;
         while (seat < 0)
         {
-            seat = SelectSeatCode(theathre_size);
+            seat = SelectSeatCode(theathre_size, unavailableSeats);
+            if (seat == -10)
+            {
+                return -1;
+            }
         }
         Console.WriteLine($"You have selected seat {seat}");
         Console.ReadLine();

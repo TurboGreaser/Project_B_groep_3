@@ -14,4 +14,17 @@ public static class JsonReader
         return List_of_films;
 
     }
+
+    public static List<Zaal> ReadZalen()
+    {
+        string fileName = "Zaalen.json";
+        if (File.Exists(fileName))
+        {
+        string jsonText = File.ReadAllText(fileName);
+
+        List<Zaal> List_of_Zaalen = JsonConvert.DeserializeObject<List<Zaal>>(jsonText);
+        return List_of_Zaalen;
+        }
+        return null;
+    }
 }

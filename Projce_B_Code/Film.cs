@@ -36,7 +36,7 @@ public class Film
 
     public string CompactInfo()
     {
-        return $"{Name} | {Director} | {Genre} | {Duration_in_minutes}";
+        return $"{Name} | {Director} | {Genre} | {Duration_in_minutes} | {GetFirstShowing()}";
     }
 
     private string FormatShowings()
@@ -67,6 +67,15 @@ public class Film
             DateTime noDate = new(2000, 1, 1, 1, 1, 1);
             return noDate;
         }
+    }
+
+    private string GetFirstShowing()
+    {
+        foreach (var showing in Showings)
+        {
+            return showing.Key;
+        }
+        return "No Showings Found";
     }
 
 

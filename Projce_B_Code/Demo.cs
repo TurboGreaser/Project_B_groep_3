@@ -25,6 +25,7 @@ public static class Demo
 
         // film list sortereen laten zien op naam
         // eerst films.json laten zien
+        Console.WriteLine("Sorteren op naam");
         var films = JsonReader.ReadFilmJson();
         films = ListFunctions.SortList(films, "Name", true);
         ListFunctions.Display(films);
@@ -33,6 +34,7 @@ public static class Demo
         Console.Clear();
 
         // film sorteren laten zien op duration
+        Console.WriteLine("Sorteren op lengte");
         films = ListFunctions.SortList(films, "Duration_in_minutes", true);
         ListFunctions.Display(films);
 
@@ -53,20 +55,18 @@ public static class Demo
         store.AddItem("Bitterballen", 9.50);
         store.PrintMenu();
 
+        Console.ReadLine();
+        Console.Clear();
+
         // seat selection laten zien
-        SeatSelection.SelectSeat(5);
+        // SeatSelection.SelectSeat(5);
 
-        SeatSelection.SelectSeat(9);
-
+        // SeatSelection.SelectSeat(9);
 
         Console.ReadLine();
         Console.Clear();
 
         DigitalCard.DrawSquare("Spider-man ", 1, 10);
-
-
-
-
 
     }
 }
