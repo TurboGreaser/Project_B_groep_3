@@ -6,7 +6,7 @@ static class MainMenu
         string? Choice ;   
         do
         {
-            Console.WriteLine("1. Films bekijken\n2. reserveren\n3. account maken\n4. Menu bioscoop restaurant bekijken");
+            Console.WriteLine("1. Films bekijken\n2. Reserveren\n3. Account maken\n4. Menu bioscoop restaurant bekijken");
             try
             {
                 Choice = Console.ReadLine();
@@ -14,27 +14,27 @@ static class MainMenu
                 switch (Choice)
                 {
                     case "1":
-                    Console.WriteLine("opening the list");
+                    Console.WriteLine("===Lijst wordt geopend===");
                     // FilmList();
                     ValidInput = true;
                     break;
                     case "2":
-                    Console.WriteLine("reserving");
+                    Console.WriteLine("===Reserveren===");
                     // Reserveren();
                     ValidInput = true;
                     break;
                     case "3":
-                    Console.WriteLine("Making Account");
+                    Console.WriteLine("===Account maken===");
                     // MakeAccount();
                     ValidInput = true;
                     break;
                     case "4":
-                    Console.WriteLine("Showing restaurant menu");
+                    Console.WriteLine("===Resturant menu===");
                     ValidInput = true;
                     // RestaurantMenu();
                     break;
                     default:
-                    Console.WriteLine("Invalid input. Choose a number between 1-4");
+                    Console.WriteLine("Kies tussen 1-4!");
                     ValidInput = false;
                     break;
                 }

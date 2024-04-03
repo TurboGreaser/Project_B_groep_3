@@ -17,7 +17,8 @@ public static class RemoveAccount
     }
     public static void RemoveAccountByPassAndEmail(string email, string password)
     {
-        string text = File.ReadAllText(jsonfilepath);
+        
+        
         var useraccounts = JsonConvert.DeserializeObject<List<Accounts>>(text);
 
         //zoekt naar de email/wachtwoord 
