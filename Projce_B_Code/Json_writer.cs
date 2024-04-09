@@ -6,13 +6,22 @@ using Newtonsoft.Json;
 public static class Json_writer
 {
 
-    public static void WriteFilmToJSON(Film film)
+    public static void WriteFilmToJSON(Film film, string fileName = "Films_test.json")
     {
-        string fileName = "Films_test.json";
         StreamWriter writer = new(fileName);
 
         List<Film> _films = new() { film };
         var json = JsonConvert.SerializeObject(_films.ToArray());
+        writer.WriteLine(json);
+        writer.Close();
+    }
+
+    public static void WriteFilmToJSON(List<Film> films, string fileName = "Films_test.json")
+    {
+        // overload for writing a list of films
+        StreamWriter writer = new(fileName);
+
+        var json = JsonConvert.SerializeObject(films);
         writer.WriteLine(json);
         writer.Close();
     }
