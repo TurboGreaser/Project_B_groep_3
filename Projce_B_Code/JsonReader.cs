@@ -35,4 +35,12 @@ public static class JsonReader
         }
         return null;
     }
+
+    public static List<Json_writer.ReservationJsonObj> ReadReservations(string jsonFilePath = "Reservations.json")
+    {
+        string jsonText = File.ReadAllText(jsonFilePath);
+        List<Json_writer.ReservationJsonObj> reservations = JsonConvert.DeserializeObject<List<Json_writer.ReservationJsonObj>>(jsonText)!;
+
+        return reservations;
+    }
 }

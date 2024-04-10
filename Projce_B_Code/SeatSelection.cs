@@ -15,9 +15,11 @@ public static class SeatSelection
 
             // Display seats
             int index = 1;
-            for (int i = 0; i < size; i++)
-            {
 
+            Console.WriteLine("Escape om terug te gaan");
+            Console.WriteLine("Kies een stoel met de pijtjes toetsen, Rood = Bezet");
+            for (int i = 0; i < size; i++)
+            {   
                 for (int j = 0; j < size; j++)
                 {
                     Console.ForegroundColor = unavailableSeats.Contains(index) ? ConsoleColor.Red : (selectedIndex == index - 1 ? ConsoleColor.Cyan : ConsoleColor.Green);

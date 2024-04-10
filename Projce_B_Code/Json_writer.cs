@@ -26,16 +26,14 @@ public static class Json_writer
         writer.Close();
     }
 
-    public static void WriteReservationToJSON(Film film, Zaal zaal, string datum)
+    public static void WriteReservationToJSON(Film film, Zaal zaal, string datum, string fileName = "Reservations.json", int seatForTesting = -1)
     {
         List<int> unavailavble_seats = new();
-        string fileName = "Reservations.json";
-
 
         if (!File.Exists(fileName))
         {
             // file doest exists | make new file write reservation to new file
-            WriteReservationToEmptyFile(zaal, unavailavble_seats, datum, film, fileName);
+            WriteReservationToEmptyFile(zaal, unavailavble_seats, datum, film, fileName, seatForTesting);
         }
         else
         {
@@ -68,15 +66,22 @@ public static class Json_writer
                 }
                 writer.Close();
                 //reservation with same id not found
-                AddReservationToFile(reservations, film, datum, zaal, fileName);
+                AddReservationToFile(reservations, film, datum, zaal, fileName, seatForTesting);
             }
 
         }
     }
 
-    private static void WriteReservationToEmptyFile(Zaal zaal, List<int> unavailavble_seats, string datum, Film film, string fileName)
+    private static void WriteReservationToEmptyFile(Zaal zaal, List<int> unavailavble_seats, string datum, Film film, string fileName, int seatForTesting = -1)
     {
-        int seat = SeatSelection.SelectSeat(zaal.Size, unavailavble_seats);
+        int seat = 0;
+
+        if (seatForTesting == -1)
+        { seat = SeatSelection.SelectSeat(zaal.Size, unavailavble_seats); }
+        else
+        {
+            seat = seatForTesting;
+        }
         List<int> seats = new() { seat };
 
         ReservationJsonObj reservation = new()
@@ -95,10 +100,18 @@ public static class Json_writer
         writer.Close();
     }
 
-    private static void AddReservationToFile(List<ReservationJsonObj> reservations, Film film, string datum, Zaal zaal, string fileName)
+    private static void AddReservationToFile(List<ReservationJsonObj> reservations, Film film, string datum, Zaal zaal, string fileName, int seatForTesting = -1)
     {
+        int seat = 0;
+        if (seatForTesting == -1)
+        {
+            seat = SeatSelection.SelectSeat(zaal.Size, new List<int> { });
+        }
+        else
+        {
+            seat = seatForTesting;
+        }
 
-        int seat = SeatSelection.SelectSeat(zaal.Size, new List<int> { });
         ReservationJsonObj reservation = new()
         {
             ID = $"{film.Name}{film.Director}{datum}{zaal.ID}",
@@ -114,7 +127,14 @@ public static class Json_writer
 
     }
 
-    private class ReservationJsonObj
+    public static void WriteReservationsToJSON(List<ReservationJsonObj> reservations, string fileName = "reservations.josn")
+    {
+        string json = JsonConvert.SerializeObject(reservations);
+        File.WriteAllText(fileName, json);
+    }
+
+
+    public class ReservationJsonObj
     {
         public string ID { get; set; }
         public string Date { get; set; }

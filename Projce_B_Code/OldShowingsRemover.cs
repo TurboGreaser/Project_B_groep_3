@@ -35,5 +35,26 @@ public static class OldShowingsRemover
         }
         // write the films with updated showings at the end
         Json_writer.WriteFilmToJSON(films, fileName);
-    }  
+    }
+
+    public static void RemoveOldReservations(DateTime CurrentTime = default, string fileName = "Films.json")
+    {
+        if (CurrentTime == default)
+        { CurrentTime = DateTime.Now; }
+
+        string format = "yyyy-MM-dd HH:mm";
+
+        List<Json_writer.ReservationJsonObj> reservations = JsonReader.ReadReservations(fileName);
+
+        for (int i = reservations.Count - 1; i >= 0; i--)
+        {
+            Json_writer.ReservationJsonObj reservation = reservations[i];
+            DateTime reservationTime = DateTime.ParseExact(reservation.Date, format, CultureInfo.InvariantCulture);
+            if (reservationTime < CurrentTime)
+            {
+                reservations.RemoveAt(i);
+            }
+        }
+        Json_writer.WriteReservationsToJSON(reservations, fileName);
+    }
 }
