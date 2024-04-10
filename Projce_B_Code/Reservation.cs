@@ -2,7 +2,7 @@
 
 public static class Reservation
 {
-    public static void MakeReservation(Film film, string date)
+    public static void MakeReservation(Film film, string date, string email)
     {
         Zaal zaal = GetZaalFromFilm(film, date);
 
@@ -13,7 +13,8 @@ public static class Reservation
         Console.WriteLine($"klik Enter om veder te gaan naar het kiezen van je stoel");
         Console.ReadLine();
 
-        Json_writer.WriteReservationToJSON(film, zaal, date);
+        Json_writer.WriteReservationToJSON(film, zaal, date, email: email);
+        
     }
 
     private static Zaal GetZaalFromFilm(Film film, string date)
