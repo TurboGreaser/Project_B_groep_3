@@ -27,7 +27,7 @@ public static class ListFunctions
     {
         foreach (Film film in Filmlist)
         {
-            Console.WriteLine(film.CompactInfo());
+            Console.WriteLine($"{Filmlist.IndexOf(film) + 1}. {film.CompactInfo()}");
         }
     }
 
@@ -46,28 +46,42 @@ public static class ListFunctions
     
     public static Film ChooseFilm(List<Film> filmList)
     {
+        Console.Clear();
         Display(filmList);
         while (true)
         {
-            Console.WriteLine("Voer in de titel van de film die je wil kiezen:");
-            string? choice = Console.ReadLine();
+                try
+                {
+                    Console.WriteLine("Voer in het nummer van de film die je wil kiezen:");
+                    int choice = Convert.ToInt32(Console.ReadLine());
+                    if (choice > filmList.Count || choice <= 0)
+                    {
+                        Console.WriteLine($"Verkeerde input. Kies een nummer tussen 1 en {filmList.Count}");
+                        continue;
+                    }
+                    if (choice == null)
+                    {
+                        Console.WriteLine("Verkeerde input. Voer in het nummer van de film die je wil kiezen:");
+                        continue;
+                    }
 
-            if (choice == null)
-            {
-                Console.WriteLine("verkeerde input. Voer in de titel van de film die je wil kiezen:");
-                continue;
-            }
+                    Film chosenFilm = filmList[choice - 1];
+                    
+                    if (chosenFilm != null)
+                    {
+                        return chosenFilm;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Verkeerde input. Voer in het nummer van de film die je wil kiezen:");
+                    }
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Verkeerde input. Voer in het nummer van de film die je wil kiezen");
+                    continue;
+                }
 
-            Film chosenFilm = filmList.Find(x => x.Name == choice);
-            
-            if (chosenFilm != null)
-            {
-                return chosenFilm;
-            }
-            else
-            {
-                Console.WriteLine("verkeerde input. Voer in de titel van de film die je wil kiezen:");
-            }
         }
     }
 }
