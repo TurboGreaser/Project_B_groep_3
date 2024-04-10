@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using Project_B;
 public static class ListFunctions
 {
@@ -41,5 +42,32 @@ public static class ListFunctions
             }
         }
         return output;
+    }
+    
+    public static Film ChooseFilm(List<Film> filmList)
+    {
+        Display(filmList);
+        while (true)
+        {
+            Console.WriteLine("Voer in de titel van de film die je wil kiezen:");
+            string? choice = Console.ReadLine();
+
+            if (choice == null)
+            {
+                Console.WriteLine("verkeerde input. Voer in de titel van de film die je wil kiezen:");
+                continue;
+            }
+
+            Film chosenFilm = filmList.Find(x => x.Name == choice);
+            
+            if (chosenFilm != null)
+            {
+                return chosenFilm;
+            }
+            else
+            {
+                Console.WriteLine("verkeerde input. Voer in de titel van de film die je wil kiezen:");
+            }
+        }
     }
 }
