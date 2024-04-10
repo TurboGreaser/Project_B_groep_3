@@ -4,14 +4,22 @@ using Newtonsoft.Json;
 
 public static class JsonReader
 {
-    public static List<Film> ReadFilmJson()
+    public static List<Film> ReadFilmJson(string jsonFilePath = "Films.json")
     {
         // Read the JSON file into a string
-        string jsonFilePath = "Films.json";
         string jsonText = File.ReadAllText(jsonFilePath);
 
-        List<Film> List_of_films = JsonConvert.DeserializeObject<List<Film>>(jsonText);
-        return List_of_films;
+        try
+        {
+            List<Film> List_of_films = JsonConvert.DeserializeObject<List<Film>>(jsonText);
+            return List_of_films;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Could not open the json file");
+            Console.WriteLine(ex.Message);
+            return null;
+        }
 
     }
 
@@ -20,11 +28,19 @@ public static class JsonReader
         string fileName = "Zaalen.json";
         if (File.Exists(fileName))
         {
-        string jsonText = File.ReadAllText(fileName);
+            string jsonText = File.ReadAllText(fileName);
 
-        List<Zaal> List_of_Zaalen = JsonConvert.DeserializeObject<List<Zaal>>(jsonText);
-        return List_of_Zaalen;
+            List<Zaal> List_of_Zaalen = JsonConvert.DeserializeObject<List<Zaal>>(jsonText);
+            return List_of_Zaalen;
         }
         return null;
+    }
+
+    public static List<Json_writer.ReservationJsonObj> ReadReservations(string jsonFilePath = "Reservations.json")
+    {
+        string jsonText = File.ReadAllText(jsonFilePath);
+        List<Json_writer.ReservationJsonObj> reservations = JsonConvert.DeserializeObject<List<Json_writer.ReservationJsonObj>>(jsonText)!;
+
+        return reservations;
     }
 }

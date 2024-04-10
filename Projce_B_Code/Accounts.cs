@@ -9,5 +9,5 @@ public class Accounts
     public string Email { get; set; }
     public int Age { get; set; }
     public string Password { get; set; }
-    public List<SavedInformation> savedInformationlist { get; set; }
+    public List<Dictionary<string, string>> savedInformationlist { get; set; }
 }

@@ -10,11 +10,11 @@ public static class AddAccount
 
     public static void MakeAccount()
     {
-        Console.WriteLine("You can create an account here, for this you will need to enter your wanted username, email, age and a wanted password\nDo you accept the Terms and Conditions?\n(yes/no)");
+        Console.WriteLine("De terms en conditions zijn als volgt:\nDoor gebruik te maken van deze dienst gaat u akkoord met deze Algemene Voorwaarden. Indien u niet akkoord gaat met deze voorwaarden, dient u geen gebruik te maken van de dienst.\nAccepteer je de terms en conditions?\n(ja/nee)");
         string acceptedTandC = Console.ReadLine().ToUpper();
 
 
-        if (acceptedTandC == "YES")
+        if (acceptedTandC == "JA")
         {
 
             string text = File.ReadAllText(jsonfilepath);
@@ -23,7 +23,7 @@ public static class AddAccount
             bool valid = false;
             do
             {
-                Console.WriteLine("Enter your wanted username:");
+                Console.WriteLine("Enter je gewilde Gebruikersnaam:");
                 string wantedusername = Console.ReadLine();
                 //Kijk of de UserName all bestaat in de Json, als het nog niet bestaat in de Json dan mag de gebruiker deze UserName hebben anders niet.
                 bool usernamexists = false;
@@ -31,7 +31,7 @@ public static class AddAccount
                 {
                     if (wantedusername.ToUpper() == user.Username.ToUpper())
                     {
-                        Console.WriteLine("The name was Already taken. Try another username");
+                        Console.WriteLine("De naam is al in gebruik, neem een andere naam");
                         usernamexists = true;
                         break;
                     }
@@ -49,18 +49,25 @@ public static class AddAccount
             //Nu email
             do
             {
-                Console.WriteLine("Enter your Email: ");
+                bool emailexists = false;
+                Console.WriteLine("Enter je Email: ");
                 string wantedemail = Console.ReadLine();
+                Console.WriteLine("Enter je Email opnieuw: ");
+                string wantedemail2 = Console.ReadLine();
                 //Kijk of de email al bestaat:
 
-                bool emailexists = false;
+
+                if (wantedemail != wantedemail2)
+                {
+                    Console.WriteLine("De emails zijn niet gelijk.");
+                    emailexists = true;
+                }
                 foreach (var per in useraccounts)
                 {
                     if (wantedemail == per.Email)
                     {
-                        Console.WriteLine("This Email Is already in use Are you sure you entered the right email?");
+                        Console.WriteLine("De email is al in gebruik, weet je zeker dat je de correcte email hebt ingevoerd?");
                         emailexists = true;
-                        break;
                     }
 
                 }
@@ -80,7 +87,7 @@ public static class AddAccount
             //nu age
             do
             {
-                Console.WriteLine("Enter your age");
+                Console.WriteLine("Enter je leeftijd");
                 int enteredage;
 
                 try
@@ -91,7 +98,7 @@ public static class AddAccount
                 }
                 catch (FormatException)
                 {
-                    Console.WriteLine("Please enter a valid Number");
+                    Console.WriteLine("Enter een valide nummer");
                     valid = false;
                 }
             } while (valid == false);
@@ -99,7 +106,7 @@ public static class AddAccount
             //Nu wachtwoord
             do
             {
-                Console.WriteLine("Enter your Password (It must be above 3 Characters)");
+                Console.WriteLine("Enter je wachtwoord (moet meer dan 3 karakters hebben)");
                 string firstentpassword = Console.ReadLine();
                 Console.WriteLine("To confirm your Password Enter it again");
                 string secondentpassword = Console.ReadLine();
