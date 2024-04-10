@@ -36,11 +36,18 @@ public static class JsonReader
         return null;
     }
 
-    public static List<Json_writer.ReservationJsonObj> ReadReservations(string jsonFilePath = "Reservations.json")
+    public static List<Json_writer.ReservationJsonObj> ReadReservations(string FileName = "Reservations.json")
     {
-        string jsonText = File.ReadAllText(jsonFilePath);
+        string jsonText = File.ReadAllText(FileName);
         List<Json_writer.ReservationJsonObj> reservations = JsonConvert.DeserializeObject<List<Json_writer.ReservationJsonObj>>(jsonText)!;
 
         return reservations;
+    }
+
+    public static List<SavedInformation> ReadAccounts(string FileName = "Accounts.json")
+    {
+        string josnText = File.ReadAllText(FileName);
+        List<SavedInformation> accounts = JsonConvert.DeserializeObject<List<SavedInformation>>(josnText)!;
+        return accounts;
     }
 }
