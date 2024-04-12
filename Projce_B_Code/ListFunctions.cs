@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Runtime.CompilerServices;
 using Project_B;
 public static class ListFunctions
 {
@@ -84,4 +85,63 @@ public static class ListFunctions
 
         }
     }
+
+   public static Dictionary<string, int> ChooseShowing(Film film)
+    {
+        Console.WriteLine($"Wanneer kunt u de film {film.Name} kijken?");
+        int index = 1;
+        foreach (var showing in film.Showings)
+        {
+            Console.WriteLine($"{index}. Datum: {showing.Key}, Tijden: {showing.Value}");
+            index++;
+        }
+
+        Console.WriteLine("Voer het nummer in van de tijd die u wilt kiezen");
+        int chosenIndex;
+        while (!int.TryParse(Console.ReadLine(), out chosenIndex) || chosenIndex < 1 || chosenIndex > film.Showings.Count)
+        {
+            Console.WriteLine($"Kies aub een nummer tussen 1 en {film.Showings.Count}");
+        }
+
+        var selectedShowing = film.Showings.ElementAt(chosenIndex - 1);
+
+        Console.WriteLine($"{selectedShowing.Name}");
+        return new Dictionary<string, int> { { selectedShowing.Key, selectedShowing.Value } };
+    }
 }
+//     public static  Dictionary<string, int> ChooseShowing(Film film)
+//     {
+//         while (true)
+//         {
+//             Console.WriteLine("Wanneer kunt u de film {film.Name} kijken?");
+//             Dictionary<string, int> Showings = film.Showings;
+//             List<KeyValuePair <string,int>> ShowingsList = [.. Showings]; //Dictionary naar een list converten zodat je de index kan krijgen
+//             foreach (var showing in ShowingsList)
+//             {
+//                 Console.WriteLine($"{ShowingsList.IndexOf(showing) + 1}. Datum: {showing.Key} --- Zaal: {showing.Value}");
+//             }
+//             Console.WriteLine("Voor welke datum wilt u de film reserveren?");
+//             try
+//             {
+//                 int choice = Convert.ToInt32(Console.ReadLine());
+//                 if (choice <= 0 || choice > ShowingsList.Count)
+//                 {
+//                     Console.WriteLine($"Kies een getal tussen 1 en {ShowingsList.Count}");
+//                     continue;
+//                 }
+//                 Console.WriteLine($"U hebt voor de datum: {ShowingsList[choice].Key} gekozen In zaal: {ShowingsList[choice].Value}");
+//                 Dictionary<string, int> output = new();
+
+//             }
+//             catch (FormatException)
+//             {
+//                 Console.WriteLine($"Kies een getal tussen 1 en {ShowingsList.Count}");
+//                 continue;
+//             }
+
+//             break;
+
+
+//         }
+//     }
+// }
