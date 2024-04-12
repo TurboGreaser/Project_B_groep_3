@@ -4,7 +4,12 @@
         "Date": "2022-12-30 12:30",
         "ZaalID": 1,
         "Seats": [
-            21
+            21,
+            61
+        ],
+        "Emails": [
+            "TestEmail@gmail.com",
+            "TestEmail@gmail.com"
         ]
     }
 ]
