@@ -43,17 +43,17 @@ public class DigitalCard
 
         // Movie naam
         Console.Write("| "); // Linkerkant van movie
-        Console.Write($"Movie: {MovieName}".PadRight(SizeCard * 2 - 4)); 
+        Console.Write($"Film: {MovieName}".PadRight(SizeCard * 2 - 4)); 
         Console.WriteLine("|"); // Rechterkant van movie
 
         // Room nummer
         Console.Write("| "); 
-        Console.Write($"Room: {RoomNumber}".PadRight(SizeCard * 2 - 4)); 
+        Console.Write($"Zaal: {RoomNumber}".PadRight(SizeCard * 2 - 4)); 
         Console.WriteLine("|");
 
         // Stoel nummber
         Console.Write("| ");
-        Console.Write($"Seat: {SeatNumber}".PadRight(SizeCard * 2 - 4)); 
+        Console.Write($"Stoel: {SeatNumber}".PadRight(SizeCard * 2 - 4)); 
         Console.WriteLine("|");
 
         // Unique code
