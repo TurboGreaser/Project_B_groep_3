@@ -104,8 +104,6 @@ public static class ListFunctions
         }
 
         var selectedShowing = film.Showings.ElementAt(chosenIndex - 1);
-
-        Console.WriteLine($"{selectedShowing.Name}");
         return new Dictionary<string, int> { { selectedShowing.Key, selectedShowing.Value } };
     }
 }

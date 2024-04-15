@@ -27,5 +27,7 @@ public class Program
         // Console.WriteLine(ChosenFilm.CompactInfo());
         // ListFunctions.ChooseShowing(ChosenFilm);
 
+        SeatSaleRoom.GetMiddleSeats(20);
+
     }
 }
