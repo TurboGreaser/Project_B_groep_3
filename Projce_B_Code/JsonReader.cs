@@ -44,10 +44,10 @@ public static class JsonReader
         return reservations;
     }
 
-    public static List<SavedInformation> ReadAccounts(string FileName = "Accounts.json")
+    public static List<Accounts> ReadAccounts(string FileName = "Accounts.json")
     {
         string josnText = File.ReadAllText(FileName);
-        List<SavedInformation> accounts = JsonConvert.DeserializeObject<List<SavedInformation>>(josnText)!;
+        List<Accounts> accounts = JsonConvert.DeserializeObject<List<Accounts>>(josnText)!;
         return accounts;
     }
 }

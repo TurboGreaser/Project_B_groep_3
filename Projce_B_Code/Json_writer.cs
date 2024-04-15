@@ -26,14 +26,15 @@ public static class Json_writer
         writer.Close();
     }
 
-    public static void WriteReservationToJSON(Film film, Zaal zaal, string datum, string fileName = "Reservations.json", int seatForTesting = -1, string email = "NoEmail")
+    public static bool WriteReservationToJSON(Film film, Zaal zaal, string datum, string fileName = "Reservations.json", int ChosenSeat = -1, string email = "NoEmail")
     {
         List<int> unavailavble_seats = new();
 
         if (!File.Exists(fileName))
         {
             // file doest exists | make new file write reservation to new file
-            WriteReservationToEmptyFile(zaal, unavailavble_seats, datum, film, fileName, seatForTesting, email);
+            bool reservationCompleterd = WriteReservationToEmptyFile(zaal, unavailavble_seats, datum, film, fileName, ChosenSeat, email);
+            return reservationCompleterd;
         }
         else
         {
@@ -41,7 +42,8 @@ public static class Json_writer
             if (readJSON == "")
             {
                 // file exists but is empty | do same as above
-                WriteReservationToEmptyFile(zaal, unavailavble_seats, datum, film, fileName, email: email);
+                bool reservationCompleterd = WriteReservationToEmptyFile(zaal, unavailavble_seats, datum, film, fileName, email: email);
+                return reservationCompleterd;
             }
             else
             {
@@ -53,42 +55,63 @@ public static class Json_writer
                 ReservationJsonObj existing_reservation = null!;
                 foreach (ReservationJsonObj reservation in reservations!)
                 {
-                    if ($"{film.Name}{film.Director}{datum}{zaal.ID}" == reservation.ID)
+                    if ($"{film.Name} {film.Director} {datum} {zaal.ID}" == reservation.ID)
                     {
                         //reservation with same id found
                         int seat_local = SeatSelection.SelectSeat(zaal.Size, reservation.Seats);
+
+                        // function for calulatin price
+                        // func for paying
+                        if (false)
+                        {
+                            // return false if reservation failed
+                            return false;
+                        }
+
                         reservation.Seats.Add(seat_local);
                         reservation.Emails.Add(email);
                         var json = JsonConvert.SerializeObject(reservations);
                         writer.WriteLine(json);
                         writer.Close();
-                        return;
+
+                        // return true if reservation succesfull
+                        return true;
                     }
                 }
                 writer.Close();
                 //reservation with same id not found
-                AddReservationToFile(reservations, film, datum, zaal, fileName, seatForTesting, email);
+                bool reservationCompleterd = AddReservationToFile(reservations, film, datum, zaal, fileName, ChosenSeat, email);
+                return reservationCompleterd;
             }
 
         }
     }
 
-    private static void WriteReservationToEmptyFile(Zaal zaal, List<int> unavailavble_seats,
-    string datum, Film film, string fileName, int seatForTesting = -1, string email = "NoEmail")
+    private static bool WriteReservationToEmptyFile(Zaal zaal, List<int> unavailavble_seats,
+    string datum, Film film, string fileName, int ChosenSeat = -1, string email = "NoEmail")
     {
         int seat = 0;
 
-        if (seatForTesting == -1)
+        if (ChosenSeat == -1)
         { seat = SeatSelection.SelectSeat(zaal.Size, unavailavble_seats); }
         else
         {
-            seat = seatForTesting;
+            seat = ChosenSeat;
         }
+
+        // function for calculating cost
+        // function for paying and chcne for user to cancel
+        if (false)
+        {
+            // retruns false if user decided not to reserve
+            return false;
+        }
+
         List<int> seats = new() { seat };
 
         ReservationJsonObj reservation = new()
         {
-            ID = $"{film.Name}{film.Director}{datum}{zaal.ID}",
+            ID = $"{film.Name} {film.Director} {datum} {zaal.ID}",
             Date = datum,
             ZaalID = zaal.ID,
             Seats = new List<int> { seat },
@@ -101,9 +124,12 @@ public static class Json_writer
         var json = JsonConvert.SerializeObject(list_of_reservations);
         writer.WriteLine(json);
         writer.Close();
+
+        // returns true if reservation was succesfull
+        return true;
     }
 
-    private static void AddReservationToFile(List<ReservationJsonObj> reservations, Film film,
+    private static bool AddReservationToFile(List<ReservationJsonObj> reservations, Film film,
      string datum, Zaal zaal, string fileName, int seatForTesting = -1, string email = "NoEmail")
     {
         int seat = 0;
@@ -116,9 +142,17 @@ public static class Json_writer
             seat = seatForTesting;
         }
 
+        // function for calculating cost
+        // function for paying and chcne for user to cancel
+        if (false)
+        {
+            // retruns false if user decided not to reserve
+            return false;
+        }
+
         ReservationJsonObj reservation = new()
         {
-            ID = $"{film.Name}{film.Director}{datum}{zaal.ID}",
+            ID = $"{film.Name} {film.Director} {datum} {zaal.ID}",
             Date = datum,
             ZaalID = zaal.ID,
             Seats = new List<int> { seat },
@@ -129,6 +163,9 @@ public static class Json_writer
         var json = JsonConvert.SerializeObject(reservations);
         writer.WriteLine(json);
         writer.Close();
+
+        // return true if reservation succesfull
+        return true;
 
     }
 
