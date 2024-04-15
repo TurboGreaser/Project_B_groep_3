@@ -93,7 +93,6 @@ public static class CancelReservation
         return userToCheck != null;
     }
 
-
     public static double GetMoviePrice(string movieName)
     {
         string text = File.ReadAllText(jsonfilepathfilms);
