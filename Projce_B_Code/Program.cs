@@ -27,7 +27,11 @@ public class Program
         // Console.WriteLine(ChosenFilm.CompactInfo());
         // ListFunctions.ChooseShowing(ChosenFilm);
 
-        SeatSaleRoom.GetMiddleSeats(20);
+        List<int> MiddleSeats = SeatSaleRoom.GetMiddleSeats(15);
+        foreach (int MiddleSeat in MiddleSeats)
+        {
+            Console.Write(MiddleSeat + "-");
+        }
 
     }
 }
