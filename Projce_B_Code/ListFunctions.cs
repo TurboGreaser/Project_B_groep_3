@@ -32,19 +32,21 @@ public static class ListFunctions
         }
     }
 
-    public static string Search(List<Film> Filmlist, string Name)
+    public static string Search(List<Film> Filmlist, string searchTerm)
+{
+    string output = "";
+    searchTerm = searchTerm.ToLower(); 
+    foreach (Film film in Filmlist)
     {
-        string? output = "";
-        foreach (Film film in Filmlist)
+        if (film.Name.ToLower().StartsWith(searchTerm))
         {
-            if (film.Name == Name)
-            {
-                output += film.CompactInfo();
-            }
+            output += film.CompactInfo() + "\n"; 
         }
-        return output;
     }
-    
+    return output;
+}
+
+
     public static Film ChooseFilm(List<Film> filmList)
     {
         Console.Clear();
