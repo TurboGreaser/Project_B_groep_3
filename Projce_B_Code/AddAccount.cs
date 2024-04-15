@@ -114,7 +114,7 @@ public static class AddAccount
                 if (firstentpassword == secondentpassword && firstentpassword.Length > 3)
                 {
                     valid = true;
-                    Password = firstentpassword;
+                    Password = Stringcode.Base64Decode(firstentpassword);
                 }
                 else
                 {

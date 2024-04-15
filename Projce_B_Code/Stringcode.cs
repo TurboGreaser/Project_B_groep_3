@@ -1,5 +1,5 @@
 using System.Text;
-public static class Encode 
+public static class Stringcode 
 {
     public static string Base64Encode(string plainText)
     {
