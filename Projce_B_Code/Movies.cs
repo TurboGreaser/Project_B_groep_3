@@ -2,9 +2,9 @@ using Newtonsoft.Json;
 using Project_B;
 
 
-public class Movies
+public static class Movies
 {
-    public static void Main()
+    public static void ShowMoviesToday()
     {
         // Datum van vandaag ophalen
         DateTime today = DateTime.Today;
