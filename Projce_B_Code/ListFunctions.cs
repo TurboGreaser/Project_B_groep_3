@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.CompilerServices;
-using Project_B;
+namespace Project_B;
 public static class ListFunctions
 {
     public static List<Film> SortList(List<Film> films, string sortBy, bool asc = false)
@@ -32,21 +32,19 @@ public static class ListFunctions
         }
     }
 
-    public static string Search(List<Film> Filmlist, string searchTerm)
-{
-    string output = "";
-    searchTerm = searchTerm.ToLower(); 
-    foreach (Film film in Filmlist)
+    public static string Search(List<Film> Filmlist, string Name)
     {
-        if (film.Name.ToLower().StartsWith(searchTerm))
+        string? output = "";
+        foreach (Film film in Filmlist)
         {
-            output += film.CompactInfo() + "\n"; 
+            if (film.Name == Name)
+            {
+                output += film.CompactInfo();
+            }
         }
+        return output;
     }
-    return output;
-}
-
-
+    
     public static Film ChooseFilm(List<Film> filmList)
     {
         Console.Clear();
