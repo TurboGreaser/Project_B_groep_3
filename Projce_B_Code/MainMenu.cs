@@ -1,8 +1,9 @@
 using Newtonsoft.Json;
-using Project_B;
+namespace Project_B;
 static class MainMenu
+
 {
-    private static List<Film> films = Project_B.JsonReader.ReadFilmJson();
+    private static List<Film> films = JsonReader.ReadFilmJson();
     
     public static void ShowMenu()
     {
@@ -19,7 +20,7 @@ static class MainMenu
                 {
                     case "1":
                     Console.WriteLine("===De film lijst wordt geopend..===");
-
+                    ListFunctions.Display(ListFunctions.SortList(films, "Price"));
                     ValidInput = true;
                     break;
                     case "2":
