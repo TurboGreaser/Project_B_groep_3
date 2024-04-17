@@ -1,4 +1,6 @@
-﻿public class SavedInformation
+﻿namespace Project_B;
+
+public class SavedInformation
 {
     public List<string> FavMovies { get; set; }
 }

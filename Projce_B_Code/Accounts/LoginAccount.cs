@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿namespace Project_B;
+using Newtonsoft.Json;
 public static class LoginAccount
 {
     public static string jsonfilepath = "Accounts.json";

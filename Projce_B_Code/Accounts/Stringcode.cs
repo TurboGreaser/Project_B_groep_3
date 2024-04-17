@@ -1,3 +1,4 @@
+namespace Project_B;
 using System.Text;
 public static class Stringcode 
 {

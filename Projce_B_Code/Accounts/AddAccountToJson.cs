@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿namespace Project_B;
+using Newtonsoft.Json;
 
 public class AddAccountToJson
 {

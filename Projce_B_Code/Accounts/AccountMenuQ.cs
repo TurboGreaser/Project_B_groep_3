@@ -1,4 +1,6 @@
-﻿public static class AccountMenuQ
+﻿namespace Project_B;
+
+public static class AccountMenuQ
 {
     public static void Choose()
     {
