@@ -1,8 +1,9 @@
 using Newtonsoft.Json;
-using Project_B;
-public static class MainMenu
+namespace Project_B;
+static class MainMenu
+
 {
-    private static readonly List<Film> films = Project_B.JsonReader.ReadFilmJson();
+    private static List<Film> films = JsonReader.ReadFilmJson();
     
     public static void ShowMenu()
     {
@@ -19,7 +20,7 @@ public static class MainMenu
                 {
                     case "1":
                     Console.WriteLine("===De film lijst wordt geopend..===");
-
+                    ListFunctions.Display(ListFunctions.SortList(films, "Price"));
                     ValidInput = true;
                     break;
                     case "2":
@@ -55,54 +56,6 @@ public static class MainMenu
                 ValidInput = false;
             }
 
-        }while(!ValidInput);
-    }
-
-    static void ShowFilmList ()
-    {
-        bool ValidInput = false;
-        ListFunctions.Display(films);
-        string Choice;
-        do
-        {
-            Console.WriteLine("1. Zoeken.\n2. Sorteren.\n3. Terug naar het Menu");
-
-         try
-            {
-                Choice = Console.ReadLine();
-                ValidInput = true;
-                switch (Choice)
-                {
-                    case "1":
-                    Console.Write("Naam van de film: ");
-
-
-                    ValidInput = true;
-                    break;
-                    case "2":
-                    Console.WriteLine("===Reserveren===");
-                    // Reserveren();
-                    ValidInput = true;
-                    break;
-                    case "3":
-                    Console.WriteLine("===Account maken===");
-                    // MakeAccount();
-                    ValidInput = true;
-                    break;
-                    case "4":
-                    Console.WriteLine("===Resturant menu===");
-                    ValidInput = true;
-                    // RestaurantMenu();
-                    break;
-                    default:
-                    Console.WriteLine("Kies tussen 1-4!");
-                    ValidInput = false;
-                    break;
-                }
-
-            }
-            catch(Exception e)
-            {Console.WriteLine($"{e.Message}");}
         }while(!ValidInput);
 
 
