@@ -10,7 +10,7 @@ static class MainMenu
         string? Choice ;   
         do
         {
-            Console.WriteLine("1. Films bekijken\n2. Reserveren\n3. Account maken\n4. Menu bioscoop restaurant bekijken");
+            Console.WriteLine("1. Films bekijken\n2. Reserveren\n3. inloggen/Account maken\n4. Menu bioscoop restaurant bekijken");
             try
             {
                 Choice = Console.ReadLine();
@@ -28,8 +28,8 @@ static class MainMenu
                     ValidInput = true;
                     break;
                     case "3":
-                    Console.WriteLine("===Account maken===");
-                    // MakeAccount();
+                    Console.WriteLine("===Accounts===");
+                    AccountMenuQ.Choose();
                     ValidInput = true;
                     break;
                     case "4":
