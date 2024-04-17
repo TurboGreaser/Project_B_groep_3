@@ -1,4 +1,5 @@
 using Newtonsoft.Json;
+using Project_B;
 
 
 public class Movies
@@ -35,8 +36,4 @@ public class Movies
     }
 }
 
-public class Film
-{
-    public string Name { get; set; }
-    public Dictionary<string, int> Showings { get; set; }
-}
+
