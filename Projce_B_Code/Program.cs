@@ -3,17 +3,14 @@
 namespace Priject_b;
 
 
-public class Program
+using System;
+
+class Program
 {
-    public static void Main()
+    static void Main()
     {
-        Accounts account = new()
-        {
-            Username = "test_user_name",
-            Email = "MyTestEmail.com",
-            Age = 17,
-            Password = "12345"
-        };
-        MainFunctions.MakeNewReservation(account);
+        // Test reservation cancellation
+        CancelReservation.InfoFromUser("TestEmail@gmail.com");
+    
     }
 }

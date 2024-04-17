@@ -1,71 +1,60 @@
-using Newtonsoft.Json; 
-using Project_B;
+using System;
+using System.Collections.Generic;
+using Newtonsoft.Json;
+using System.IO;
 
 public static class CancelReservation
 {
     public static string jsonfilepath = "Reservations.json";
-    public static string jsonfilepathaccounts = "Accounts.json";
     public static string jsonfilepathfilms = "Films.json";
 
-    public static void InfoFromUser()
+    public static void InfoFromUser(string emailuser)
     {
-        Console.WriteLine("Om uw reservering te annuleren, vul dan de volgende gegevens in:");
-        Console.WriteLine("Wat is uw email?");
-        string enteredemail = Console.ReadLine();
-        Console.WriteLine("Wat is uw wachtwoord?");
-        string enteredpassword = Console.ReadLine();
+        Console.WriteLine("Weet u zeker dat u uw reservering wilt annuleren? (ja/nee)");
 
-        bool accountExists = CheckAccountByPassAndEmail(enteredemail, enteredpassword);
+        string enteredchoice = Console.ReadLine().ToLower();
 
-        if (accountExists)// checkt of de account bestaat zoniet dan reservatie niet door
+        if (enteredchoice == "ja")
         {
-            bool confirmed = false;
+            string text = File.ReadAllText(jsonfilepath);
+            var all_reservation = JsonConvert.DeserializeObject<List<Reservations>>(text);
+            Reservations user_reservations = all_reservation.Find(email_info => email_info.Emails == emailuser);
 
-            while (!confirmed)// kijken hvl geld film kost
+
+            if (user_reservations != null)
             {
-                Console.WriteLine("Wat is de naam van het film?");
-                string movieName = Console.ReadLine();
+                Console.WriteLine($"Je hebt gereserveerd op {user_reservations.Date} voor zaal {user_reservations.ZaalID}");
 
-                double moviePrice = GetMoviePrice(movieName);
+                Console.WriteLine("Vul het zaal nummer in van de reservering die u wilt annuleren");
 
-                if (moviePrice > 0) // kijken of user eens met geld
+                int chosenZaal;
+                if (int.TryParse(Console.ReadLine(), out chosenZaal))
                 {
-                    Console.WriteLine($"Geld dat u terug krijgt: {moviePrice}");
-                    Console.WriteLine("Klopt dit? (ja/nee)");
-                    string confirmation = Console.ReadLine().ToLower();
-
-                    if (confirmation == "ja")
-                    {
-                        confirmed = true;
-                    }
+                    RemoveReservationByRoomID(chosenZaal);
                 }
                 else
                 {
-                    Console.WriteLine("Film niet gevonden. Vergeet niet de hoofdletters!");
+                    Console.WriteLine("Ongeldige invoer voor zaalnummer.");
                 }
             }
-
-            Console.WriteLine(" ");
-            Console.WriteLine("Om uw reservering te annuleren, vul uw reserverings ID en de datum in:");
-            Console.WriteLine("Wat is uw reserverings ID?");
-            string id_reservation = Console.ReadLine();
-            Console.WriteLine("Wat is de datum van de film? (YYYY-MM-DD HH:MM)");
-            string date_reservation = Console.ReadLine();
-            RemoveReservationByPassAndId(id_reservation, date_reservation);
+            else
+            {
+                Console.WriteLine("Uw email is niet gevonden in reservaties!");
+            }
         }
         else
         {
-            Console.WriteLine("Account niet gevonden!");
+            Console.WriteLine("Uw reservering is niet verwijderd!");
         }
     }
 
-    public static void RemoveReservationByPassAndId(string id, string date)
+    public static void RemoveReservationByRoomID(int room_Id)
     {
         string text = File.ReadAllText(jsonfilepath);
         var reservation_user = JsonConvert.DeserializeObject<List<Reservations>>(text);
 
-        // Search for the reservation using ID and date
-        Reservations reservation_remover = reservation_user.Find(id_info => id_info.ID == id && id_info.Date == date);
+        // Search for the reservation using room ID
+        Reservations reservation_remover = reservation_user.Find(room_Id_info => room_Id_info.ZaalID == room_Id);
 
         if (reservation_remover != null)
         {
@@ -75,30 +64,20 @@ public static class CancelReservation
 
             File.WriteAllText(jsonfilepath, jsontext);
 
-            Console.WriteLine("Uw reservatie is compleet!");
+            Console.WriteLine("Uw reservatie is verwijderd!");
         }
         else
         {
-            Console.WriteLine("Uw reservatie is niet gevonden!.");
+            Console.WriteLine("De zaal is niet gevonden.");
         }
-    }
-
-    public static bool CheckAccountByPassAndEmail(string email, string password)
-    {
-        string text = File.ReadAllText(jsonfilepathaccounts);
-        var useraccounts = JsonConvert.DeserializeObject<List<Accounts>>(text);
-
-        Accounts userToCheck = useraccounts.Find(person => person.Email == email && person.Password == password);
-
-        return userToCheck != null;
     }
 
     public static double GetMoviePrice(string movieName)
     {
         string text = File.ReadAllText(jsonfilepathfilms);
-        var films = JsonConvert.DeserializeObject<List<Film>>(text);
+        Film films = JsonConvert.DeserializeObject<List<Film>>(text);
 
-        Film movie = films.Find(film => film.Name == movieName); // film zoeken
+        Film movie = films.Find(film => film.Name == movieName);
 
         if (movie != null)
         {
