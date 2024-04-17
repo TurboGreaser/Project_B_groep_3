@@ -21,7 +21,7 @@ public static class RemoveAccount
         var useraccounts = JsonConvert.DeserializeObject<List<Accounts>>(text);
 
         //zoekt naar de email/wachtwoord 
-        Accounts usertoremove = useraccounts.Find(person => person.Email == email && person.Password == password);
+        Accounts usertoremove = useraccounts.Find(person => person.Email == email && person.Password == Stringcode.Base64Encode(password));
 
         if (usertoremove != null)
         {

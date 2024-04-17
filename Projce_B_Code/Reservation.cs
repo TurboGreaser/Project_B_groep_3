@@ -13,7 +13,8 @@ public static class Reservation
         Console.WriteLine($"klik Enter om veder te gaan naar het kiezen van je stoel");
         Console.ReadLine();
 
-        Json_writer.WriteReservationToJSON(film, zaal, date, email: email);
+
+        Json_writer.WriteReservationToJSON(film, zaal, date, email);
         
     }
 

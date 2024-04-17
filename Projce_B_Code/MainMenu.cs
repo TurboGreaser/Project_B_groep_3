@@ -1,5 +1,9 @@
+using Newtonsoft.Json;
+using Project_B;
 static class MainMenu
 {
+    private static List<Film> films = Project_B.JsonReader.ReadFilmJson();
+    
     public static void ShowMenu()
     {
         bool ValidInput;
@@ -14,8 +18,8 @@ static class MainMenu
                 switch (Choice)
                 {
                     case "1":
-                    Console.WriteLine("===Lijst wordt geopend===");
-                    // FilmList();
+                    Console.WriteLine("===De film lijst wordt geopend..===");
+
                     ValidInput = true;
                     break;
                     case "2":
