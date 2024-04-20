@@ -1,19 +1,12 @@
-﻿using Project_B;
-
+﻿
 namespace Priject_b;
 
-
-public class Program
+class Program
 {
-    public static void Main()
+    static void Main()
     {
-        Accounts account = new()
-        {
-            Username = "test_user_name",
-            Email = "MyTestEmail.com",
-            Age = 17,
-            Password = "12345"
-        };
-        MainFunctions.MakeNewReservation(account);
+        // Test reservation cancellation
+        CancelReservation.InfoFromUser("TestEmail1@gmail.com");
+    
     }
 }
