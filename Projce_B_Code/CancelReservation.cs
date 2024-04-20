@@ -1,46 +1,27 @@
-using System;
-using System.Collections.Generic;
 using Newtonsoft.Json;
-using System.IO;
+//using System;
+//using System.Collections.Generic;
+//using System.IO;
 
 public static class CancelReservation
 {
     public static string jsonfilepath = "Reservations.json";
     public static string jsonfilepathfilms = "Films.json";
 
-    public static void InfoFromUser(string emailuser)
+
+
+    public static void InfoFromUser(string emailToRemove)
     {
         Console.WriteLine("Weet u zeker dat u uw reservering wilt annuleren? (ja/nee)");
 
-        string enteredchoice = Console.ReadLine().ToLower();
+        string enteredChoice = Console.ReadLine().ToLower();
 
-        if (enteredchoice == "ja")
+        if (enteredChoice == "ja")
         {
             string text = File.ReadAllText(jsonfilepath);
-            var all_reservation = JsonConvert.DeserializeObject<List<Reservations>>(text);
-            Reservations user_reservations = all_reservation.Find(email_info => email_info.Emails == emailuser);
+            var reservations = JsonConvert.DeserializeObject<List<Reservations>>(text);
 
-
-            if (user_reservations != null)
-            {
-                Console.WriteLine($"Je hebt gereserveerd op {user_reservations.Date} voor zaal {user_reservations.ZaalID}");
-
-                Console.WriteLine("Vul het zaal nummer in van de reservering die u wilt annuleren");
-
-                int chosenZaal;
-                if (int.TryParse(Console.ReadLine(), out chosenZaal))
-                {
-                    RemoveReservationByRoomID(chosenZaal);
-                }
-                else
-                {
-                    Console.WriteLine("Ongeldige invoer voor zaalnummer.");
-                }
-            }
-            else
-            {
-                Console.WriteLine("Uw email is niet gevonden in reservaties!");
-            }
+            RemoveReservationByEmail(reservations, emailToRemove);
         }
         else
         {
@@ -48,34 +29,39 @@ public static class CancelReservation
         }
     }
 
-    public static void RemoveReservationByRoomID(int room_Id)
+
+
+    public static void RemoveReservationByEmail(List<Reservations> reservations, string emailToRemove)
     {
-        string text = File.ReadAllText(jsonfilepath);
-        var reservation_user = JsonConvert.DeserializeObject<List<Reservations>>(text);
-
-        // Search for the reservation using room ID
-        Reservations reservation_remover = reservation_user.Find(room_Id_info => room_Id_info.ZaalID == room_Id);
-
-        if (reservation_remover != null)
+        foreach (var reservation in reservations)
         {
-            reservation_user.Remove(reservation_remover);
+            int index = reservation.Emails.IndexOf(emailToRemove); // kijkt stoel nummer
+            if (index != -1) // stoel gevonden
+            {
+                Console.WriteLine($"Reservatie info: {reservation.ID}, Zaal: {reservation.ZaalID}");
 
-            string jsontext = JsonConvert.SerializeObject(reservation_user, Formatting.Indented);
+                Console.WriteLine("Uw reservering wordt geannuleerd!");
 
-            File.WriteAllText(jsonfilepath, jsontext);
+                reservation.Emails.RemoveAt(index);
+                reservation.Seats.RemoveAt(index);
 
-            Console.WriteLine("Uw reservatie is verwijderd!");
+                string jsontext = JsonConvert.SerializeObject(reservations, Formatting.Indented);
+                File.WriteAllText(jsonfilepath, jsontext);
+
+                Console.WriteLine("Uw reservering is geannuleerd!");
+                return; 
+            }
         }
-        else
-        {
-            Console.WriteLine("De zaal is niet gevonden.");
-        }
+
+        Console.WriteLine("Uw email is niet gevonden in de reserveringen!");
     }
+
+
 
     public static double GetMoviePrice(string movieName)
     {
         string text = File.ReadAllText(jsonfilepathfilms);
-        Film films = JsonConvert.DeserializeObject<List<Film>>(text);
+        var films = JsonConvert.DeserializeObject<List<Film>>(text);
 
         Film movie = films.Find(film => film.Name == movieName);
 
