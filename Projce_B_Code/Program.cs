@@ -27,11 +27,10 @@ public class Program
         // Console.WriteLine(ChosenFilm.CompactInfo());
         // ListFunctions.ChooseShowing(ChosenFilm);
 
-        List<int> MiddleSeats = SeatSaleRoom.GetMiddleSeats(15);
-        foreach (int MiddleSeat in MiddleSeats)
-        {
-            Console.Write(MiddleSeat + "-");
-        }
+        // ListFunctions.Display(MainMenu.films);
+
+        MainMenu.ShowMenu();
 
     }
 }
+  
