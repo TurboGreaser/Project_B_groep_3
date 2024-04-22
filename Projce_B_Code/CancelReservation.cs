@@ -1,4 +1,5 @@
 using Newtonsoft.Json;
+using Project_B;
 //using System;
 //using System.Collections.Generic;
 //using System.IO;
@@ -49,7 +50,7 @@ public static class CancelReservation
                 File.WriteAllText(jsonfilepath, jsontext);
 
                 Console.WriteLine("Uw reservering is geannuleerd!");
-                return; 
+                return;
             }
         }
 
@@ -61,9 +62,9 @@ public static class CancelReservation
     public static double GetMoviePrice(string movieName)
     {
         string text = File.ReadAllText(jsonfilepathfilms);
-        var films = JsonConvert.DeserializeObject<List<Film>>(text);
+        var films = JsonConvert.DeserializeObject<List<Project_B.Film>>(text);
 
-        Film movie = films.Find(film => film.Name == movieName);
+        Project_B.Film movie = films.Find(film => film.Name == movieName);
 
         if (movie != null)
         {

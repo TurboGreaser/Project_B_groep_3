@@ -1,38 +1,47 @@
+using System.Reflection.Metadata.Ecma335;
 using Newtonsoft.Json;
-using Project_B;
+
+namespace Project_B;
 
 public static class Movies
 {
-     public static void ShowMoviesToday()
-     {
-         // Datum van vandaag ophalen
-         DateTime today = DateTime.Today;
+    public static List<Film> ShowMoviesToday(DateTime Currentime = default, string fileName = "films.json")
+    {
+        List<Film> filmstoday = new List<Film>();
 
-         // JSON-bestand lezen
-         string json = File.ReadAllText("films.json");
+        if (Currentime == default)
+        { Currentime = DateTime.Now; }
 
-         // Films deserialiseren vanuit JSON
-         List<Film> films = JsonConvert.DeserializeObject<List<Film>>(json);
+        // JSON-bestand lezen
+        string json = File.ReadAllText(fileName);
 
-         // Films voor vandaag identificeren en afdrukken
-         Console.WriteLine("Films die vandaag draaien:");
+        // Films deserialiseren vanuit JSON
+        List<Film> films = JsonConvert.DeserializeObject<List<Film>>(json);
 
-         foreach (Film film in films)
-         {
-             foreach (KeyValuePair<string, int> showing in film.Showings)
-             {
-                 DateTime showingDate = DateTime.Parse(showing.Key);
+        // Films voor vandaag identificeren en afdrukken
+        Console.WriteLine("Films die vandaag draaien:");
 
-                 if (showingDate.Date == today)
-                 {
-                     Console.WriteLine($"- {film.Name}");
-                     break;
-                 }
-             }
-         }
+        foreach (Film film in films)
+        {
+            foreach (KeyValuePair<string, int> showing in film.Showings)
+            {
+                DateTime showingDate = DateTime.Parse(showing.Key);
 
-         Console.ReadLine();
-     }
+                if (showingDate.Date == Currentime)
+                {
+                    Console.WriteLine($"- {film.Name}");
+                    filmstoday.Add(film);
+                }
+            }
+        }
+        if (fileName == "films.json")
+        {
+            Console.WriteLine("Klik enter om veder te gaan");
+            Console.ReadLine();
+        }
+
+        return filmstoday;
+    }
 }
 
 
