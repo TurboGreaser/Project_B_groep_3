@@ -15,12 +15,9 @@ public static class LoginAccount
                 return user;
                 //Dit returned het hele Account object.
             }
-            else
-            {
-                Console.WriteLine("Er is geen account in het systeem met die email en wachtwoord");
-                return null;
-            }
+
         }
+        Console.WriteLine("Er is geen account in het systeem met die email en wachtwoord");
         return null;
     }
 }

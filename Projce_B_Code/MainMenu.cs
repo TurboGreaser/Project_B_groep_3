@@ -11,11 +11,11 @@ static class MainMenu
         string? Choice;
         Accounts account = new Accounts()
         {
-            Age = 17
+            Age = 18
         };
         do
         {
-            Console.WriteLine("1. Films bekijken\n2. Reserveren\n3. inloggen/Account maken\n4. Menu bioscoop restaurant bekijken");
+            Console.WriteLine("1. Films bekijken\n2. Reserveren\n3. inloggen/Account maken\n4. Menu bioscoop restaurant bekijken\n5. Quit");
             try
             {
                 Choice = Console.ReadLine();
@@ -25,26 +25,35 @@ static class MainMenu
                     case "1":
                         Console.WriteLine("===De film lijst wordt geopend..===");
                         ListFunctions.Display(ListFunctions.SortList(films, "Price"));
-                        ValidInput = true;
                         Choose(films);
                         break;
+
                     case "2":
                         Console.WriteLine("===Reserveren===");
                         MainFunctions.MakeNewReservation(account);
-                        ValidInput = true;
                         break;
+
                     case "3":
                         Console.WriteLine("===Accounts===");
-                        AccountMenuQ.Choose();
-                        ValidInput = true;
+                        Accounts account1 = AccountMenuQ.Choose();
+
+                        if (account1 != null)
+                        {
+                            account = account1;
+                        }
                         break;
+
                     case "4":
                         Console.WriteLine("===Resturant menu===");
-                        ValidInput = true;
                         // RestaurantMenu();
                         break;
+
+                    case "5":
+                        ValidInput = false;
+                        break;
+
                     default:
-                        Console.WriteLine("Kies tussen 1-4!");
+                        Console.WriteLine("Kies tussen 1-5!");
                         ValidInput = false;
                         break;
                 }
@@ -61,7 +70,7 @@ static class MainMenu
                 ValidInput = false;
             }
 
-        } while (!ValidInput);
+        } while (ValidInput);
 
 
     }

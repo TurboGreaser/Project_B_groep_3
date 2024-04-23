@@ -2,7 +2,7 @@
 
 public static class AccountMenuQ
 {
-    public static void Choose()
+    public static Accounts Choose()
     {
         Console.WriteLine("Je hebt 3 opties, antwoord met het getal.\n1 : Maak een account\n2 : Log In\n3 : doorgaan zonder account");
         string answer = Console.ReadLine();
@@ -20,13 +20,13 @@ public static class AccountMenuQ
                 string email = Console.ReadLine();
                 Console.WriteLine("Vul je wachtwoord in.");
                 string password = Console.ReadLine();
-                LoginAccount.Login(email, password);
+                return LoginAccount.Login(email, password);
             }
             else
             {
-                return;
+                return null;
             }
         }
-        return;
+        return null;
     }
 }

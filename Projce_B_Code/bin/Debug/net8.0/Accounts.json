@@ -19,5 +19,19 @@
     "Age": 222,
     "Password": "123467",
     "savedInformationlist": []
+  },
+  {
+    "Username": "Mark ",
+    "Email": "MarkSalloum",
+    "Age": 21,
+    "Password": "MDk4OA==",
+    "savedInformationlist": []
+  },
+  {
+    "Username": "test",
+    "Email": "ivan",
+    "Age": 19,
+    "Password": "MTk5OQ==",
+    "savedInformationlist": []
   }
 ]

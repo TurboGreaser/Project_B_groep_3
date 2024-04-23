@@ -45,7 +45,7 @@ public static class Reservation
             Console.WriteLine("De totale prijs is");
             Console.WriteLine($"Film: {basePrice}");
             Console.WriteLine($"Luxe Zitplaats: {seatFee}");
-            Console.WriteLine($"Oner 18 tarief {ageFee}");
+            Console.WriteLine($"onder 18 tarief: {ageFee}");
             Console.WriteLine($"------------------------------------------ +");
             Console.WriteLine($"Totaal: {basePrice + seatFee + ageFee}");
 
