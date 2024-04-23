@@ -32,17 +32,18 @@ public static class ListFunctions
         }
     }
 
-    public static string Search(List<Film> Filmlist, string Name)
+    public static List<Film> Search(List<Film> Filmlist, string Name)
     {
-        string? output = "";
+        List<Film>? NewList = new() { };
         foreach (Film film in Filmlist)
         {
-            if (film.Name == Name)
+            string Title = film.Name.ToUpper();
+            if (Title.StartsWith(Name.ToUpper()))
             {
-                output += film.CompactInfo();
+                NewList.Add(film);
             }
         }
-        return output;
+        return NewList;
     }
     
     public static Film ChooseFilm(List<Film> filmList)
@@ -57,12 +58,12 @@ public static class ListFunctions
                     int choice = Convert.ToInt32(Console.ReadLine());
                     if (choice > filmList.Count || choice <= 0)
                     {
-                        Console.WriteLine($"Verkeerde input. Kies een nummer tussen 1 en {filmList.Count}");
+                        Console.WriteLine($"Kies Aub een nummer tussen 1 en {filmList.Count}");
                         continue;
                     }
                     if (choice == null)
                     {
-                        Console.WriteLine("Verkeerde input. Voer in het nummer van de film die je wil kiezen:");
+                        Console.WriteLine("");
                         continue;
                     }
 
@@ -70,16 +71,17 @@ public static class ListFunctions
                     
                     if (chosenFilm != null)
                     {
+                        Console.WriteLine($"U hebt voor de film '{chosenFilm.Name}' gekozen");
                         return chosenFilm;
                     }
                     else
                     {
-                        Console.WriteLine("Verkeerde input. Voer in het nummer van de film die je wil kiezen:");
+                        Console.WriteLine("");
                     }
                 }
                 catch (FormatException)
                 {
-                    Console.WriteLine("Verkeerde input. Voer in het nummer van de film die je wil kiezen");
+                    Console.WriteLine("");
                     continue;
                 }
 
@@ -105,6 +107,11 @@ public static class ListFunctions
 
         var selectedShowing = film.Showings.ElementAt(chosenIndex - 1);
         return new Dictionary<string, int> { { selectedShowing.Key, selectedShowing.Value } };
+    }
+
+    internal static void Display(Film? film)
+    {
+        throw new NotImplementedException();
     }
 }
 //     public static  Dictionary<string, int> ChooseShowing(Film film)
