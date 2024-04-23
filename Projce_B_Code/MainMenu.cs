@@ -8,7 +8,11 @@ static class MainMenu
     public static void ShowMenu()
     {
         bool ValidInput;
-        string? Choice ;   
+        string? Choice;
+        Accounts account = new Accounts()
+        {
+            Age = 17
+        };
         do
         {
             Console.WriteLine("1. Films bekijken\n2. Reserveren\n3. inloggen/Account maken\n4. Menu bioscoop restaurant bekijken");
@@ -25,24 +29,24 @@ static class MainMenu
                     Choose(films);
                     break;
                     case "2":
-                    Console.WriteLine("===Reserveren===");
-                    // Reserveren();
-                    ValidInput = true;
-                    break;
+                        Console.WriteLine("===Reserveren===");
+                        MainFunctions.MakeNewReservation(account);
+                        ValidInput = true;
+                        break;
                     case "3":
-                    Console.WriteLine("===Accounts===");
-                    AccountMenuQ.Choose();
-                    ValidInput = true;
-                    break;
+                        Console.WriteLine("===Accounts===");
+                        AccountMenuQ.Choose();
+                        ValidInput = true;
+                        break;
                     case "4":
-                    Console.WriteLine("===Resturant menu===");
-                    ValidInput = true;
-                    // RestaurantMenu();
-                    break;
+                        Console.WriteLine("===Resturant menu===");
+                        ValidInput = true;
+                        // RestaurantMenu();
+                        break;
                     default:
-                    Console.WriteLine("Kies tussen 1-4!");
-                    ValidInput = false;
-                    break;
+                        Console.WriteLine("Kies tussen 1-4!");
+                        ValidInput = false;
+                        break;
                 }
             }
             catch (IOException e)
