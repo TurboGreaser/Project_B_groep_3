@@ -19,7 +19,7 @@ public static class SeatSelection
 
             Console.WriteLine("Escape om terug te gaan");
             Console.WriteLine("Kies een stoel met de pijtjes toetsen, Rood = Bezet");
-            Console.WriteLine("De gele Stoelen zijn 20% duurder");
+            Console.WriteLine("De gele Stoelen zijn 10% duurder");
             for (int i = 0; i < size; i++)
             {
                 for (int j = 0; j < size; j++)
@@ -82,7 +82,7 @@ public static class SeatSelection
 
                     if (unavailableSeats.Contains(selectedSeat))
                     {
-                        Console.WriteLine($"Seat {selectedSeat} is already taken");
+                        Console.WriteLine($"Stoel {selectedSeat} is al bezet");
                         Console.ReadLine(); // Pause for user to see the result
                     }
                     else
@@ -174,7 +174,7 @@ public static class SeatSelection
                 return -1;
             }
         }
-        Console.WriteLine($"You have selected seat {seat}");
+        Console.WriteLine($"Je hebt voor stoel {seat} gekozen");
         Console.ReadLine();
         return seat;
     }

@@ -64,9 +64,9 @@ public static class Json_writer
             ChosenSeat = SeatSelection.SelectSeat(zaal.Size, unavailavble_seats);
             if (ChosenSeat == -1)
             { return false; }
-            // pay for your seat
+        // pay for your seat
             double price = SeatSaleRoom.GetMoviePrice(film.Name);
-            double seatFee = SeatSaleRoom.IsExpensive(zaal.Size, ChosenSeat) ? price * 0.2 : 0; // 20% etra for expensive seat
+            double seatFee = SeatSaleRoom.IsExpensive(zaal.Size, ChosenSeat) ? price * 0.1 : 0; // 10% etra for expensive seat
             double ageFee = age < 18 ? price * 0.2 : 0; // 20% extra for inder 18 customer
             // if customer doesnt pay return false
             if (!Reservation.PrintPrice(price, seatFee, ageFee))
