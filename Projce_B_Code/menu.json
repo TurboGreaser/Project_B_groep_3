@@ -1,0 +1,32 @@
+{
+    "menuItems": [
+        {
+            "name": "Popcorn Zout",
+            "price": 4.50
+        },
+        {
+            "name": "Popcorn Zoet",
+            "price": 4.50
+        },
+        {
+            "name": "Popcorn Mix",
+            "price": 5.50
+        },
+        {
+            "name": "Frisdrank",
+            "price": 2.00
+        },
+        {
+            "name": "Nacho's",
+            "price": 5.00
+        },
+        {
+            "name": "Hotdog",
+            "price": 3.75
+        },
+        {
+            "name": "Haribo",
+            "price": 1.75
+        }
+    ]
+}
