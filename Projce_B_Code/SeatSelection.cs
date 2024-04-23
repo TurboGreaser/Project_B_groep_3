@@ -15,14 +15,32 @@ public static class SeatSelection
 
             // Display seats
             int index = 1;
+            List<int> expensiveSeats = SeatSaleRoom.GetMiddleSeats(size);
 
             Console.WriteLine("Escape om terug te gaan");
             Console.WriteLine("Kies een stoel met de pijtjes toetsen, Rood = Bezet");
+            Console.WriteLine("De gele Stoelen zijn 20% duurder");
             for (int i = 0; i < size; i++)
-            {   
+            {
                 for (int j = 0; j < size; j++)
                 {
-                    Console.ForegroundColor = unavailableSeats.Contains(index) ? ConsoleColor.Red : (selectedIndex == index - 1 ? ConsoleColor.Cyan : ConsoleColor.Green);
+                    // Console.ForegroundColor = unavailableSeats.Contains(index) ? ConsoleColor.Red : (selectedIndex == index - 1 ? ConsoleColor.Cyan : ConsoleColor.Green);
+                    if (unavailableSeats.Contains(index))
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                    }
+                    else if (selectedIndex == index - 1)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                    }
+                    else if (expensiveSeats.Contains(index))
+                    {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                    }
                     Console.BackgroundColor = selectedIndex == index - 1 ? ConsoleColor.Gray : ConsoleColor.Black;
                     Console.Write($"{index}".PadLeft(4));
                     index++;
@@ -77,8 +95,8 @@ public static class SeatSelection
                         while (Choosing)
                         {
                             Console.Clear();
-                            Console.WriteLine($"You selected seat {selectedSeat}");
-                            Console.WriteLine("Are you sure?");
+                            Console.WriteLine($"Je hebt gekozen voor de zitplaats {selectedSeat}");
+                            Console.WriteLine("Weet je het zeker?");
                             Draw(yes_no);
                             Console.WriteLine();
                             Console.ResetColor();
@@ -128,16 +146,16 @@ public static class SeatSelection
         if (yes_no == "yes")
         {
             Console.BackgroundColor = ConsoleColor.Gray;
-            Console.Write("Yes");
+            Console.Write("Ja");
             Console.BackgroundColor = ConsoleColor.Black;
-            Console.Write(" No");
+            Console.Write(" Nee");
         }
         else if (yes_no == "no")
         {
             Console.BackgroundColor = ConsoleColor.Black;
-            Console.Write("Yes ");
+            Console.Write("Ja ");
             Console.BackgroundColor = ConsoleColor.Gray;
-            Console.Write("No");
+            Console.Write("Nee");
         }
         else
         {
@@ -156,6 +174,7 @@ public static class SeatSelection
                 return -1;
             }
         }
+        Console.WriteLine($"You have selected seat {seat}");
         Console.WriteLine($"You have selected seat {seat}");
         Console.ReadLine();
         return seat;

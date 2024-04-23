@@ -77,11 +77,4 @@ public class Film
         }
         return "No Showings Found";
     }
-
-
-
-
-
-
-
 }

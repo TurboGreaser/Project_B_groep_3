@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿namespace Project_B;
+using Newtonsoft.Json;
 
 public static class AddAccount
 {
@@ -114,7 +115,7 @@ public static class AddAccount
                 if (firstentpassword == secondentpassword && firstentpassword.Length > 3)
                 {
                     valid = true;
-                    Password = Stringcode.Base64Decode(firstentpassword);
+                    Password = Stringcode.Base64Encode(firstentpassword);
                 }
                 else
                 {

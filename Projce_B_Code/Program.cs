@@ -1,12 +1,11 @@
-﻿using Project_B;
-
+﻿
 namespace Priject_b;
 
-
-public class Program
+class Program
 {
-    public static void Main()
+    static void Main()
     {
+<<<<<<< HEAD
         // var films = JsonReader.ReadFilmJson();
 
         // string date = "";
@@ -30,6 +29,11 @@ public class Program
         // ListFunctions.Display(MainMenu.films);
 
 
+=======
+        // Test reservation cancellation
+        CancelReservation.InfoFromUser("TestEmail1@gmail.com");
+    
+>>>>>>> main
     }
 }
   

@@ -71,10 +71,10 @@ public class UnitTest1
         Zaal test_zaal = new Zaal(1, 10);
 
         // write the reservations to a test json
-        Json_writer.WriteReservationToJSON(film1, test_zaal, "2020-12-20 12:00", TestFileName, 1); // will get removed
-        Json_writer.WriteReservationToJSON(film1, test_zaal, "2021-12-30 12:00", TestFileName, 2);
-        Json_writer.WriteReservationToJSON(film2, test_zaal, "2040-12-30 12:00", TestFileName, 3);
-        Json_writer.WriteReservationToJSON(film2, test_zaal, "2000-12-30 12:00", TestFileName, 4); // will get removed
+        Json_writer.WriteReservationToJSON(film1, test_zaal, "2020-12-20 12:00", 18, TestFileName, 1); // will get removed
+        Json_writer.WriteReservationToJSON(film1, test_zaal, "2021-12-30 12:00", 18, TestFileName, 2);
+        Json_writer.WriteReservationToJSON(film2, test_zaal, "2040-12-30 12:00", 18, TestFileName, 3);
+        Json_writer.WriteReservationToJSON(film2, test_zaal, "2000-12-30 12:00", 18, TestFileName, 4); // will get removed
 
         // make a datetime with 2020-12-21 12:00 as the time
         DateTime testTime = new(2020, 12, 21, 12, 0, 0);

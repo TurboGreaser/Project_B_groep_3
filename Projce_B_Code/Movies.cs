@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // using Newtonsoft.Json;
 // namespace Project_B;
 
@@ -13,6 +14,24 @@
 
 //         // Films deserialiseren vanuit JSON
 //         List<Film> films = JsonConvert.DeserializeObject<List<Film>>(json);
+=======
+using System.Reflection.Metadata.Ecma335;
+using Newtonsoft.Json;
+
+namespace Project_B;
+
+public static class Movies
+{
+    public static List<Film> ShowMoviesToday(DateTime Currentime = default, string fileName = "films.json")
+    {
+        List<Film> filmstoday = new List<Film>();
+
+        if (Currentime == default)
+        { Currentime = DateTime.Now; }
+
+        // JSON-bestand lezen
+        string json = File.ReadAllText(fileName);
+>>>>>>> main
 
 //         // Films voor vandaag identificeren en afdrukken
 //         Console.WriteLine("Films die vandaag draaien:");
@@ -31,6 +50,7 @@
 //             }
 //         }
 
+<<<<<<< HEAD
 //         Console.ReadLine();
 //     }
 // }
@@ -40,3 +60,23 @@
 //     public string Name { get; set; }
 //     public Dictionary<string, int> Showings { get; set; }
 // }
+=======
+                if (showingDate.Date == Currentime)
+                {
+                    Console.WriteLine($"- {film.Name}");
+                    filmstoday.Add(film);
+                }
+            }
+        }
+        if (fileName == "films.json")
+        {
+            Console.WriteLine("Klik enter om veder te gaan");
+            Console.ReadLine();
+        }
+
+        return filmstoday;
+    }
+}
+
+
+>>>>>>> main
