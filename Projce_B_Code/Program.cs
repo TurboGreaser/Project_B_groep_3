@@ -29,7 +29,6 @@ public class Program
 
         // ListFunctions.Display(MainMenu.films);
 
-        MainMenu.ShowMenu();
 
     }
 }

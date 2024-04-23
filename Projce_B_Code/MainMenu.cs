@@ -84,9 +84,46 @@ static class MainMenu
         Choose(NewList);
     }
 
-    public static void Choose(List<Film> filmList)
+    public static void SortFilmList(List<Film> filmList)
     {
         bool ValidInput = false;
+        do
+        {
+            Console.WriteLine("Hoe wilt u de filmlijst sorteren?");
+            Console.WriteLine("1. Op Titel\n2. Op Genre\n3. Op duur\n4. Op Prijs\n5. regisseur\n6. Beschrijving");
+            try
+            {
+                string? Choice = Console.ReadLine();
+                string OrderBy = Choice switch
+                {
+                    "1" => "Name",
+                    "2" => "Genre",
+                    "3" => "Duration_in_minutes",
+                    "4" => "Price",
+                    "5" => "Director",
+                    "6" => "Description",
+                    _ => "Price",
+                };
+                Console.WriteLine("1. Oplopend\n2. Afnemend");
+                string? SortBy = Console.ReadLine();
+                
+                bool Order = false;
+                if (SortBy == "1") {Order = false;}
+                else if (SortBy == "2") {Order = true;}
+                List<Film> RecentlySortedList = ListFunctions.SortList(filmList, OrderBy!, Order);
+                ListFunctions.Display(RecentlySortedList);
+                Choose(RecentlySortedList);
+            }
+            catch(IOException){Console.WriteLine("");}
+            catch (Exception){Console.WriteLine("");}
+        }while(!ValidInput);
+
+    }
+
+    public static Film? Choose(List<Film> filmList)
+    {
+        bool ValidInput = false;
+        Film? ChosenFilm = null;
         do
         {
             Console.WriteLine("\n1.Zoek een film   2.Sorteer de lijst   3.Kies een film   4.Terug naar het menu");
@@ -100,23 +137,25 @@ static class MainMenu
                     ValidInput = true;
                     break;
                     case "2":
-                    // SortFilmList();
+                    SortFilmList(filmList);
                     ValidInput = true;
                     break;
                     case "3":
-                    Film ChosenFilm = ListFunctions.ChooseFilm(filmList);
+                    ChosenFilm = ListFunctions.ChooseFilm(filmList);
+                    ShowMenu();
                     ValidInput = true;
                     break;
                     case "4":
                     ShowMenu();
                     break;
-                    default :
+                    default:
                     break;
                 }
             }
             catch(IOException) {Console.WriteLine("");}
             catch(Exception){ Console.WriteLine("");}
-            }while(!ValidInput);                
-            
+            }while(!ValidInput);
+        return ChosenFilm;             
     }
+
 }

@@ -63,7 +63,7 @@ public static class ListFunctions
                     }
                     if (choice == null)
                     {
-                        Console.WriteLine("Voer in het nummer van de film die je wil kiezen:");
+                        Console.WriteLine("");
                         continue;
                     }
 
@@ -71,17 +71,17 @@ public static class ListFunctions
                     
                     if (chosenFilm != null)
                     {
-                        Console.WriteLine($"You have chosen {chosenFilm.Name}");
+                        Console.WriteLine($"U hebt voor de film '{chosenFilm.Name}' gekozen");
                         return chosenFilm;
                     }
                     else
                     {
-                        Console.WriteLine("Voer in het nummer van de film die je wil kiezen:");
+                        Console.WriteLine("");
                     }
                 }
                 catch (FormatException)
                 {
-                    Console.WriteLine("Voer in het nummer van de film die je wil kiezen");
+                    Console.WriteLine("");
                     continue;
                 }
 
@@ -107,6 +107,11 @@ public static class ListFunctions
 
         var selectedShowing = film.Showings.ElementAt(chosenIndex - 1);
         return new Dictionary<string, int> { { selectedShowing.Key, selectedShowing.Value } };
+    }
+
+    internal static void Display(Film? film)
+    {
+        throw new NotImplementedException();
     }
 }
 //     public static  Dictionary<string, int> ChooseShowing(Film film)
