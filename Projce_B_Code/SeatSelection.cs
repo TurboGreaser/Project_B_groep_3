@@ -175,7 +175,6 @@ public static class SeatSelection
             }
         }
         Console.WriteLine($"You have selected seat {seat}");
-        Console.WriteLine($"You have selected seat {seat}");
         Console.ReadLine();
         return seat;
     }

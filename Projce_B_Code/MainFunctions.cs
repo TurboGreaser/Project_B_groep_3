@@ -5,7 +5,8 @@ public static class MainFunctions
     public static void MakeNewReservation(Accounts loggedInAccount)
     {
         List<Film> filmList = JsonReader.ReadFilmJson();
-        Film chosenFilm = ListFunctions.ChooseFilm(filmList); // function for choosing film
+        ListFunctions.Display(filmList);
+        Film chosenFilm = MainMenu.Choose(filmList); // function for choosing film
 
 
         var chosenDateAndZaal = ListFunctions.ChooseShowing(chosenFilm); // chosenFIlm in here
