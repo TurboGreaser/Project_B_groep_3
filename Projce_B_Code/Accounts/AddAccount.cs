@@ -109,7 +109,7 @@ public static class AddAccount
             {
                 Console.WriteLine("Enter je wachtwoord (moet meer dan 3 karakters hebben)");
                 string firstentpassword = Console.ReadLine();
-                Console.WriteLine("To confirm your Password Enter it again");
+                Console.WriteLine("Voor confermatie vul je wachtwoord opnieuw in");
                 string secondentpassword = Console.ReadLine();
 
                 if (firstentpassword == secondentpassword && firstentpassword.Length > 3)
@@ -122,12 +122,12 @@ public static class AddAccount
                     if (firstentpassword.Length <= 3)
                     {
 
-                        Console.WriteLine("The password is not above 3 Characters");
+                        Console.WriteLine("het wachtwoord is onder 3 karakters");
                         valid = false;
                     }
                     else
                     {
-                        Console.WriteLine("The first and second password entered were not the same!");
+                        Console.WriteLine("het eerste en tweede wachtwoord zijn niet gelijk!");
                         valid = false;
                     }
                 }
@@ -140,7 +140,7 @@ public static class AddAccount
         }
         else
         {
-            Console.WriteLine("You did not accept the Terms and Conditions and will now be put back to the main menu");
+            Console.WriteLine("Je hebt de Terms en conditions niet geaccepteerd!");
             //Gooi uit de class
         }
     }
