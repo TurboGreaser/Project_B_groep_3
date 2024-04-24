@@ -45,7 +45,8 @@ static class MainMenu
 
                     case "4":
                         Console.WriteLine("===Resturant menu===");
-                        // RestaurantMenu();
+                        MenuStore menu = new MenuStore();
+                        menu.PrintMenu();
                         break;
 
                     case "5":
@@ -54,7 +55,7 @@ static class MainMenu
 
                     default:
                         Console.WriteLine("Kies tussen 1-5!");
-                        ValidInput = false;
+                        ValidInput = true;
                         break;
                 }
             }
