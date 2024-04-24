@@ -51,7 +51,7 @@ public static class AddAccount
             do
             {
                 bool emailexists = false;
-                Console.WriteLine("Enter je Email: ");
+                Console.WriteLine("Enter je Email (Moet een '@' en een '.com' hebben!): ");
                 string wantedemail = Console.ReadLine();
                 Console.WriteLine("Enter je Email opnieuw: ");
                 string wantedemail2 = Console.ReadLine();
@@ -71,6 +71,11 @@ public static class AddAccount
                         emailexists = true;
                     }
 
+                }
+                if(wantedemail.Contains("@") == false || wantedemail.Contains(".com") == false) //Check if de email een .com of @ heeft.
+                {
+                    Console.WriteLine("Je email miste een '@' of een '.com'");
+                    emailexists = true;
                 }
 
                 if (emailexists == false)
@@ -94,8 +99,17 @@ public static class AddAccount
                 try
                 {
                     enteredage = Convert.ToInt32(Console.ReadLine());
-                    valid = true;
-                    Age = enteredage;
+                    
+                    if(enteredage < 0 || enteredage > 111)  //Check of leeftijd tussen 0 en 111 is.
+                    {
+                        valid = false;
+                    }
+                    else
+                    {
+                        valid = true;
+                        Age = enteredage;
+                    }
+                    
                 }
                 catch (FormatException)
                 {
@@ -107,27 +121,46 @@ public static class AddAccount
             //Nu wachtwoord
             do
             {
-                Console.WriteLine("Enter je wachtwoord (moet meer dan 3 karakters hebben)");
+                Console.WriteLine("Enter je wachtwoord (moet meer dan 5 karakters hebben) (En 1 special teken)");
                 string firstentpassword = Console.ReadLine();
                 Console.WriteLine("Voor confermatie vul je wachtwoord opnieuw in");
                 string secondentpassword = Console.ReadLine();
+                bool hasspecialletter = false;
 
-                if (firstentpassword == secondentpassword && firstentpassword.Length > 3)
+                if (firstentpassword == secondentpassword && firstentpassword.Length > 5)
                 {
-                    valid = true;
-                    Password = Stringcode.Base64Encode(firstentpassword);
+                    foreach (char c in firstentpassword)
+                    {
+                        if (!char.IsLetterOrDigit(c)) //Check of het een special teken heeft
+                        {
+                            hasspecialletter = true;
+                        }
+                    }
+
+                    if(hasspecialletter == true)
+                    {
+                        valid = true;
+                        Password = Stringcode.Base64Encode(firstentpassword);
+                    }
+                    else
+                    {
+                        valid = false;
+                        Console.WriteLine("\nJe wachtwoord had geen speciaal teken!\n");
+                    }
                 }
+
+
                 else
                 {
-                    if (firstentpassword.Length <= 3)
+                    if (firstentpassword.Length <= 5)
                     {
 
-                        Console.WriteLine("het wachtwoord is onder 3 karakters");
+                        Console.WriteLine("\nhet wachtwoord is onder 5 karakters\n");
                         valid = false;
                     }
                     else
                     {
-                        Console.WriteLine("het eerste en tweede wachtwoord zijn niet gelijk!");
+                        Console.WriteLine("\nhet eerste en tweede wachtwoord zijn niet gelijk!\n");
                         valid = false;
                     }
                 }

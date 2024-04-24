@@ -33,5 +33,19 @@
     "Age": 19,
     "Password": "MTk5OQ==",
     "savedInformationlist": []
+  },
+  {
+    "Username": "pepijn",
+    "Email": "pepijnvanbijs",
+    "Age": 111,
+    "Password": "cGVwaWpuQA==",
+    "savedInformationlist": []
+  },
+  {
+    "Username": "ddd",
+    "Email": "dddd",
+    "Age": 5,
+    "Password": "QEBAQEBA",
+    "savedInformationlist": []
   }
 ]
