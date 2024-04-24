@@ -25,12 +25,13 @@ public static class Json_writer
         writer.WriteLine(json);
         writer.Close();
     }
-    public static bool WriteReservationToJSON(Film film, Zaal zaal, string datum, int age, string fileName = "Reservations.json", int ChosenSeat = -1, string email = "NoEmail")
+    public static double WriteReservationToJSON(Film film, Zaal zaal, string datum, int age, string fileName = "Reservations.json", int ChosenSeat = -1, string email = "NoEmail")
     {
         List<ReservationJsonObj> reservations = new() { };
         ReservationJsonObj existringReservation = null!;
         List<int> unavailavble_seats = new();
         bool emptyFile = false;
+        double totalPrice = -1;
 
         // first return unavailble seats list
         if (!File.Exists(fileName))
@@ -63,14 +64,15 @@ public static class Json_writer
         {
             ChosenSeat = SeatSelection.SelectSeat(zaal.Size, unavailavble_seats);
             if (ChosenSeat == -1)
-            { return false; }
+            { return -1; }
         // pay for your seat
             double price = SeatSaleRoom.GetMoviePrice(film.Name);
             double seatFee = SeatSaleRoom.IsExpensive(zaal.Size, ChosenSeat) ? price * 0.1 : 0; // 10% etra for expensive seat
             double ageFee = age < 18 ? price * 0.2 : 0; // 20% extra for inder 18 customer
+            totalPrice = price + seatFee + ageFee;
             // if customer doesnt pay return false
             if (!Reservation.PrintPrice(price, seatFee, ageFee))
-            { return false; }
+            { return -1; }
         }
 
 
@@ -79,7 +81,7 @@ public static class Json_writer
         if (emptyFile)
         {
             // write new file / write to empty file
-            return WriteReservationToEmptyFile(zaal, datum, film, fileName, ChosenSeat, email);
+            WriteReservationToEmptyFile(zaal, datum, film, fileName, ChosenSeat, email);
         }
         else if (existringReservation != null)
         {
@@ -87,13 +89,14 @@ public static class Json_writer
             existringReservation.Seats.Add(ChosenSeat);
             existringReservation.Emails.Add(email);
             var json = JsonConvert.SerializeObject(reservations);
-            return WriteReservationsToJSON(reservations, fileName);
+            WriteReservationsToJSON(reservations, fileName);
         }
         else
         {
             // add new reservation to file
-            return AddNewReservationToFile(reservations, film, datum, zaal, fileName, ChosenSeat, email);
+            AddNewReservationToFile(reservations, film, datum, zaal, fileName, ChosenSeat, email);
         }
+        return totalPrice;
 
     }
 
