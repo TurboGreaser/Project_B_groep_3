@@ -12,7 +12,14 @@ public static class Reservation
         Console.ReadLine();
 
 
-        Json_writer.WriteReservationToJSON(film, zaal, date, age, email: email);
+        double price = Json_writer.WriteReservationToJSON(film, zaal, date, age, email: email);
+        if (price != -1)
+        {
+            ConfirmationMessage.ShowConfirmationMessage(film, date, email, price);
+            Console.WriteLine("Druk op enter om terug te gaan naar get menu");
+            Console.ReadLine();
+        }
+
 
     }
 
