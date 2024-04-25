@@ -4,69 +4,177 @@ static class MainMenu
 
 {
     public static List<Film> films = JsonReader.ReadFilmJson();
-    
-    public static void ShowMenu()
+    public static List<Film> SortedFilm = ListFunctions.SortList(films, "Price");
+
+    // public static void ShowMenu()
+    // {
+    //     bool ValidInput;
+    //     string? Choice;
+    //     Accounts account = new Accounts()
+    //     {
+    //         Age = 18
+    //     };
+    //     do
+    //     {
+    //         Console.WriteLine("1. Films bekijken\n2. Reserveren\n3. inloggen/Account maken\n4. Menu bioscoop restaurant bekijken\n5. Quit");
+    //         try
+    //         {
+    //             Choice = Console.ReadLine();
+    //             ValidInput = true;
+    //             switch (Choice)
+    //             {
+    //                 case "1":
+    //                     Console.WriteLine("===De film lijst wordt geopend..===");
+    //                     ListFunctions.Display(ListFunctions.SortList(films, "Price"));
+    //                     Choose(films);
+    //                     break;
+
+    //                 case "2":
+    //                     Console.WriteLine("===Reserveren===");
+    //                     MainFunctions.MakeNewReservation(account);
+    //                     break;
+
+    //                 case "3":
+    //                     Console.WriteLine("===Accounts===");
+    //                     Accounts account1 = AccountMenuQ.Choose();
+
+    //                     if (account1 != null)
+    //                     {
+    //                         account = account1;
+    //                     }
+    //                     break;
+
+    //                 case "4":
+    //                     Console.WriteLine("===Resturant menu===");
+    //                     MenuStore menu = new MenuStore();
+    //                     menu.PrintMenu();
+    //                     break;
+
+    //                 case "5":
+    //                     ValidInput = false;
+    //                     break;
+
+    //                 default:
+    //                     Console.WriteLine("Kies tussen 1-5!");
+    //                     ValidInput = true;
+    //                     break;
+    //             }
+    //         }
+    //         catch (IOException e)
+    //         {
+    //             Console.WriteLine($"Invalid input! {e.Message}");
+    //             ValidInput = false;
+    //         }
+
+    //         catch (Exception e)
+    //         {
+    //             Console.WriteLine($"Invalid input! {e.Message}");
+    //             ValidInput = false;
+    //         }
+
+    //     } while (ValidInput);
+    // }
+    public static void ShowFilmList()
     {
-        bool ValidInput;
-        string? Choice;
-        Accounts account = new Accounts()
+        int IndexOfCurrentOption = 0;
+        while (true)
         {
-            Age = 17
-        };
-        do
-        {
-            Console.WriteLine("1. Films bekijken\n2. Reserveren\n3. inloggen/Account maken\n4. Menu bioscoop restaurant bekijken");
-            try
+            Console.Clear();
+            foreach (Film film in SortedFilm)
             {
-                Choice = Console.ReadLine();
-                ValidInput = true;
-                switch (Choice)
+                int index = films.IndexOf(film);
+                if (index == IndexOfCurrentOption)
                 {
-                    case "1":
-                    Console.WriteLine("===De film lijst wordt geopend..===");
-                    ListFunctions.Display(ListFunctions.SortList(films, "Price"));
-                    ValidInput = true;
-                    Choose(films);
-                    break;
-                    case "2":
-                        Console.WriteLine("===Reserveren===");
-                        MainFunctions.MakeNewReservation(account);
-                        ValidInput = true;
-                        break;
-                    case "3":
-                        Console.WriteLine("===Accounts===");
-                        AccountMenuQ.Choose();
-                        ValidInput = true;
-                        break;
-                    case "4":
-                        Console.WriteLine("===Resturant menu===");
-                        ValidInput = true;
-                        // RestaurantMenu();
-                        break;
-                    default:
-                        Console.WriteLine("Kies tussen 1-4!");
-                        ValidInput = false;
-                        break;
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
+                    Console.Write($"{index + 1}. {film.CompactInfo()}   <-- \n");
+
                 }
+                else
+                {
+                    Console.WriteLine($"{index + 1}. {film.CompactInfo()}");
+                }
+                
+                Console.ResetColor();
             }
-            catch (IOException e)
+            Console.WriteLine("\n\nDruk op 'S' om te sorteren       Druk op 'Z' om te zoeken ");
+            ConsoleKeyInfo KeyInput = Console.ReadKey(true);
+            switch(KeyInput.Key)
             {
-                Console.WriteLine($"Invalid input! {e.Message}");
-                ValidInput = false;
+                case ConsoleKey.UpArrow:
+                    IndexOfCurrentOption = (IndexOfCurrentOption == 0)? SortedFilm.Count -1 : IndexOfCurrentOption - 1;
+                    break;
+                case ConsoleKey.DownArrow:
+                    IndexOfCurrentOption = (IndexOfCurrentOption == SortedFilm.Count -1)? 0 : IndexOfCurrentOption + 1;
+                    break;
+                case ConsoleKey.Enter:
+                    return;
+
+                case ConsoleKey.S:
+                    Console.WriteLine("Sort functie wordt geroepen");
+                    break;
+                case ConsoleKey.Z:
+                    Console.WriteLine("Zoek functie wordt geroepen");
+                    break;
             }
-
-            catch (Exception e)
-            {
-                Console.WriteLine($"Invalid input! {e.Message}");
-                ValidInput = false;
-            }
-
-        }while(!ValidInput);
-
-
+            return;
+        }
     }
 
-    public static void SearchForFilm(List<Film> filmList)
+    public static void ShowMenu()
+    {
+        string[] MenuOptions = { "1. Reserveren", "2. Aanmelden", "3. Restrant menu", "4. Quit"};
+        int IndexOfCurrentOption = 0;
+        while (true)
+        {
+            Console.Clear();
+            for (int i = 0; i < MenuOptions.Length; i++)
+            {
+                if (i == IndexOfCurrentOption)
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
+                    Console.Write("--> ");
+                }
+                else
+                {
+                    Console.Write("    ");
+                }
+                Console.WriteLine(MenuOptions[i]);
+                Console.ResetColor();
+            }
+
+            ConsoleKeyInfo KeyInput = Console.ReadKey(true);
+            switch (KeyInput.Key)
+            {
+                case ConsoleKey.UpArrow:
+                    IndexOfCurrentOption = (IndexOfCurrentOption == 0)? MenuOptions.Length -1 : IndexOfCurrentOption - 1;
+                    break;
+                case ConsoleKey.DownArrow:
+                    IndexOfCurrentOption = (IndexOfCurrentOption == MenuOptions.Length -1)? 0 : IndexOfCurrentOption + 1;
+                    break;
+                case ConsoleKey.Enter:
+                    if (IndexOfCurrentOption == MenuOptions.Length-1)
+                    {
+                        Console.WriteLine("Het programma wordt gesloten");
+                        return;
+                    }
+                    Console.WriteLine($"U hebt voor {MenuOptions[IndexOfCurrentOption]} gekozen");
+                    ShowFilmList();
+                    return;
+                    // switch (Choice)
+                    // {
+                    //     case "Reserveren":
+                    //     {
+                    //         Console.WriteLine("===De film lijst wordt geopend..===");
+                    //         ListFunctions.Display(ListFunctions.SortList(films, "Price"));
+                    //         Choose(films);
+                    //         break;
+                    //     }
+                }
+        }
+    }
+
+
+    public static List<Film> SearchForFilm(List<Film> filmList)
     {
         bool ValidInput = false;
         List<Film> NewList = new();
@@ -79,18 +187,19 @@ static class MainMenu
                 NewList = ListFunctions.Search(films, Choice!);
                 ValidInput = true;
             }
-            catch (IOException){Console.WriteLine("");}
+            catch (IOException) { Console.WriteLine(""); }
 
-            catch(Exception){Console.WriteLine("");}
+            catch (Exception) { Console.WriteLine(""); }
 
-        }while(!ValidInput);
+        } while (!ValidInput);
         ListFunctions.Display(NewList);
-        Choose(NewList);
+        return NewList;
     }
 
-    public static void SortFilmList(List<Film> filmList)
+    public static List<Film> SortFilmList(List<Film> filmList)
     {
         bool ValidInput = false;
+        List<Film> RecentlySortedList = null;
         do
         {
             Console.WriteLine("Hoe wilt u de filmlijst sorteren?");
@@ -110,17 +219,19 @@ static class MainMenu
                 };
                 Console.WriteLine("1. Oplopend\n2. Afnemend");
                 string? SortBy = Console.ReadLine();
-                
+
                 bool Order = false;
-                if (SortBy == "1") {Order = false;}
-                else if (SortBy == "2") {Order = true;}
-                List<Film> RecentlySortedList = ListFunctions.SortList(filmList, OrderBy!, Order);
+                if (SortBy == "1") { Order = false; }
+                else if (SortBy == "2") { Order = true; }
+                RecentlySortedList = ListFunctions.SortList(filmList, OrderBy!, Order);
                 ListFunctions.Display(RecentlySortedList);
-                Choose(RecentlySortedList);
+                ValidInput = true;
             }
-            catch(IOException){Console.WriteLine("");}
-            catch (Exception){Console.WriteLine("");}
-        }while(!ValidInput);
+            catch (IOException) { Console.WriteLine(""); }
+            catch (Exception) { Console.WriteLine(""); }
+        } while (!ValidInput);
+        return RecentlySortedList;
+
 
     }
 
@@ -134,32 +245,32 @@ static class MainMenu
             try
             {
                 string? Choice = Console.ReadLine();
-                switch(Choice)
+                switch (Choice)
                 {
                     case "1":
-                    SearchForFilm(filmList);
-                    ValidInput = true;
-                    break;
+                        filmList = SearchForFilm(filmList);
+                        ValidInput = false;
+                        break;
                     case "2":
-                    SortFilmList(filmList);
-                    ValidInput = true;
-                    break;
+                        filmList = SortFilmList(filmList);
+                        ValidInput = false;
+                        break;
                     case "3":
-                    ChosenFilm = ListFunctions.ChooseFilm(filmList);
-                    ShowMenu();
-                    ValidInput = true;
-                    break;
+                        ChosenFilm = ListFunctions.ChooseFilm(filmList);
+                        // ShowMenu();
+                        ValidInput = true;
+                        break;
                     case "4":
-                    ShowMenu();
-                    break;
+                        ShowMenu();
+                        break;
                     default:
-                    break;
+                        break;
                 }
             }
-            catch(IOException) {Console.WriteLine("");}
-            catch(Exception){ Console.WriteLine("");}
-            }while(!ValidInput);
-        return ChosenFilm;             
+            catch (IOException) { Console.WriteLine(""); }
+            catch (Exception) { Console.WriteLine(""); }
+        } while (!ValidInput);
+        return ChosenFilm;
     }
 
 }
