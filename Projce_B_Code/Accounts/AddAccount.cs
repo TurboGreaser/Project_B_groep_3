@@ -11,11 +11,63 @@ public static class AddAccount
 
     public static void MakeAccount()
     {
-        Console.WriteLine("De terms en conditions zijn als volgt:\nDoor gebruik te maken van deze dienst gaat u akkoord met deze Algemene Voorwaarden. Indien u niet akkoord gaat met deze voorwaarden, dient u geen gebruik te maken van de dienst.\nAccepteer je de terms en conditions?\n(ja/nee)");
-        string acceptedTandC = Console.ReadLine().ToUpper();
+        Console.WriteLine("De terms en conditions zijn als volgt:\nDoor gebruik te maken van deze dienst gaat u akkoord met deze Algemene Voorwaarden. Indien u niet akkoord gaat met deze voorwaarden, dient u geen gebruik te maken van de dienst.");
+        Console.WriteLine("Druk op een knop om verder te gaan");
+        Console.ReadKey(true);
+        Console.WriteLine("Acepteer je de terms en conditions? ");
+
+        string [] JaOfNee = ["Ja", "Nee"];
+        int CurrentOption = 0;
+        while (true)
+        {
+            Console.Clear();
+            for (int i = 0; i < 2; i++)
+            {
+                if (i == CurrentOption)
+                {
+                    Console.Write("--> ");
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
+                }
+                else
+                {
+                    Console.Write("    ");
+                }
+                Console.WriteLine(JaOfNee[i]);
+                Console.ResetColor();
+            }
+            ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+            switch (keyInfo.Key)
+            {
+                case ConsoleKey.UpArrow:
+                    CurrentOption = (CurrentOption == 0)? 1 : 0;
+                    break;
+
+                case ConsoleKey.DownArrow:
+                    CurrentOption = (CurrentOption == 0)? 1 : 0;
+                    break;
+                
+                case ConsoleKey.Enter:
+                    if (CurrentOption == 0)
+                    {
+                        MakeAccount1();
+                        return;
+                    }
+                    else
+                    {
+                        return;
+                    }
+            }
+        }
+    }
 
 
-        if (acceptedTandC == "JA")
+    public static void MakeAccount1()
+//     {
+//         Console.WriteLine("De terms en conditions zijn als volgt:\nDoor gebruik te maken van deze dienst gaat u akkoord met deze Algemene Voorwaarden. Indien u niet akkoord gaat met deze voorwaarden, dient u geen gebruik te maken van de dienst.\nAccepteer je de terms en conditions?\n(ja/nee)");
+//         string acceptedTandC = Console.ReadLine().ToUpper();
+
+
+//         if (acceptedTandC == "JA")
         {
 
             string text = File.ReadAllText(jsonfilepath);
@@ -138,10 +190,10 @@ public static class AddAccount
             addnewacc.AddToJson();
 
         }
-        else
-        {
-            Console.WriteLine("You did not accept the Terms and Conditions and will now be put back to the main menu");
-            //Gooi uit de class
-        }
-    }
+//         else
+//         {
+//             Console.WriteLine("You did not accept the Terms and Conditions and will now be put back to the main menu");
+//             //Gooi uit de class
+//         }
+//     }
 }

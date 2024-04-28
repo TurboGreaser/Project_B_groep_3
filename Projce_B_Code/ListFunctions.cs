@@ -5,7 +5,32 @@ public static class ListFunctions
 {
     public static List<Film> SortList(List<Film> films, string sortBy, bool asc = false)
     {
-        switch (sortBy)
+        string OrderBy;
+        if (sortBy.Contains("naam"))
+        {
+            OrderBy = "Name";
+        }
+        else if (sortBy.Contains("genre"))
+        {
+            OrderBy = "Genre";
+        }
+        else if (sortBy.Contains("duur"))
+        {
+            OrderBy = "Duration_in_minutes";
+        }
+        else if (sortBy.Contains("prijs") || sortBy.Contains("Price"))
+        {
+            OrderBy = "Price";
+        }
+        else if (sortBy.Contains("regisseur"))
+        {
+            OrderBy = "Director";
+        }
+        else
+        {
+            OrderBy = "Description";
+        }
+        switch (OrderBy)
         {
             case "Name":
                 return asc ? films.OrderBy(film => film.Name).ToList() : films.OrderByDescending(film => film.Name).ToList();
@@ -22,6 +47,7 @@ public static class ListFunctions
             default:
                 return films;
         }
+        
     }
 
     public static void Display(List<Film> Filmlist)
@@ -38,7 +64,7 @@ public static class ListFunctions
         foreach (Film film in Filmlist)
         {
             string Title = film.Name.ToUpper();
-            if (Title.StartsWith(Name.ToUpper()))
+            if (Title.Contains(Name.ToUpper()))
             {
                 NewList.Add(film);
             }
@@ -108,12 +134,9 @@ public static class ListFunctions
         var selectedShowing = film.Showings.ElementAt(chosenIndex - 1);
         return new Dictionary<string, int> { { selectedShowing.Key, selectedShowing.Value } };
     }
-
-    internal static void Display(Film? film)
-    {
-        throw new NotImplementedException();
-    }
 }
+
+
 //     public static  Dictionary<string, int> ChooseShowing(Film film)
 //     {
 //         while (true)

@@ -19,5 +19,12 @@
     "Age": 222,
     "Password": "123467",
     "savedInformationlist": []
+  },
+  {
+    "Username": "Miko",
+    "Email": "marksalloum893@gmail.com",
+    "Age": 21,
+    "Password": "MDk4Mzg=",
+    "savedInformationlist": []
   }
 ]

@@ -36,7 +36,7 @@ public class Film
 
     public string CompactInfo()
     {
-        return $"{Name} | {Director} | {Genre} | {Duration_in_minutes} | {GetFirstShowing()}";
+        return $"{Name} | {Director} | {Genre} | {Duration_in_minutes} | {GetFirstShowing()} | {Price} euro";
     }
 
     private string FormatShowings()
