@@ -11,7 +11,7 @@ public static class AddAccount
 
     public static void MakeAccount()
     {
-        Console.WriteLine("De terms en conditions zijn als volgt:\nDoor gebruik te maken van deze dienst gaat u akkoord met deze Algemene Voorwaarden. Indien u niet akkoord gaat met deze voorwaarden, dient u geen gebruik te maken van de dienst.");
+        Console.WriteLine("De terms en conditions zijn als volgt:\nDoor gebruik te maken van deze dienst gaat u akkoord met deze Algemene Voorwaarden.\n Indien u niet akkoord gaat met deze voorwaarden, dient u geen gebruik te maken van de dienst.");
         Console.WriteLine("Druk op een knop om verder te gaan");
         Console.ReadKey(true);
         Console.WriteLine("Acepteer je de terms en conditions? ");
@@ -49,7 +49,7 @@ public static class AddAccount
                 case ConsoleKey.Enter:
                     if (CurrentOption == 0)
                     {
-                        MakeAccount1();
+                        Gegevens();
                         return;
                     }
                     else
@@ -61,7 +61,7 @@ public static class AddAccount
     }
 
 
-    public static void MakeAccount1()
+    public static void Gegevens()
 //     {
 //         Console.WriteLine("De terms en conditions zijn als volgt:\nDoor gebruik te maken van deze dienst gaat u akkoord met deze Algemene Voorwaarden. Indien u niet akkoord gaat met deze voorwaarden, dient u geen gebruik te maken van de dienst.\nAccepteer je de terms en conditions?\n(ja/nee)");
 //         string acceptedTandC = Console.ReadLine().ToUpper();

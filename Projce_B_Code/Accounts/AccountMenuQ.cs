@@ -69,8 +69,7 @@ public static class AccountMenuQ
                     }
                     else if (CurrentOption == 1)
                     {
-                        Console.WriteLine("Inloggen");
-                        Thread.Sleep(200);
+                        Inloggen();
                         break;
                     }
                     else 
@@ -79,6 +78,27 @@ public static class AccountMenuQ
                     }
             }
         }
+    }
+
+    public static void Inloggen()
+    {
+        bool Valid = false;
+        do
+        {
+            Console.WriteLine("Vul je email in.");
+            try
+            {
+                string email = Console.ReadLine();
+                Valid = true;
+                Console.WriteLine("Vul je wachtwoord in.");
+                string password = Console.ReadLine();
+                LoginAccount.Login(email, password);
+            }
+            catch (IOException) { }
+
+            catch (Exception) { }
+        }while (!Valid);
+        
     }
 
     

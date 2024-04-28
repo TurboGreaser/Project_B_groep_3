@@ -26,5 +26,12 @@
     "Age": 21,
     "Password": "MDk4Mzg=",
     "savedInformationlist": []
+  },
+  {
+    "Username": "mark",
+    "Email": "markSalloum@gmail.com",
+    "Age": 10,
+    "Password": "MTIzNA==",
+    "savedInformationlist": []
   }
 ]
