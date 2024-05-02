@@ -6,10 +6,10 @@ public static class RemoveAccount
     public static string jsonfilepath = "Accounts.json";
     public static void GetInfo()
     {
-        Console.WriteLine("To remove your account you must enter Your accounts Email and Password");
-        Console.WriteLine("What is your email?");
+        Console.WriteLine("Om je accounts weg te halen moet je je email en wachtwoord invoeren");
+        Console.WriteLine("Wat is je email?");
         string enteredemail = Console.ReadLine();
-        Console.WriteLine("What is your password?");
+        Console.WriteLine("Wat is je wachtwoord?");
         string enteredpassword = Console.ReadLine();
 
 
@@ -32,11 +32,11 @@ public static class RemoveAccount
 
             File.WriteAllText(jsonfilepath, jsontext);
 
-            Console.WriteLine("Your account has been removed from memory succesfully");
+            Console.WriteLine("Je account is succesvol verwijderd!");
         }
         else
         {
-            Console.WriteLine("Account with the entered Email and Password was not found");
+            Console.WriteLine("Account met email en wachtwoord is niet gevonden");
         }
     }
 }
