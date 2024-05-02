@@ -8,5 +8,6 @@ class ConfirmationMessage
         Console.WriteLine($"Zaal: {date}");
         Console.WriteLine($"Email: {email}");
         Console.WriteLine($"Prijs: {total_price} euro");
+        Console.WriteLine(" ");
     }
 }

@@ -16,9 +16,20 @@ public static class Reservation
         if (price != -1)
         {
             ConfirmationMessage.ShowConfirmationMessage(film, date, email, price);
-            Console.WriteLine("Druk op enter om terug te gaan naar get menu");
+            Console.WriteLine("Wilt u nog een account aanmaken?");
+            Console.WriteLine("1: Ja, 2: Nee");
+            string answer = Console.ReadLine();
+            if (answer == "1")
+            {
+                AddAccount.MakeAccount();
+            }
+            if (answer == "2")
+            {
+                Console.WriteLine("Dank u voor het reserveren, tot de volgende keer!");
+            }
             Console.ReadLine();
         }
+
 
 
     }
@@ -62,7 +73,7 @@ public static class Reservation
             if (choice == "1")
             {
                 Console.Clear();
-                Console.WriteLine($"Ideal Betaling van {basePrice + seatFee + ageFee} Euro sucsess!");
+                Console.WriteLine($"Ideal Betaling van {basePrice + seatFee + ageFee} Euro success!");
                 Console.WriteLine($"Klik enter om veder te gaaan");
                 Console.ReadLine();
                 return true;
@@ -87,11 +98,12 @@ public static class Reservation
             {
                 Console.Clear();
                 Console.WriteLine("Kies 1, 2 of 3");
-                Console.WriteLine($"Klik enter om veder te gaaan");
+                Console.WriteLine($"Klik enter om veder te gaan");
                 Console.ReadLine();
             }
         }
     }
+
 }
 
 
