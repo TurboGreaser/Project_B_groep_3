@@ -26,6 +26,7 @@ static class MainMenu
                         Console.WriteLine("===De film lijst wordt geopend..===");
                         ListFunctions.Display(ListFunctions.SortList(films, "Price"));
                         Choose(films);
+                        // Movies.PrintMoviesToday();
                         break;
 
                     case "2":
@@ -143,7 +144,7 @@ static class MainMenu
         Film? ChosenFilm = null;
         do
         {
-            Console.WriteLine("\n1.Zoek een film   2.Sorteer de lijst   3.Kies een film   4.Terug naar het menu");
+            Console.WriteLine("\n1.Zoek een film   2.Sorteer de lijst   3.Kies een film   4.Terug naar het menu   5.Bekijk films van vandaag");
             try
             {
                 string? Choice = Console.ReadLine();
@@ -166,6 +167,9 @@ static class MainMenu
                         ShowMenu();
                         break;
                     default:
+                        break;
+                    case "5":
+                        Movies.PrintMoviesToday();
                         break;
                 }
             }

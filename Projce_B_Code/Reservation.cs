@@ -26,6 +26,7 @@ public static class Reservation
             if (answer == "2")
             {
                 Console.WriteLine("Dank u voor het reserveren, tot de volgende keer!");
+                Console.WriteLine("Klik enter om naar menu te gaan");
             }
             Console.ReadLine();
         }
