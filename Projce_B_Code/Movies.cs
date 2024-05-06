@@ -53,8 +53,14 @@ namespace Project_B
             Console.WriteLine("Films die vandaag draaien:");
             foreach (Film film in filmsToday)
             {
-                Console.WriteLine($"- {film.Name}");
+                Console.WriteLine($"- {film.Name}:");
+                foreach (KeyValuePair<string, int> showing in film.Showings)
+                {
+                    DateTime showingTime = DateTime.Parse(showing.Key);
+                    Console.WriteLine($"    {showingTime.ToString("HH:mm")}"); // Toon alleen de tijd
+                }
             }
+
             Console.WriteLine("Klik enter om verder te gaan");
             Console.ReadLine();
         }
