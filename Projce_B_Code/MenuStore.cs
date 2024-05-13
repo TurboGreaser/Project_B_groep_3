@@ -1,6 +1,6 @@
 class MenuStore
 {
-    public List<MenuItem> menuItems;
+    public static List<MenuItem> menuItems;
 
     public MenuStore()
     {
@@ -13,7 +13,7 @@ class MenuStore
         menuItems.Add(newItem);
     }
 
-    public void PrintMenu()
+    public static void PrintMenu()
     {
         Console.WriteLine("----- BIOSCOOP MENU -----");
         Console.WriteLine("Item           Prijs");
