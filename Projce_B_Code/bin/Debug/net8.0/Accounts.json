@@ -33,5 +33,19 @@
     "Age": 10,
     "Password": "MTIzNA==",
     "savedInformationlist": []
+  },
+  {
+    "Username": "mark2",
+    "Email": "mark@gamil.com",
+    "Age": 100,
+    "Password": "bWFya3NhbGxvdW1A",
+    "savedInformationlist": []
+  },
+  {
+    "Username": null,
+    "Email": null,
+    "Age": 0,
+    "Password": "bWFya3NhbCE=",
+    "savedInformationlist": []
   }
 ]
