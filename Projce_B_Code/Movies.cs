@@ -18,6 +18,8 @@
 //         Console.WriteLine("Films die vandaag draaien:");
 
 //         List<Film> films = JsonConvert.DeserializeObject<List<Film>>(json);
+        // Films voor vandaag identificeren en afdrukken
+        Console.WriteLine("Films die vandaag draaien:");
 
 //         foreach (Film film in films)
 //         {
@@ -62,6 +64,23 @@ namespace Project_B
             }
 
             Console.WriteLine("Klik enter om verder te gaan");
+        List<Film> films = JsonConvert.DeserializeObject<List<Film>>(json);
+
+        foreach (Film film in films)
+        {
+            foreach (KeyValuePair<string, int> showing in film.Showings)
+            {
+                DateTime showingDate = DateTime.Parse(showing.Key);
+                if (showingDate.Date == Currentime)
+                {
+                    Console.WriteLine($"- {film.Name}");
+                    filmstoday.Add(film);
+                }
+            }
+        }
+        if (fileName == "films.json")
+        {
+            Console.WriteLine("Klik enter om veder te gaan");
             Console.ReadLine();
         }
 
@@ -94,6 +113,11 @@ namespace Project_B
 
             return filmsToday;
         }
+    }
+}
+
+
+        return filmstoday;
     }
 }
 

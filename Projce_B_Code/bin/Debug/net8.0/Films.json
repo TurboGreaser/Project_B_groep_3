@@ -3,7 +3,7 @@
         "Name": "test_name",
         "Genre": "test_genre",
         "Duration_in_minutes": 75,
-        "Price": 12.5,
+        "Price": 13.5,
         "Director": "test_director",
         "Description": "test descrition",
         "Showings": {
@@ -16,7 +16,7 @@
         "Name": "The Godfather",
         "Genre": "Drama",
         "Duration_in_minutes": 175,
-        "Price": 12.5,
+        "Price": 25.5,
         "Director": "Francis Ford Coppola",
         "Description": "Een episch verhaal over de opkomst van de maffia in Amerika, gericht op de familie Corleone en de complexe dynamiek van macht, verraad en loyaliteit.",
         "Showings": {
@@ -29,7 +29,7 @@
         "Name": "Inception",
         "Genre": "Sci-Fi, Thriller",
         "Duration_in_minutes": 148,
-        "Price": 12.5,
+        "Price": 11.5,
         "Director": "Christopher Nolan",
         "Description": "Een meesterdief, gespecialiseerd in het stelen van waardevolle geheimen uit het onderbewustzijn tijdens de droomstaat, krijgt een laatste kans om zijn eigen verleden te herstellen door een idee in te planten in het onderbewustzijn van een CEO.",
         "Showings": {
