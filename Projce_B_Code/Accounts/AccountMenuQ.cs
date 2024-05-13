@@ -56,10 +56,10 @@ public static class AccountMenuQ
             switch (KeyInfo.Key)
             {
                 case ConsoleKey.UpArrow:
-                    CurrentOption = (CurrentOption == 0)? MenuOptions.Length - 1 : CurrentOption - 1;
+                    CurrentOption = (CurrentOption == 0) ? MenuOptions.Length - 1 : CurrentOption - 1;
                     break;
                 case ConsoleKey.DownArrow:
-                    CurrentOption = (CurrentOption == MenuOptions.Length - 1)?  0 : CurrentOption + 1;
+                    CurrentOption = (CurrentOption == MenuOptions.Length - 1) ? 0 : CurrentOption + 1;
                     break;
                 case ConsoleKey.Enter:
                     if (CurrentOption == 0)
@@ -72,7 +72,7 @@ public static class AccountMenuQ
                         Inloggen();
                         break;
                     }
-                    else 
+                    else
                     {
                         return;
                     }
@@ -80,7 +80,7 @@ public static class AccountMenuQ
         }
     }
 
-    public static void Inloggen()
+    public static Accounts Inloggen()
     {
         bool Valid = false;
         do
@@ -97,9 +97,10 @@ public static class AccountMenuQ
             catch (IOException) { }
 
             catch (Exception) { }
-        }while (!Valid);
-        
+        } while (!Valid);
+        return null;
+
     }
 
-    
+
 }
