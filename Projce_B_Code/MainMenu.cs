@@ -5,7 +5,11 @@ static class MainMenu
 {
     public static List<Film> films = JsonReader.ReadFilmJson();
     public static List<Film> SortedFilm = ListFunctions.SortList(films, "Price");
+
+    public static Accounts account = new() { Email = "NoEmail", Age = -1 };
     public static Film ShowFilmList(List<Film> SortedFilm)
+
+
     {
         int IndexOfCurrentOption = 0;
         while (true)
@@ -24,22 +28,22 @@ static class MainMenu
                 {
                     Console.WriteLine($"{index + 1}. {f.CompactInfo()}");
                 }
-                
+
                 Console.ResetColor();
             }
             Console.WriteLine("\n\nDruk op 'S' om te sorteren       Druk op 'Z' om te zoeken       Druk op 'Esc' om terug naat het menu te gaan");
             ConsoleKeyInfo KeyInput = Console.ReadKey(true);
-            switch(KeyInput.Key)
+            switch (KeyInput.Key)
             {
                 case ConsoleKey.UpArrow:
-                    IndexOfCurrentOption = (IndexOfCurrentOption == 0)? SortedFilm.Count -1 : IndexOfCurrentOption - 1;
+                    IndexOfCurrentOption = (IndexOfCurrentOption == 0) ? SortedFilm.Count - 1 : IndexOfCurrentOption - 1;
                     break;
                 case ConsoleKey.DownArrow:
-                    IndexOfCurrentOption = (IndexOfCurrentOption == SortedFilm.Count -1)? 0 : IndexOfCurrentOption + 1;
+                    IndexOfCurrentOption = (IndexOfCurrentOption == SortedFilm.Count - 1) ? 0 : IndexOfCurrentOption + 1;
                     break;
                 case ConsoleKey.Enter:
-                       return films[IndexOfCurrentOption];
-                    
+                    return films[IndexOfCurrentOption];
+
 
                 case ConsoleKey.S:
                     List<Film> Sorted_List = SortFilmList(SortedFilm);
@@ -80,13 +84,13 @@ static class MainMenu
             switch (KeyInput.Key)
             {
                 case ConsoleKey.UpArrow:
-                    IndexOfCurrentOption = (IndexOfCurrentOption == 0)? MenuOptions.Length -1 : IndexOfCurrentOption - 1;
+                    IndexOfCurrentOption = (IndexOfCurrentOption == 0) ? MenuOptions.Length - 1 : IndexOfCurrentOption - 1;
                     break;
                 case ConsoleKey.DownArrow:
-                    IndexOfCurrentOption = (IndexOfCurrentOption == MenuOptions.Length -1)? 0 : IndexOfCurrentOption + 1;
+                    IndexOfCurrentOption = (IndexOfCurrentOption == MenuOptions.Length - 1) ? 0 : IndexOfCurrentOption + 1;
                     break;
                 case ConsoleKey.Enter:
-                    if (IndexOfCurrentOption == MenuOptions.Length-1)
+                    if (IndexOfCurrentOption == MenuOptions.Length - 1)
                     {
                         Console.WriteLine("Het programma wordt gesloten");
                         return;
@@ -94,7 +98,7 @@ static class MainMenu
                     string Choice = MenuOptions[IndexOfCurrentOption];
                     if (Choice == MenuOptions[0])
                     {
-                        ShowFilmList(SortedFilm);
+                        MainFunctions.MakeNewReservation(account);
                         break;
                     }
                     else if (Choice == MenuOptions[1])
@@ -103,7 +107,7 @@ static class MainMenu
                         AccountMenuQ.Choose();
                         break;
                     }
-                    else 
+                    else
                     {
                         Console.WriteLine("==Restaurant menu==");
                         break;
@@ -162,10 +166,10 @@ static class MainMenu
             switch (keyInfo.Key)
             {
                 case ConsoleKey.UpArrow:
-                    IndexOfCurrentOption = (IndexOfCurrentOption == 0)? MenuOptions.Length -1 : IndexOfCurrentOption - 1;
+                    IndexOfCurrentOption = (IndexOfCurrentOption == 0) ? MenuOptions.Length - 1 : IndexOfCurrentOption - 1;
                     break;
                 case ConsoleKey.DownArrow:
-                    IndexOfCurrentOption = (IndexOfCurrentOption == MenuOptions.Length -1)? 0 : IndexOfCurrentOption + 1;
+                    IndexOfCurrentOption = (IndexOfCurrentOption == MenuOptions.Length - 1) ? 0 : IndexOfCurrentOption + 1;
                     break;
                 case ConsoleKey.Enter:
                     string Choice = MenuOptions[IndexOfCurrentOption];
@@ -178,7 +182,7 @@ static class MainMenu
 
     public static bool Asc()
     {
-        string [] MenuOptions = ["1. Aflopend", "2. Oplopend"];
+        string[] MenuOptions = ["1. Aflopend", "2. Oplopend"];
         int CurrentOption = 0;
         while (true)
         {
@@ -203,11 +207,11 @@ static class MainMenu
             switch (KeyInfo.Key)
             {
                 case ConsoleKey.UpArrow:
-                    CurrentOption = (CurrentOption == 0)? 1 : 0;
+                    CurrentOption = (CurrentOption == 0) ? 1 : 0;
                     break;
 
                 case ConsoleKey.DownArrow:
-                    CurrentOption = (CurrentOption == 1)? 0 : 1;
+                    CurrentOption = (CurrentOption == 1) ? 0 : 1;
                     break;
                 case ConsoleKey.Enter:
                     return CurrentOption == 1;
@@ -290,4 +294,4 @@ static class MainMenu
     //     } while (!ValidInput);
     //     return ChosenFilm;
     // }
-    }
+}

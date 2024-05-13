@@ -6,7 +6,7 @@ public static class MainFunctions
     {
         List<Film> filmList = JsonReader.ReadFilmJson();
         ListFunctions.Display(filmList);
-        Film chosenFilm = MainMenu.Choose(filmList); // function for choosing film
+        Film chosenFilm = MainMenu.ShowFilmList(filmList); // function for choosing film
 
 
         var chosenDateAndZaal = ListFunctions.ChooseShowing(chosenFilm); // chosenFIlm in here
