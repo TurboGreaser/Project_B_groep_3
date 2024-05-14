@@ -1,0 +1,31 @@
+Date,FilmName,FilmGenre,FilmDurationInMinutes,AmountSpent,SeatCount,Age
+2022-12-30 12:30,Inception,Sci-Fi Thriller,148,69,6,null
+2024-05-06 21:00,The Matrix,Sci-Fi Action,136,50,4,null
+2024-11-15 15:02,Forrest Gump,Drama Romantiek,142,50,4,null
+2024-11-24 15:00,Spider-man: no way home,Action,148,40,3,null
+2024-11-15 15:02,Forrest Gump,Drama Romantiek,142,125,1,null
+2024-11-15 15:02,Forrest Gump,Drama Romantiek,142,90,2,null
+2023-08-10 18:45,Avatar,Sci-Fi Adventure,162,60,5,null
+2023-09-20 14:30,Pulp Fiction,Crime Drama,154,45,3,null
+2024-03-05 19:00,Interstellar,Sci-Fi Adventure,169,70,6,null
+2024-06-15 17:30,The Shawshank Redemption,Drama,142,55,4,null
+2023-11-18 20:15,The Dark Knight,Action Crime,152,50,4,null
+2023-04-22 16:45,Forrest Gump,Drama Romantiek,142,65,5,null
+2023-05-28 14:00,The Lord of the Rings: The Return of the King,Fantasy Adventure,201,80,7,null
+2023-10-08 21:30,Schindler's List,Drama History,195,75,6,null
+2023-12-12 18:00,The Godfather,Crime Drama,175,65,5,null
+2024-01-20 20:45,Fight Club,Drama Thriller,139,45,3,null
+2024-08-02 19:30,The Lord of the Rings: The Fellowship of the Ring,Fantasy Adventure,178,60,5,null
+2024-09-18 17:00,The Matrix Reloaded,Sci-Fi Action,138,50,4,null
+2024-10-25 21:15,The Matrix Revolutions,Sci-Fi Action,129,45,3,null
+2022-09-05 16:30,Inception,Sci-Fi Thriller,148,70,6,null
+2022-10-12 19:15,Pulp Fiction,Crime Drama,154,50,4,null
+2022-11-22 14:00,The Dark Knight,Action Crime,152,45,3,null
+2023-01-02 21:45,Forrest Gump,Drama Romantiek,142,65,5,null
+2023-02-18 17:30,The Lord of the Rings: The Return of the King,Fantasy Adventure,201,80,7,null
+2023-03-25 20:00,Schindler's List,Drama History,195,75,6,null
+2023-04-30 18:15,The Godfather,Crime Drama,175,65,5,null
+2023-06-11 21:30,Fight Club,Drama Thriller,139,45,3,null
+2023-07-20 19:00,The Lord of the Rings: The Fellowship of the Ring,Fantasy Adventure,178,60,5,null
+2023-09-04 17:30,The Matrix Reloaded,Sci-Fi Action,138,50,4,null
+2023-10-15 20:45,The Matrix Revolutions,Sci-Fi Action,129,45,3,null
