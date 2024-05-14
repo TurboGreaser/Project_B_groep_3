@@ -3,8 +3,66 @@ namespace Project_B;
 static class MainMenu
 
 {
+<<<<<<< Updated upstream
     private static List<Film> films = JsonReader.ReadFilmJson();
     
+=======
+    public static List<Film> films = JsonReader.ReadFilmJson();
+    public static List<Film> SortedFilm = ListFunctions.SortList(films, "Price");
+
+    public static Accounts account = new() { Email = "NoEmail", Age = 99 };
+    public static Film ShowFilmList(List<Film> SortedFilm)
+
+
+    {
+        int IndexOfCurrentOption = 0;
+        while (true)
+        {
+            Console.Clear();
+            foreach (Film f in SortedFilm)
+            {
+                int index = SortedFilm.IndexOf(f);
+                if (index == IndexOfCurrentOption)
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
+                    Console.Write($"{index + 1}. {f.CompactInfo()}   <-- \n");
+
+                }
+                else
+                {
+                    Console.WriteLine($"{index + 1}. {f.CompactInfo()}");
+                }
+
+                Console.ResetColor();
+            }
+            Console.WriteLine("\n\nDruk op 'S' om te sorteren       Druk op 'Z' om te zoeken       Druk op 'Esc' om terug naat het menu te gaan");
+            ConsoleKeyInfo KeyInput = Console.ReadKey(true);
+            switch (KeyInput.Key)
+            {
+                case ConsoleKey.UpArrow:
+                    IndexOfCurrentOption = (IndexOfCurrentOption == 0) ? SortedFilm.Count - 1 : IndexOfCurrentOption - 1;
+                    break;
+                case ConsoleKey.DownArrow:
+                    IndexOfCurrentOption = (IndexOfCurrentOption == SortedFilm.Count - 1) ? 0 : IndexOfCurrentOption + 1;
+                    break;
+                case ConsoleKey.Enter:
+                    return films[IndexOfCurrentOption];
+
+
+                case ConsoleKey.S:
+                    List<Film> Sorted_List = SortFilmList(SortedFilm);
+                    Film Chosen_Film = ShowFilmList(Sorted_List);
+                    return Chosen_Film;
+                case ConsoleKey.Z:
+                    List<Film> Filtered_List = SearchForFilm(films);
+                    return ShowFilmList(Filtered_List);
+                case ConsoleKey.Escape:
+                    return null;
+            }
+        }
+    }
+
+>>>>>>> Stashed changes
     public static void ShowMenu()
     {
         bool ValidInput;
