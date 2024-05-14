@@ -34,6 +34,42 @@ public static class Json_writer
         bool emptyFile = false;
         double totalPrice = -1;
 
+        if (email == "NoEmail")
+        {
+            Console.WriteLine("Je bent niet ingelogd");
+            Console.WriteLine("druk op (enter) en vul je email in of druk op (esc) en log in");
+            ConsoleKeyInfo keyInfo;
+            while (true)
+            {
+                keyInfo = Console.ReadKey();
+                if (keyInfo.Key == ConsoleKey.Escape)
+                {
+                    return -1;
+                }
+                else if (keyInfo.Key == ConsoleKey.Enter)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Vul nu je email in:");
+                    email = Console.ReadLine();
+
+                    if (email != null && email != "")
+                    {
+                        if (AddAccount.ParseEmail(email) != (null, null, null))
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("email moet in example@gamil.com formaat zijn");
+                        }
+
+                    }
+                }
+            }
+
+
+        }
+
         // first return unavailble seats list
         if (!File.Exists(fileName))
         {
@@ -45,18 +81,11 @@ public static class Json_writer
         }
         else
         {
-            // read file
-            string readJson = File.ReadAllText(fileName);
-            // make list of reservation objects
-            reservations = JsonConvert.DeserializeObject<List<ReservationJsonObj>>(readJson)!;
-            // look for reservation with same id
-            foreach (ReservationJsonObj reservation in reservations!)
+            existringReservation = existingrservationfinder(fileName, film, datum, zaal);
+            unavailavble_seats = new List<int>(existringReservation.Seats);
+            if (unavailavble_seats == null)
             {
-                if ($"{film.Name} {film.Director} {datum} {zaal.ID}" == reservation.ID)
-                {
-                    unavailavble_seats = reservation.Seats;
-                    existringReservation = reservation;
-                }
+                unavailavble_seats = new List<int>() { };
             }
         }
         // now select your seat
@@ -100,6 +129,10 @@ public static class Json_writer
                 // add seat and email to reservation and write the updated list
                 existringReservation.Seats.Add(seat);
                 existringReservation.Emails.Add(email);
+
+                string readJson = File.ReadAllText(fileName);
+                reservations = JsonConvert.DeserializeObject<List<ReservationJsonObj>>(readJson)!;
+
                 for (int i = 0; i < reservations.Count; i++)
                 {
                     if (reservations[i].ID == existringReservation.ID)
