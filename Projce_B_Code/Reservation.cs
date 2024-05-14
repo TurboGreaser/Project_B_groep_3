@@ -11,9 +11,6 @@ public static class Reservation
         Console.ReadLine();
 
 
-<<<<<<< Updated upstream
-        Json_writer.WriteReservationToJSON(film, zaal, date, age, email: email);
-=======
         double price = Json_writer.WriteReservationToJSON(film, zaal, date, age, email: email);
         if (price != -1)
         {
@@ -39,7 +36,6 @@ public static class Reservation
         }
 
 
->>>>>>> Stashed changes
 
     }
 
@@ -72,15 +68,9 @@ public static class Reservation
             // :C formats the string to print as euro
             Console.Clear();
             Console.WriteLine("De totale prijs is");
-<<<<<<< Updated upstream
-            Console.WriteLine($"Film: {basePrice}");
-            Console.WriteLine($"Luxe Zitplaats: {seatFee}");
-            Console.WriteLine($"Oner 18 tarief {ageFee}");
-=======
             Console.WriteLine($"Film: {basePrice * seatCount:C} ({basePrice:C} * {seatCount})");
             Console.WriteLine($"Luxe Zitplaats: {seatFee:C} ({basePrice * 0.1:C} * {luxurySeatCount})");
             Console.WriteLine($"onder 18 tarief: {ageFee:C} ({basePrice * 0.2:C} * {(ageFee == 0 ? "0" : seatCount)})");
->>>>>>> Stashed changes
             Console.WriteLine($"------------------------------------------ +");
             Console.WriteLine($"Totaal: {basePrice * seatCount + seatFee + ageFee:C}");
 
@@ -91,11 +81,7 @@ public static class Reservation
             if (choice == 1)
             {
                 Console.Clear();
-<<<<<<< Updated upstream
-                Console.WriteLine($"Ideal Betaling van {basePrice + seatFee + ageFee} Euro sucsess!");
-=======
                 Console.WriteLine($"Ideal Betaling van {basePrice * seatCount + seatFee + ageFee} Euro success!");
->>>>>>> Stashed changes
                 Console.WriteLine($"Klik enter om veder te gaaan");
                 Console.ReadLine();
                 return true;
@@ -138,15 +124,6 @@ public static class Reservation
 
             if (keyInfo.Key == ConsoleKey.UpArrow)
             {
-<<<<<<< Updated upstream
-                Console.Clear();
-                Console.WriteLine("Kies 1, 2 of 3");
-                Console.WriteLine($"Klik enter om veder te gaaan");
-                Console.ReadLine();
-            }
-        }
-    }
-=======
                 selectedIndex = (selectedIndex - 1 + optionCount) % optionCount;
             }
             else if (keyInfo.Key == ConsoleKey.DownArrow)
@@ -182,7 +159,6 @@ public static class Reservation
     }
 
 
->>>>>>> Stashed changes
 }
 
 

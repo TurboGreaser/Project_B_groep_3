@@ -25,11 +25,7 @@ public static class Json_writer
         writer.WriteLine(json);
         writer.Close();
     }
-<<<<<<< Updated upstream
-    public static bool WriteReservationToJSON(Film film, Zaal zaal, string datum, int age, string fileName = "Reservations.json", int ChosenSeat = -1, string email = "NoEmail")
-=======
     public static double WriteReservationToJSON(Film film, Zaal zaal, string datum, int age, string fileName = "Reservations.json", List<int> ChosenSeats = null, string email = "NoEmail")
->>>>>>> Stashed changes
     {
         // func that wirtes a reservation to json / makes user choose a film / processes the payment
         List<ReservationJsonObj> reservations = new() { };
@@ -66,18 +62,6 @@ public static class Json_writer
         // skips this step if ChosenSeat is null this for unit testing
         if (ChosenSeats == null)
         {
-<<<<<<< Updated upstream
-            ChosenSeat = SeatSelection.SelectSeat(zaal.Size, unavailavble_seats);
-            if (ChosenSeat == -1)
-            { return false; }
-            // pay for your seat
-            double price = SeatSaleRoom.GetMoviePrice(film.Name);
-            double seatFee = SeatSaleRoom.IsExpensive(zaal.Size, ChosenSeat) ? price * 0.2 : 0; // 20% etra for expensive seat
-            double ageFee = age < 18 ? price * 0.2 : 0; // 20% extra for inder 18 customer
-            // if customer doesnt pay return false
-            if (!Reservation.PrintPrice(price, seatFee, ageFee))
-            { return false; }
-=======
             ChosenSeats = SeatSelection.SelectSeat(zaal.Size, unavailavble_seats);
             // retruns null if you press escape in seat selection (goes back to main menu)
             if (ChosenSeats == null)
@@ -95,11 +79,10 @@ public static class Json_writer
 
                 ageFee = age < 18 ? price * 0.2 : 0; // 20% extra for under 18 customer
             }
-            totalPrice = price * ChosenSeats.Count() + seatFee + ageFee;
+            double totalPrice = price * ChosenSeats.Count() + seatFee + ageFee;
             // if customer doesnt pay return false
             if (!Reservation.PrintPrice(price, seatFee, ageFee, ChosenSeats.Count(), luxurySeatCount))
             { return -1; }
->>>>>>> Stashed changes
         }
 
         // call write funcs for each seat seperately
@@ -125,27 +108,6 @@ public static class Json_writer
                     }
                 }
 
-<<<<<<< Updated upstream
-
-        // write reservation to json
-        if (emptyFile)
-        {
-            // write new file / write to empty file
-            return WriteReservationToEmptyFile(zaal, datum, film, fileName, ChosenSeat, email);
-        }
-        else if (existringReservation != null)
-        {
-            // add seat and email to reservation and write the updated list
-            existringReservation.Seats.Add(ChosenSeat);
-            existringReservation.Emails.Add(email);
-            var json = JsonConvert.SerializeObject(reservations);
-            return WriteReservationsToJSON(reservations, fileName);
-        }
-        else
-        {
-            // add new reservation to file
-            return AddNewReservationToFile(reservations, film, datum, zaal, fileName, ChosenSeat, email);
-=======
                 var json = JsonConvert.SerializeObject(reservations);
                 WriteReservationsToJSON(reservations, fileName);
             }
@@ -157,8 +119,8 @@ public static class Json_writer
             // after writing the first seat update the existringReservation and set emtyfile bool to false
             emptyFile = false;
             existringReservation = existingrservationfinder(fileName, film, datum, zaal);
->>>>>>> Stashed changes
         }
+        return 1;
 
     }
 

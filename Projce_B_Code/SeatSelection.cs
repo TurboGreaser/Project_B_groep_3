@@ -19,14 +19,10 @@ public static class SeatSelection
 
             Console.WriteLine("De gele Stoelen zijn 10% duurder\n");
             Console.WriteLine("Kies een stoel met de pijtjes toetsen, Rood = Bezet");
-<<<<<<< Updated upstream
-            Console.WriteLine("De gele Stoelen zijn 20% duurder");
-=======
             Console.WriteLine("Druk op (Esc) om terug te gaan naar het menu");
             Console.WriteLine("Druk op (Enter) om een stoel te kiezen");
             Console.WriteLine("Druk op (C) om verder te gaan naar betalen ");
 
->>>>>>> Stashed changes
             for (int i = 0; i < size; i++)
             {
                 for (int j = 0; j < size; j++)
@@ -169,10 +165,6 @@ public static class SeatSelection
                 }
             }
         }
-<<<<<<< Updated upstream
-        Console.WriteLine($"You have selected seat {seat}");
-        Console.WriteLine($"You have selected seat {seat}");
-=======
         Console.ForegroundColor = ConsoleColor.DarkGreen;
 
         string massage = seats.Count() == 1 ? "stoel" : "de stoelen";
@@ -180,7 +172,6 @@ public static class SeatSelection
         Console.ForegroundColor = ConsoleColor.White;
 
         Console.WriteLine("\nDruk Enter om verder te gaan");
->>>>>>> Stashed changes
         Console.ReadLine();
         return seats;
     }
