@@ -6,7 +6,7 @@ static class MainMenu
     public static List<Film> films = JsonReader.ReadFilmJson();
     public static List<Film> SortedFilm = ListFunctions.SortList(films, "Price");
 
-    public static Accounts account = new() { Email = "NoEmail", Age = -1 };
+    public static Accounts account = new() { Email = "NoEmail", Age = 999 };
     public static Film ShowFilmList(List<Film> SortedFilm)
     {
         int IndexOfCurrentOption = 0;

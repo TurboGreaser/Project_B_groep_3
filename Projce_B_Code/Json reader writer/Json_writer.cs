@@ -82,11 +82,9 @@ public static class Json_writer
         else
         {
             existringReservation = existingrservationfinder(fileName, film, datum, zaal);
-            unavailavble_seats = new List<int>(existringReservation.Seats);
-            if (unavailavble_seats == null)
-            {
-                unavailavble_seats = new List<int>() { };
-            }
+            if (existringReservation != null)
+            { unavailavble_seats = new List<int>(existringReservation.Seats); }
+
         }
         // now select your seat
         // skips this step if ChosenSeat is null this for unit testing
@@ -148,12 +146,15 @@ public static class Json_writer
             else
             {
                 // add new reservation to file
+                string readJson = File.ReadAllText(fileName);
+                reservations = JsonConvert.DeserializeObject<List<ReservationJsonObj>>(readJson)!;
                 AddNewReservationToFile(reservations, film, datum, zaal, fileName, seat, email);
             }
             // after writing the first seat update the existringReservation and set emtyfile bool to false
             emptyFile = false;
             existringReservation = existingrservationfinder(fileName, film, datum, zaal);
         }
+        StatisticsManager.AddPaymentDatapoint(totalPrice, film, ChosenSeats.Count(), datum, age);
         return totalPrice;
 
     }
