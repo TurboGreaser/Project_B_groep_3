@@ -30,7 +30,7 @@ public static class AccountMenuQ
     //     return;
     // }
 
-    public static void Choose()
+    public static Accounts Choose()
     {
         string[] MenuOptions = ["Maak een account", "Log In", "doorgaan zonder account"];
         int CurrentOption = 0;
@@ -64,17 +64,17 @@ public static class AccountMenuQ
                 case ConsoleKey.Enter:
                     if (CurrentOption == 0)
                     {
-                        AddAccount.MakeAccount();
-                        return;
+
+                        var emailPasssTuple = AddAccount.MakeAccount();
+                        return LoginAccount.Login(emailPasssTuple.Item1, emailPasssTuple.Item2);
                     }
                     else if (CurrentOption == 1)
                     {
-                        Inloggen();
-                        break;
+                        return Inloggen();
                     }
                     else
                     {
-                        return;
+                        return null;
                     }
             }
         }

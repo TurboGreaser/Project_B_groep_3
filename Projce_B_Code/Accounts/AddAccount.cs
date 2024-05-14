@@ -14,7 +14,7 @@ public static class AddAccount
     private static string text = File.ReadAllText(jsonfilepath);
     private static List<Accounts> useraccounts = JsonConvert.DeserializeObject<List<Accounts>>(text);
 
-    public static void MakeAccount()
+    public static (string, string) MakeAccount()
     {
         Console.WriteLine("De terms en conditions zijn als volgt:\nDoor gebruik te maken van deze dienst gaat u akkoord met deze Algemene Voorwaarden.\nIndien u niet akkoord gaat met deze voorwaarden, dient u geen gebruik te maken van de dienst.");
         Console.WriteLine("Druk op een knop om verder te gaan");
@@ -54,12 +54,12 @@ public static class AddAccount
                 case ConsoleKey.Enter:
                     if (CurrentOption == 0)
                     {
-                        Gegevens();
-                        return;
+                        // function for making account
+                        return Gegevens();
                     }
                     else
                     {
-                        return;
+                        return ("", "");
                     }
             }
         }
@@ -160,38 +160,40 @@ public static class AddAccount
 
     }
 
-    public static void Gegevens()
+    public static (string, string) Gegevens()
     {
-        // (string, bool) UserNameTuple = GetUserName();
+        (string, bool) UserNameTuple = GetUserName();
         //Kijk of de UserName all bestaat in de Json, als het nog niet bestaat in de Json dan mag de gebruiker deze UserName hebben anders niet.
-        // while (!UserNameTuple.Item2)
-        // {
-        //     UserNameTuple = GetUserName();
-        // }
-        // string UserName = UserNameTuple.Item1;
+        while (!UserNameTuple.Item2)
+        {
+            UserNameTuple = GetUserName();
+        }
+        string UserName = UserNameTuple.Item1;
 
-        // var EmailTuple = GetEmail();
-        // while (!EmailTuple.Item2)
-        // {
-        //     EmailTuple = GetEmail();
-        // }
-        // Email = EmailTuple.Item1;
-        // //nu age
-        // int Age = GetAge();
-        // while (Age == -1)
-        // {
-        //     Age = GetAge();
-        // }
+        var EmailTuple = GetEmail();
+        while (!EmailTuple.Item2)
+        {
+            EmailTuple = GetEmail();
+        }
+        Email = EmailTuple.Item1;
+        //nu age
+        int Age = GetAge();
+        while (Age == -1)
+        {
+            Age = GetAge();
+        }
         string Password = Wachtwoord();
         while (Password == "0")
         {
             Password = Wachtwoord();
         }
+        string rawPass = Password;
         Password = Stringcode.Base64Encode(Password);
 
         //Stuur deze Info naar de Json class waarin het naar json wordt gestuurd
         AddAccountToJson addnewacc = new(UserName, Email, Age, Password);
         addnewacc.AddToJson();
+        return (Email, rawPass);
 
     }
 

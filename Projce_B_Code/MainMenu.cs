@@ -63,6 +63,14 @@ static class MainMenu
         while (true)
         {
             Console.Clear();
+            if (account.Email == "NoEmail")
+            {
+                Console.WriteLine($"je bent niet ingelogd");
+            }
+            else
+            {
+                Console.WriteLine($"Je bent igeloged als {account.Username} met email: ({account.Email})");
+            }
             for (int i = 0; i < MenuOptions.Length; i++)
             {
                 if (i == IndexOfCurrentOption)
@@ -102,7 +110,11 @@ static class MainMenu
                     else if (Choice == MenuOptions[1])
                     {
                         Console.WriteLine("==Aanmelden==");
-                        AccountMenuQ.Choose();
+                        Accounts accountToLoginWith = AccountMenuQ.Choose();
+                        if (accountToLoginWith != null)
+                        {
+                            account = accountToLoginWith;
+                        }
                         break;
                     }
                     else
