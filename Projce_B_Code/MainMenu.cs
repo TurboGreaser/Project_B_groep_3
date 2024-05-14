@@ -8,8 +8,6 @@ static class MainMenu
 
     public static Accounts account = new() { Email = "NoEmail", Age = -1 };
     public static Film ShowFilmList(List<Film> SortedFilm)
-
-
     {
         int IndexOfCurrentOption = 0;
         while (true)

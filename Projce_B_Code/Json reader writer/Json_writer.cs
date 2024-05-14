@@ -80,7 +80,7 @@ public static class Json_writer
 
                 ageFee = age < 18 ? price * 0.2 : 0; // 20% extra for under 18 customer
             }
-            double totalPrice = price * ChosenSeats.Count() + seatFee + ageFee;
+            totalPrice = price * ChosenSeats.Count() + seatFee + ageFee;
             // if customer doesnt pay return false
             if (!Reservation.PrintPrice(price, seatFee, ageFee, ChosenSeats.Count(), luxurySeatCount))
             { return -1; }
@@ -121,7 +121,7 @@ public static class Json_writer
             emptyFile = false;
             existringReservation = existingrservationfinder(fileName, film, datum, zaal);
         }
-        return 1;
+        return totalPrice;
 
     }
 

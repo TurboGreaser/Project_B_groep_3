@@ -5,19 +5,11 @@ public static class MainFunctions
     public static void MakeNewReservation(Accounts loggedInAccount)
     {
         List<Film> filmList = JsonReader.ReadFilmJson();
-        ListFunctions.Display(filmList);
-        Film chosenFilm = MainMenu.ShowFilmList(filmList); // function for choosing film
-<<<<<<< Updated upstream
-        Film chosenFilm = ListFunctions.ChooseFilm(filmList); // function for choosing film
-
-=======
-        ListFunctions.Display(filmList);
         Film chosenFilm = MainMenu.ShowFilmList(filmList); // function for choosing film
         if (chosenFilm == null)
         {
             return;
         }
->>>>>>> Stashed changes
 
         var chosenDateAndZaal = ListFunctions.ChooseShowing(chosenFilm); // chosenFIlm in here
 
