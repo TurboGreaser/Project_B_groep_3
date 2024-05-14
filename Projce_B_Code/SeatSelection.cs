@@ -17,9 +17,12 @@ public static class SeatSelection
             int index = 1;
             List<int> expensiveSeats = SeatSaleRoom.GetMiddleSeats(size);
 
-            Console.WriteLine("Escape om terug te gaan");
+            Console.WriteLine("De gele Stoelen zijn 10% duurder\n");
             Console.WriteLine("Kies een stoel met de pijtjes toetsen, Rood = Bezet");
-            Console.WriteLine("De gele Stoelen zijn 10% duurder");
+            Console.WriteLine("Druk op (Esc) om terug te gaan naar het menu");
+            Console.WriteLine("Druk op (Enter) om een stoel te kiezen");
+            Console.WriteLine("Druk op (C) om verder te gaan naar betalen ");
+
             for (int i = 0; i < size; i++)
             {
                 for (int j = 0; j < size; j++)
@@ -60,6 +63,11 @@ public static class SeatSelection
                         Console.Clear();
                         return -10;
                     }
+                case ConsoleKey.C:
+                    {
+                        Console.Clear();
+                        return -100;
+                    }
                 case ConsoleKey.UpArrow:
                     selectedIndex = Math.Max(0, selectedIndex - size);
                     break;
@@ -87,51 +95,21 @@ public static class SeatSelection
                     }
                     else
                     {
-                        Console.WriteLine($"Are you sure?");
-                        Console.WriteLine($"Yes  No");
-                        bool Choosing = true;
-                        string yes_no = "yes";
-
-                        while (Choosing)
+                        Console.Clear();
+                        Console.WriteLine($"Je hebt gekozen voor de zitplaats {selectedSeat}");
+                        Console.WriteLine("Weet je het zeker?");
+                        if (ChooseOption())
                         {
-                            Console.Clear();
-                            Console.WriteLine($"Je hebt gekozen voor de zitplaats {selectedSeat}");
-                            Console.WriteLine("Weet je het zeker?");
-                            Draw(yes_no);
-                            Console.WriteLine();
-                            Console.ResetColor();
-                            keyInfo = Console.ReadKey();
-
-                            switch (keyInfo.Key)
-                            {
-                                case ConsoleKey.LeftArrow:
-                                    {
-                                        yes_no = "yes";
-                                        break;
-                                    }
-                                case ConsoleKey.RightArrow:
-                                    {
-
-                                        yes_no = "no";
-                                        break;
-                                    }
-                                case ConsoleKey.Enter:
-                                    {
-                                        if (yes_no == "no")
-                                        {
-                                            return -1;
-
-                                        }
-                                        else
-                                        {
-                                            return selectedSeat;
-                                        }
-                                        // break;
-                                    }
-                            }
-
+                            // yes
+                            return selectedSeat;
+                        }
+                        else
+                        {
+                            // no
+                            return -1;
                         }
                     }
+                    // break for Enter case
                     break;
             }
             continue;
@@ -141,43 +119,118 @@ public static class SeatSelection
 
 
     }
-    private static void Draw(string yes_no)
-    {
-        if (yes_no == "yes")
-        {
-            Console.BackgroundColor = ConsoleColor.Gray;
-            Console.Write("Ja");
-            Console.BackgroundColor = ConsoleColor.Black;
-            Console.Write(" Nee");
-        }
-        else if (yes_no == "no")
-        {
-            Console.BackgroundColor = ConsoleColor.Black;
-            Console.Write("Ja ");
-            Console.BackgroundColor = ConsoleColor.Gray;
-            Console.Write("Nee");
-        }
-        else
-        {
-            Console.Write("Yes No");
 
-        }
-    }
-    public static int SelectSeat(int theathre_size, List<int> unavailableSeats)
+    public static List<int> SelectSeat(int theathre_size, List<int> unavailableSeats)
     {
+        List<int> seats = new() { };
         int seat = -1;
         while (seat < 0)
         {
+            // get seat returns -1 if user chooses "nee" bij weet je het zeker
             seat = SelectSeatCode(theathre_size, unavailableSeats);
+            unavailableSeats.Add(seat);
+
             if (seat == -10)
             {
-                return -1;
+                return null;
+            }
+            if (seat == -100)
+            {
+                if (seats.Count != 0)
+                { break; }
+                else
+                {
+                    Console.WriteLine("Je moet een zitplaats kiezen om veder te gaan");
+                    Console.WriteLine("\nDruk Enter om verder te gaan");
+                    Console.ReadLine();
+
+                }
+            }
+            else if (seat != -1)
+            {
+                seats.Add(seat);
+                Console.Clear();
+
+                Console.WriteLine($"Je hebt voor stoel {seat} gekozen");
+                Console.WriteLine($"Wil nog een stoel kiezen?");
+                // choose ja to choose another seat
+                if (ChooseOption())
+                {
+                    // set seat to -1 to continue loop
+                    seat = -1;
+                }
+                else
+                {
+                    break;
+                }
             }
         }
-        Console.WriteLine($"Je hebt voor stoel {seat} gekozen");
+        Console.ForegroundColor = ConsoleColor.DarkGreen;
+
+        string massage = seats.Count() == 1 ? "stoel" : "de stoelen";
+        Console.WriteLine($"Je hebt {massage} {ConvertIntListToString(seats)} gekozen");
+        Console.ForegroundColor = ConsoleColor.White;
+
+        Console.WriteLine("\nDruk Enter om verder te gaan");
         Console.ReadLine();
-        return seat;
+        return seats;
     }
 
+
+    public static bool ChooseOption()
+    {
+        Console.WriteLine("Gebruik pijltoetsen om te kiezen:");
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.WriteLine("-> Ja");
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.WriteLine("   Nee");
+
+        int selectedIndex = 0;
+        while (true)
+        {
+            ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+
+            if (keyInfo.Key == ConsoleKey.UpArrow)
+            {
+                selectedIndex = Math.Max(0, selectedIndex - 1);
+            }
+            else if (keyInfo.Key == ConsoleKey.DownArrow)
+            {
+                selectedIndex = Math.Min(1, selectedIndex + 1);
+            }
+            else if (keyInfo.Key == ConsoleKey.Enter)
+            {
+                Console.ForegroundColor = ConsoleColor.White;
+                return selectedIndex == 0;
+            }
+
+            Console.SetCursorPosition(0, Console.CursorTop - 2); // Verplaats cursor omhoog
+            Console.CursorVisible = false;
+
+            Console.ForegroundColor = selectedIndex == 0 ? ConsoleColor.Green : ConsoleColor.White;
+            Console.WriteLine(selectedIndex == 0 ? "-> Ja" : "   Ja");
+            Console.ForegroundColor = selectedIndex == 1 ? ConsoleColor.Green : ConsoleColor.White;
+            Console.WriteLine(selectedIndex == 1 ? "-> Nee" : "   Nee");
+        }
+    }
+
+    private static string ConvertIntListToString(List<int> numbers)
+    {
+        if (numbers == null || numbers.Count == 0)
+        {
+            return "";
+        }
+
+        string result = numbers[0].ToString();
+        for (int i = 1; i < numbers.Count; i++)
+        {
+            result += ", " + numbers[i];
+        }
+        return result;
+    }
 }
+
+
+
+
 
