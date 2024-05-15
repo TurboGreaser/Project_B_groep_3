@@ -1,16 +1,14 @@
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
+
 using System.Globalization;
-using System.IO;
-using System.Linq;
+
 
 public static class SaleMovie
 {
     private const int SalePercent = 20;
     private const int SaleStartHoursBefore = 3;
 
-    public static (double Price, int SalePercent, DateTime SaleStartTime)? GetSaleDetails(string movieName, DateTime currentTime = default)
+    public static double GetSaleDetails(string movieName, DateTime currentTime = default)
     {
         string jsonFilePath = "Films.json";
         string text = File.ReadAllText(jsonFilePath);
@@ -19,25 +17,37 @@ public static class SaleMovie
         Film movie = films.Find(film => film.Name == movieName);
 
         if (movie == null)
-            return null; // Movie not found
+            return 0; 
 
-        var upcomingShowings = movie.Showings
-            .Where(kv => DateTime.ParseExact(kv.Key, "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture) > currentTime)
-            .OrderBy(kv => DateTime.ParseExact(kv.Key, "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture))
+        var upcomingShowings = movie.Showings // kijkt hvl film speelt, min -3 uur en plaatst in list
+            .Select(kv => DateTime.ParseExact(kv.Key, "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture).AddHours(-SaleStartHoursBefore))
+            .OrderBy(showing => showing)
             .ToList();
 
-        if (upcomingShowings.Count == 0)
-            return null; // No upcoming showings
+        bool isDiscountApplied = false;
+        DateTime saleStartTime = DateTime.MaxValue;
 
-        var nextShowing = upcomingShowings.First();
-        DateTime saleStartTime = DateTime.ParseExact(nextShowing.Key, "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture)
-            .AddHours(-SaleStartHoursBefore);
+        foreach (var showing in upcomingShowings)
+        {
+            DateTime movieStartTime = showing.AddHours(SaleStartHoursBefore); // zet showing naar begin tijd van film
 
-        if (saleStartTime <= currentTime)
-            return null; // Sale already started or within 3 hours
+            if (currentTime >= showing && currentTime < movieStartTime) // checkt of tijd van user is tussen sale begin en film begin
+            {
+                saleStartTime = showing;
+                isDiscountApplied = true;
+                break;
+            }
+        }
 
-        double salePrice = movie.Price - (movie.Price * SalePercent / 100);
 
-        return (salePrice, SalePercent, saleStartTime);
+        if (isDiscountApplied)
+        {
+            double salePrice = movie.Price - (movie.Price * SalePercent / 100);
+            return Math.Round(salePrice, 2); 
+        }
+        else
+        {
+            return Math.Round(movie.Price, 2); 
+        }
     }
 }
