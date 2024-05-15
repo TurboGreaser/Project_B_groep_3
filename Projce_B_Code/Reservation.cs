@@ -81,7 +81,7 @@ public static class Reservation
             if (choice == 1)
             {
                 Console.Clear();
-                Console.WriteLine($"Ideal Betaling van {basePrice * seatCount + seatFee + ageFee} Euro success!");
+                Console.WriteLine($"Ideal Betaling van {basePrice * seatCount + seatFee + ageFee:C} success!");
                 Console.WriteLine($"Klik enter om veder te gaaan");
                 Console.ReadLine();
                 return true;
@@ -90,7 +90,7 @@ public static class Reservation
             else if (choice == 2)
             {
                 Console.Clear();
-                Console.WriteLine($"Betaal: {basePrice * seatCount + seatFee + ageFee} Euro aan de balie ");
+                Console.WriteLine($"Betaal: {basePrice * seatCount + seatFee + ageFee:C} aan de balie ");
                 Console.WriteLine($"Klik enter om veder te gaaan");
                 Console.ReadLine();
                 return true;
