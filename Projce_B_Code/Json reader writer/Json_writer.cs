@@ -39,9 +39,10 @@ public static class Json_writer
             Console.WriteLine("Je bent niet ingelogd");
             Console.WriteLine("druk op (enter) en vul je email in of druk op (esc) en log in");
             ConsoleKeyInfo keyInfo;
+            keyInfo = Console.ReadKey();
+
             while (true)
             {
-                keyInfo = Console.ReadKey();
                 if (keyInfo.Key == ConsoleKey.Escape)
                 {
                     return -1;
@@ -61,14 +62,66 @@ public static class Json_writer
                         else
                         {
                             Console.WriteLine("email moet in example@gamil.com formaat zijn");
+                            Console.WriteLine("\nDruk Enter en probeer het opnieuw");
+                            Console.ReadLine();
+
+
                         }
 
                     }
                 }
             }
-
-
         }
+        if (age == 999)
+        {
+            Console.WriteLine("Je bent niet ingelogd");
+            Console.WriteLine("druk op (enter) en vul je leeftijd in in of druk op (esc) en log in");
+            ConsoleKeyInfo keyInfo;
+            keyInfo = Console.ReadKey();
+
+            while (true)
+            {
+                if (keyInfo.Key == ConsoleKey.Escape)
+                {
+                    return -1;
+                }
+                else if (keyInfo.Key == ConsoleKey.Enter)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Vul nu je leeftijd in:");
+                    try
+                    {
+                        int ageAttempt = Convert.ToInt32(Console.ReadLine());
+                        if (ageAttempt < 0 || ageAttempt > 111)
+                        {
+                            string message = ageAttempt < 0 ? "Leeftijd kan niet negatief zijn" : "leeftijd kan niet boven 111 zijn";
+                            Console.WriteLine(message);
+                            Console.WriteLine("\nDruk Enter en probeer het opnieuw");
+                            Console.ReadLine();
+
+
+                        }
+                        else
+                        {
+                            // valid age
+                            age = ageAttempt;
+                            break;
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        Console.WriteLine("leeftijd moet een nummer zijn");
+                        Console.WriteLine("\nDruk Enter en probeer het opnieuw");
+                        Console.ReadLine();
+
+
+                    }
+                }
+            }
+        }
+
+
+
 
         // first return unavailble seats list
         if (!File.Exists(fileName))

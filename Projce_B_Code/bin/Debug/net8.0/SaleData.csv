@@ -29,3 +29,5 @@ Date,FilmName,FilmGenre,FilmDurationInMinutes,AmountSpent,SeatCount,Age
 2023-07-20 19:00,The Lord of the Rings: The Fellowship of the Ring,Fantasy Adventure,178,60,5,null
 2023-09-04 17:30,The Matrix Reloaded,Sci-Fi Action,138,50,4,null
 2023-10-15 20:45,The Matrix Revolutions,Sci-Fi Action,129,45,3,null
+2022-12-30 12:30,The Godfather,Drama,175,51,2,null
+2022-12-30 12:30,Inception,Sci-Fi  Thriller,148,26 45,2,12

@@ -69,8 +69,8 @@ public static class Reservation
             Console.Clear();
             Console.WriteLine("De totale prijs is");
             Console.WriteLine($"Film: {basePrice * seatCount:C} ({basePrice:C} * {seatCount})");
-            Console.WriteLine($"Luxe Zitplaats: {seatFee:C} ({basePrice * 0.1:C} * {luxurySeatCount})");
-            Console.WriteLine($"onder 18 tarief: {ageFee:C} ({basePrice * 0.2:C} * {(ageFee == 0 ? "0" : seatCount)})");
+            Console.WriteLine($"Luxe Zitplaats: {seatFee * luxurySeatCount:C} ({basePrice * 0.1:C} * {luxurySeatCount})");
+            Console.WriteLine($"onder 18 tarief: {ageFee * seatCount:C} ({basePrice * 0.2:C} * {(ageFee == 0 ? "0" : seatCount)})");
             Console.WriteLine($"------------------------------------------ +");
             Console.WriteLine($"Totaal: {basePrice * seatCount + seatFee + ageFee:C}");
 

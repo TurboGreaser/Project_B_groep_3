@@ -5,7 +5,7 @@ class ConfirmationMessage
     {
         Console.WriteLine("Uw reservering is succesvol geplaatst.");
         Console.WriteLine($"Film: {film.Name}");
-        Console.WriteLine($"Zaal: {date}");
+        Console.WriteLine($"datum: {date}");
         Console.WriteLine($"Prijs: {total_price:C}");
         Console.WriteLine(" ");
     }
