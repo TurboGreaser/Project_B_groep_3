@@ -49,7 +49,7 @@ public static class Reservation
         {
             foreach (var showing in film.Showings)
             {
-                if (showing.Key == date && showing.Value == zaal.ID)
+                if (showing.Item1 == date && showing.Item2 == zaal.ID)
                 {
                     return zaal;
                 }

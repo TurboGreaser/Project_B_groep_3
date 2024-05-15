@@ -54,9 +54,9 @@ namespace Project_B
             foreach (Film film in filmsToday)
             {
                 Console.WriteLine($"- {film.Name}:");
-                foreach (KeyValuePair<string, int> showing in film.Showings)
+                foreach(var showing in film.Showings)
                 {
-                    DateTime showingTime = DateTime.Parse(showing.Key);
+                    DateTime showingTime = DateTime.Parse(showing.Item1);
                     Console.WriteLine($"    {showingTime.ToString("HH:mm")}"); // Toon alleen de tijd
                 }
             }
@@ -82,9 +82,9 @@ namespace Project_B
 
             foreach (Film film in films)
             {
-                foreach (KeyValuePair<string, int> showing in film.Showings)
+                foreach ((string,int) showing in film.Showings)
                 {
-                    DateTime showingDate = DateTime.Parse(showing.Key);
+                    DateTime showingDate = DateTime.Parse(showing.Item1);
                     if (showingDate.Date == currentTime.Date)
                     {
                         filmsToday.Add(film);

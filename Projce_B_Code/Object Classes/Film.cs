@@ -8,8 +8,8 @@ public class Film
     public double Price;
     public string Director;
     public string Description;
-    public Dictionary<string, int> Showings;
-    public Film(string name, string genre, int duration, double price, string director, string description, Dictionary<string, int> showings)
+    public List<(string,int)> Showings;
+    public Film(string name, string genre, int duration, double price, string director, string description, List<(string,int)> showings)
     {
         Name = name;
         Genre = genre;
@@ -36,7 +36,7 @@ public class Film
 
     public string CompactInfo()
     {
-        return $"{Name} | {Director} | {Genre} | {Duration_in_minutes} | {GetFirstShowing()} | {Price} euro";
+        return $"{Name} | {Director} | {Genre} | {Duration_in_minutes} | {Price} euro";
     }
 
     private string FormatShowings()
@@ -46,7 +46,7 @@ public class Film
             string formattedShowings = "";
             foreach (var showing in Showings)
             {
-                formattedShowings += $"Datum: {showing.Key}, Zaal: {showing.Value}\n";
+                formattedShowings += $"Datum: {showing.Item1}, Zaal: {showing.Item2}\n";
             }
             return formattedShowings;
         }
@@ -69,12 +69,4 @@ public class Film
         }
     }
 
-    private string GetFirstShowing()
-    {
-        foreach (var showing in Showings)
-        {
-            return showing.Key;
-        }
-        return "No Showings Found";
-    }
 }

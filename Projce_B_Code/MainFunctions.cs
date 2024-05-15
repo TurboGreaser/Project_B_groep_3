@@ -13,7 +13,7 @@ public static class MainFunctions
 
         var chosenDateAndZaal = ListFunctions.ChooseShowing(chosenFilm); // chosenFIlm in here
 
-        string chosenDate = chosenDateAndZaal.First().Key;
+        string chosenDate = chosenDateAndZaal.Item1;
 
         Reservation.MakeReservation(chosenFilm, chosenDate, loggedInAccount.Age, loggedInAccount.Email);
     }
