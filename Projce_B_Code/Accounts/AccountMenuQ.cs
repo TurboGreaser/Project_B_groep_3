@@ -1,8 +1,87 @@
-﻿namespace Project_B;
+﻿// namespace Project_B;
 
-public static class AccountMenuQ
-{
-    // public static void Choose()
+// public static class AccountMenuQ
+// {
+
+
+//     public static Accounts Choose()
+//     {
+//         string[] MenuOptions = ["Maak een account", "Log In", "doorgaan zonder account"];
+//         int CurrentOption = 0;
+//         while (true)
+//         {
+//             Console.Clear();
+//             for (int i = 0; i < MenuOptions.Length; i++)
+//             {
+//                 if (i == CurrentOption)
+//                 {
+//                     Console.ForegroundColor = ConsoleColor.DarkGreen;
+//                     Console.Write("--> ");
+//                 }
+//                 else
+//                 {
+//                     Console.Write("    ");
+//                 }
+//                 Console.WriteLine(MenuOptions[i]);
+//                 Console.ResetColor();
+//             }
+
+//             ConsoleKeyInfo KeyInfo = Console.ReadKey(true);
+//             switch (KeyInfo.Key)
+//             {
+//                 case ConsoleKey.UpArrow:
+//                     CurrentOption = (CurrentOption == 0) ? MenuOptions.Length - 1 : CurrentOption - 1;
+//                     break;
+//                 case ConsoleKey.DownArrow:
+//                     CurrentOption = (CurrentOption == MenuOptions.Length - 1) ? 0 : CurrentOption + 1;
+//                     break;
+//                 case ConsoleKey.Enter:
+//                     if (CurrentOption == 0)
+//                     {
+
+//                         var emailPasssTuple = AddAccount.MakeAccount();
+//                         return LoginAccount.Login(emailPasssTuple.Item1, emailPasssTuple.Item2);
+//                     }
+//                     else if (CurrentOption == 1)
+//                     {
+//                         return Inloggen();
+//                     }
+//                     else
+//                     {
+//                         return null;
+//                     }
+//             }
+//         }
+//     }
+
+//     public static Accounts Inloggen()
+//     {
+//         bool Valid = false;
+//         do
+//         {
+//             Console.WriteLine("Vul je email in.");
+//             try
+//             {
+//                 string email = Console.ReadLine();
+//                 Valid = true;
+//                 Console.WriteLine("Vul je wachtwoord in.");
+//                 string password = Console.ReadLine();
+//                 return LoginAccount.Login(email, password);
+//             }
+//             catch (IOException) { }
+
+//             catch (Exception) { }
+//         } while (!Valid);
+//         return null;
+
+//     }
+
+
+// }    
+
+
+//???????????????????????????????????????????????????????????????????????????????????????????????????///
+// public static void Choose()
     // {
     //     Console.WriteLine("Je hebt 3 opties, antwoord met het getal.\n1 : Maak een account\n2 : Log In\n3 : doorgaan zonder account");
     //     string answer = Console.ReadLine();
@@ -30,77 +109,87 @@ public static class AccountMenuQ
     //     return;
     // }
 
-    public static Accounts Choose()
+
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.IO;
+
+namespace Project_B
+{
+    public static class AccountMenuQ
     {
-        string[] MenuOptions = ["Maak een account", "Log In", "doorgaan zonder account"];
-        int CurrentOption = 0;
-        while (true)
+        private static string jsonFilePath = "Accounts.json";
+
+        public static Accounts Choose()
         {
-            Console.Clear();
-            for (int i = 0; i < MenuOptions.Length; i++)
-            {
-                if (i == CurrentOption)
-                {
-                    Console.ForegroundColor = ConsoleColor.DarkGreen;
-                    Console.Write("--> ");
-                }
-                else
-                {
-                    Console.Write("    ");
-                }
-                Console.WriteLine(MenuOptions[i]);
-                Console.ResetColor();
-            }
+            string[] MenuOptions = new string[] { "Maak een account", "Log In", "Doorgaan zonder account" };
+            int CurrentOption = 0;
 
-            ConsoleKeyInfo KeyInfo = Console.ReadKey(true);
-            switch (KeyInfo.Key)
+            while (true)
             {
-                case ConsoleKey.UpArrow:
-                    CurrentOption = (CurrentOption == 0) ? MenuOptions.Length - 1 : CurrentOption - 1;
-                    break;
-                case ConsoleKey.DownArrow:
-                    CurrentOption = (CurrentOption == MenuOptions.Length - 1) ? 0 : CurrentOption + 1;
-                    break;
-                case ConsoleKey.Enter:
-                    if (CurrentOption == 0)
+                Console.Clear();
+                for (int i = 0; i < MenuOptions.Length; i++)
+                {
+                    if (i == CurrentOption)
                     {
-
-                        var emailPasssTuple = AddAccount.MakeAccount();
-                        return LoginAccount.Login(emailPasssTuple.Item1, emailPasssTuple.Item2);
-                    }
-                    else if (CurrentOption == 1)
-                    {
-                        return Inloggen();
+                        Console.ForegroundColor = ConsoleColor.DarkGreen;
+                        Console.Write("--> ");
                     }
                     else
                     {
-                        return null;
+                        Console.Write("    ");
                     }
+                    Console.WriteLine(MenuOptions[i]);
+                    Console.ResetColor();
+                }
+
+                ConsoleKeyInfo KeyInfo = Console.ReadKey(true);
+                switch (KeyInfo.Key)
+                {
+                    case ConsoleKey.UpArrow:
+                        CurrentOption = (CurrentOption == 0) ? MenuOptions.Length - 1 : CurrentOption - 1;
+                        break;
+                    case ConsoleKey.DownArrow:
+                        CurrentOption = (CurrentOption == MenuOptions.Length - 1) ? 0 : CurrentOption + 1;
+                        break;
+                    case ConsoleKey.Enter:
+                        if (CurrentOption == 0)
+                        {
+                            var emailPasssTuple = AddAccount.MakeAccount();
+                            return LoginAccount.Login(emailPasssTuple.Item1, emailPasssTuple.Item2);
+                        }
+                        else if (CurrentOption == 1)
+                        {
+                            return Inloggen();
+                        }
+                        else
+                        {
+                            return null;
+                        }
+                }
             }
         }
-    }
 
-    public static Accounts Inloggen()
-    {
-        bool Valid = false;
-        do
+        public static Accounts Inloggen()
         {
-            Console.WriteLine("Vul je email in.");
-            try
+            bool Valid = false;
+            do
             {
-                string email = Console.ReadLine();
-                Valid = true;
-                Console.WriteLine("Vul je wachtwoord in.");
-                string password = Console.ReadLine();
-                return LoginAccount.Login(email, password);
-            }
-            catch (IOException) { }
+                Console.WriteLine("Vul je email in.");
+                try
+                {
+                    string email = Console.ReadLine();
+                    Valid = true;
+                    Console.WriteLine("Vul je wachtwoord in.");
+                    string password = Console.ReadLine();
+                    return LoginAccount.Login(email, password);
+                }
+                catch (IOException) { }
 
-            catch (Exception) { }
-        } while (!Valid);
-        return null;
-
+                catch (Exception) { }
+            } while (!Valid);
+            return null;
+        }
     }
-
-
 }

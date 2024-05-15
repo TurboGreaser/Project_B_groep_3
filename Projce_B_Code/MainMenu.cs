@@ -55,10 +55,19 @@ static class MainMenu
             }
         }
     }
-
+    
     public static void ShowMenu()
     {
-        string[] MenuOptions = ["1. Reserveren", "2. Aanmelden", "3. Restrant menu", "4. Quit"];
+        
+        string[] MenuOptions;
+        if (LoginAccount.IsLoggedIn == true)
+        {
+            MenuOptions = new string[] { "1. Reserveren", "2. Account bekijken", "3. Restrant menu", "4. Quit" };
+        }
+        else
+        {
+            MenuOptions = new string[] { "1. Reserveren", "2. Aanmelden", "3. Restrant menu", "4. Quit" };
+        }
         int IndexOfCurrentOption = 0;
         while (true)
         {
@@ -109,11 +118,21 @@ static class MainMenu
                     }
                     else if (Choice == MenuOptions[1])
                     {
-                        Console.WriteLine("==Aanmelden==");
-                        Accounts accountToLoginWith = AccountMenuQ.Choose();
-                        if (accountToLoginWith != null)
+                        if (LoginAccount.IsLoggedIn)
                         {
-                            account = accountToLoginWith;
+                            // Toon accountgegevens
+                            Console.WriteLine("==Account bekijken==");
+                            AccountBekijken.View();
+                        }
+                        else
+                        {
+                            // Aanmelden
+                            Console.WriteLine("==Aanmelden==");
+                            Accounts accountToLoginWith = AccountMenuQ.Choose();
+                            if (accountToLoginWith != null)
+                            {
+                                account = accountToLoginWith;
+                            }
                         }
                         break;
                     }
