@@ -6,7 +6,7 @@ static class MainMenu
     public static List<Film> films = JsonReader.ReadFilmJson();
     public static List<Film> SortedFilm = ListFunctions.SortList(films, "Price");
 
-    public static Accounts account = new() { IsLoggedIn = false};
+    public static Accounts account = new() { Email = "NoEmail", Age = 999 };
     public static Film ShowFilmList(List<Film> SortedFilm)
     {
         int IndexOfCurrentOption = 0;
@@ -55,24 +55,24 @@ static class MainMenu
             }
         }
     }
-    
+
     public static void ShowMenu()
     {
-        
-        string[] MenuOptions;
-        if (account.IsLoggedIn)
-        {
-            MenuOptions = ["1. Reserveren", "2. Account bekijken", "3. Restrant menu", "4. Quit"];
-        }
-        else
-        {
-            MenuOptions = ["1. Reserveren", "2. Aanmelden", "3. Restrant menu", "4. Quit"];
-        }
         int IndexOfCurrentOption = 0;
         while (true)
         {
+            string[] MenuOptions;
+            if (account.Email != "NoEmail")
+            {
+                MenuOptions = ["1. Reserveren", "2. Account bekijken", "3. Restrant menu", "4. Quit"];
+            }
+            else
+            {
+                MenuOptions = ["1. Reserveren", "2. Aanmelden", "3. Restrant menu", "4. Quit"];
+            }
+            
             Console.Clear();
-            if (!account.IsLoggedIn)
+            if (account.Email == "NoEmail")
             {
                 Console.WriteLine($"je bent niet ingelogd");
             }
@@ -118,7 +118,7 @@ static class MainMenu
                     }
                     else if (Choice == MenuOptions[1])
                     {
-                        if (account.IsLoggedIn)
+                        if (account.Email != "NoEmail")
                         {
                             // Toon accountgegevens
                             Console.WriteLine("==Account bekijken==");
