@@ -21,7 +21,7 @@ public static class ChangePassword
         {
             if (user.Password == Stringcode.Base64Encode(oldpass) && user.Email == email) // werkt niet bij al gemaakte account want die wachtwoorden zijn niet gehashed in de json, als je wel wilt testen haalt dan "Stringcode.Base64Encode" weg
             {
-                Console.WriteLine("Enter je nieuwe wachtwoord (moet meer dan 3 karakters hebben):");
+                Console.WriteLine("Vul je nieuwe wachtwoord in (moet meer dan 3 karakters hebben):");
                 string firstentpassword = Console.ReadLine();
                 Console.WriteLine("Bevestig je nieuwe wachtwoord:");
                 string secondentpassword = Console.ReadLine();

@@ -17,7 +17,7 @@ public static class Reservation
             ConfirmationMessage.ShowConfirmationMessage(film, date, email, price);
             if (email == "NoEmail")
             {
-                Console.WriteLine("Wilt u nog een account aanmaken?");
+                Console.WriteLine("Wilt u nog een account aanmaken, zodat u de volgende keer NOG sneller kunt reserveren?");
                 if (SeatSelection.ChooseOption())
                 {
                     string answer = Console.ReadLine();

@@ -78,7 +78,7 @@ static class MainMenu
             }
             else
             {
-                Console.WriteLine($"Je bent igeloged als {account.Username} met email: ({account.Email})");
+                Console.WriteLine($"Je bent ingeloged als {account.Username} met email: ({account.Email})");
             }
             for (int i = 0; i < MenuOptions.Length; i++)
             {
@@ -139,6 +139,7 @@ static class MainMenu
                     else
                     {
                         Console.WriteLine("==Restaurant menu==");
+                        MenuStore.PrintMenu();
                         break;
                     }
             }

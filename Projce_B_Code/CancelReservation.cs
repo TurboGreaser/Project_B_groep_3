@@ -30,7 +30,7 @@ public static class CancelReservation
             }
             else
             {
-                Console.WriteLine("Reservering annuleren geannuleerd");
+                Console.WriteLine("Reservering is geannuleerd");
             }
         }
         while (enteredChoice != "ja" && enteredChoice != "nee");
@@ -74,7 +74,7 @@ public static class CancelReservation
 
         if (selectedOption == 0)
         {
-            Console.WriteLine("Annulering geannuleerd.");
+            Console.WriteLine("Reservering geannuleerd.");
             return;
         }
 

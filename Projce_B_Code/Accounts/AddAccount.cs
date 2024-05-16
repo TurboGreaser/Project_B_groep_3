@@ -68,7 +68,7 @@ public static class AddAccount
     public static (string, bool) GetUserName()
     {
         Console.Clear();
-        Console.WriteLine("Enter je gewilde Gebruikersnaam:");
+        Console.WriteLine("Vul je gewilde Gebruikersnaam:");
         string UserName = Console.ReadLine();
         foreach (var user in useraccounts)
         {
@@ -109,7 +109,7 @@ public static class AddAccount
     public static (string, bool) GetEmail()
     {
         Console.Clear();
-        Console.WriteLine("Enter je Email: ");
+        Console.WriteLine("Vul je Email in: ");
         Console.WriteLine("De Email moet in deze format zijn: example@email.com");
         string Email = Console.ReadLine();
         foreach (var account in useraccounts)
@@ -140,7 +140,7 @@ public static class AddAccount
     public static int GetAge()
     {
         Console.Clear();
-        Console.WriteLine("Enter je leeftijd");
+        Console.WriteLine("Vul je leeftijd in");
         int Age = Convert.ToInt32(Console.ReadLine());
         if (Age < 0)
         {
@@ -200,7 +200,7 @@ public static class AddAccount
     public static string Wachtwoord()
     {
         Console.Clear();
-        Console.WriteLine("Enter je wachtwoord");
+        Console.WriteLine("Voer je wachtwoord in");
         Console.WriteLine("Het wachtwoord moet tussen 8 en 20 karakters hebben\nen minimaal een speciale karakter");
         string Password1 = Console.ReadLine();
         string pattern = @"^(?=.*[!@#$%^&*()-=_+[\]{};:'""|<>,./?]).{8,20}$";
