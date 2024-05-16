@@ -115,25 +115,25 @@ public static class ListFunctions
     }
 
 
-    public static (string, int) ChooseShowing(Film film)
+    public static Showing ChooseShowing(Film film)
     {
         int IndexOfCurrentOption = 0;
         while (true)
         {
             Console.Clear();
-            List<(string, int)> Showings = film.Showings;
+            List<Showing> Showings = film.Showings;
             foreach (var showing in Showings)
             {
                 int index = Showings.IndexOf(showing);
                 if (index == IndexOfCurrentOption)
                 {
                     Console.ForegroundColor = ConsoleColor.DarkGreen;
-                    Console.Write($"{index + 1}. Datum: {showing.Item1}, Zaal: {showing.Item2}   <-- \n");
+                    Console.Write($"{index + 1}. Datum: {showing.Datum}, Zaal: {showing.Zaal}   <-- \n");
 
                 }
                 else
                 {
-                    Console.WriteLine($"{index + 1}. Datum: {showing.Item1}, Zaal: {showing.Item2}");
+                    Console.WriteLine($"{index + 1}. Datum: {showing.Datum}, Zaal: {showing.Zaal}");
                 }
 
                 Console.ResetColor();

@@ -56,7 +56,7 @@ namespace Project_B
                 Console.WriteLine($"- {film.Name}:");
                 foreach(var showing in film.Showings)
                 {
-                    DateTime showingTime = DateTime.Parse(showing.Item1);
+                    DateTime showingTime = DateTime.Parse(showing.Datum);
                     Console.WriteLine($"    {showingTime.ToString("HH:mm")}"); // Toon alleen de tijd
                 }
             }
@@ -82,9 +82,9 @@ namespace Project_B
 
             foreach (Film film in films)
             {
-                foreach ((string,int) showing in film.Showings)
+                foreach (Showing showing in film.Showings)
                 {
-                    DateTime showingDate = DateTime.Parse(showing.Item1);
+                    DateTime showingDate = DateTime.Parse(showing.Datum);
                     if (showingDate.Date == currentTime.Date)
                     {
                         filmsToday.Add(film);

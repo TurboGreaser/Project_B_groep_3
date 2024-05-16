@@ -8,8 +8,8 @@ public class Film
     public double Price;
     public string Director;
     public string Description;
-    public List<(string,int)> Showings;
-    public Film(string name, string genre, int duration, double price, string director, string description, List<(string,int)> showings)
+    public List<Showing> Showings;
+    public Film(string name, string genre, int duration, double price, string director, string description, List<Showing> showings)
     {
         Name = name;
         Genre = genre;
@@ -46,7 +46,7 @@ public class Film
             string formattedShowings = "";
             foreach (var showing in Showings)
             {
-                formattedShowings += $"Datum: {showing.Item1}, Zaal: {showing.Item2}\n";
+                formattedShowings += $"Datum: {showing.Datum}, Zaal: {showing.Zaal}\n";
             }
             return formattedShowings;
         }

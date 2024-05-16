@@ -9,7 +9,7 @@ namespace Project_B
         public static void View()
         {
             // Controleer of de gebruiker is ingelogd
-            if (LoginAccount.IsLoggedIn && LoginAccount.CurrentUser != null)
+            if (LoginAccount.CurrentUser != null && LoginAccount.CurrentUser.IsLoggedIn )
             {
                 try
                 {

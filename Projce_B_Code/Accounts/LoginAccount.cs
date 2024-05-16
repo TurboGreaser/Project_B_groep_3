@@ -37,7 +37,6 @@ using System.IO;
 public static class LoginAccount
 {
     private static string jsonFilePath = "Accounts.json";
-    public static bool IsLoggedIn { get; private set; } = false;
     public static Accounts CurrentUser { get; private set; } = null;
 
     public static Accounts Login(string email, string password)
@@ -49,7 +48,7 @@ public static class LoginAccount
         {
             if (user.Password == Stringcode.Base64Encode(password) && user.Email == email)
             {
-                IsLoggedIn = true; // Hier wordt IsLoggedIn ingesteld op true
+                user.IsLoggedIn = true; // Hier wordt IsLoggedIn ingesteld op true
                 CurrentUser = user;
                 return user;
             }
@@ -60,7 +59,7 @@ public static class LoginAccount
 
     public static void Logout()
     {
-        IsLoggedIn = false;
+        CurrentUser.IsLoggedIn = false;
         CurrentUser = null;
     }
 }

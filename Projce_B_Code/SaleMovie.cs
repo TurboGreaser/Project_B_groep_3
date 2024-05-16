@@ -1,5 +1,6 @@
 using Newtonsoft.Json;
-
+using System;
+namespace Project_B;
 using System.Globalization;
 
 
@@ -20,7 +21,7 @@ public static class SaleMovie
             return 0; 
 
         var upcomingShowings = movie.Showings // kijkt hvl film speelt, min -3 uur en plaatst in list
-            .Select(kv => DateTime.ParseExact(kv.Key, "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture).AddHours(-SaleStartHoursBefore))
+            .Select(showing => DateTime.ParseExact(showing.Datum, "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture).AddHours(-SaleStartHoursBefore))
             .OrderBy(showing => showing)
             .ToList();
 
