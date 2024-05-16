@@ -1,7 +1,5 @@
 ﻿
-using Project_B;
-
-namespace Priject_b;
+namespace Project_B;
 
 class Program
 {
@@ -10,9 +8,6 @@ class Program
         // Test reservation cancellation
         // CancelReservation.InfoFromUser("TestEmail1@gmail.com");
         MainMenu.ShowMenu();
-        
 
-    
     }
 }
-  

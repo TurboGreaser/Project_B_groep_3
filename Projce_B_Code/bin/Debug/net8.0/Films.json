@@ -6,11 +6,11 @@
         "Price": 13.5,
         "Director": "test_director",
         "Description": "test descrition",
-        "Showings": {
-            "2022-12-30 12:30": 1,
-            "2024-11-25 15:12": 1,
-            "2024-12-25 15:12": 2
-        }
+        "Showings": [
+            {"Datum": "2022-12-30 12:30", "Zaal": 1},
+            {"Datum": "2024-11-25 15:12", "Zaal": 1},
+            {"Datum": "2024-12-25 15:12", "Zaal": 2}
+        ]
     },
     {
         "Name": "The Godfather",
@@ -19,11 +19,11 @@
         "Price": 25.5,
         "Director": "Francis Ford Coppola",
         "Description": "Een episch verhaal over de opkomst van de maffia in Amerika, gericht op de familie Corleone en de complexe dynamiek van macht, verraad en loyaliteit.",
-        "Showings": {
-            "2022-12-30 12:30": 1,
-            "2024-11-25 15:12": 1,
-            "2024-05-6 15:12": 2
-        }
+        "Showings": [
+            {"Datum": "2022-12-30 12:30", "Zaal": 1},
+            {"Datum": "2024-11-25 15:12", "Zaal": 1},
+            {"Datum": "2024-05-06 15:12", "Zaal": 2}
+        ]
     },
     {
         "Name": "Inception",
@@ -32,62 +32,94 @@
         "Price": 11.5,
         "Director": "Christopher Nolan",
         "Description": "Een meesterdief, gespecialiseerd in het stelen van waardevolle geheimen uit het onderbewustzijn tijdens de droomstaat, krijgt een laatste kans om zijn eigen verleden te herstellen door een idee in te planten in het onderbewustzijn van een CEO.",
-        "Showings": {
-            "2022-12-30 12:30": 1,
-            "2024-11-25 15:12": 1,
-            "2024-12-25 15:12": 2
-        }
+        "Showings": [
+            {"Datum": "2022-12-30 12:30", "Zaal": 1},
+            {"Datum": "2024-11-25 15:12", "Zaal": 1},
+            {"Datum": "2024-12-25 15:12", "Zaal": 2}
+        ]
     },
     {
-        "Name": "The Shawshank Redemption",
-        "Genre": "Drama",
-        "Duration_in_minutes": 142,
-        "Price": 12.5,
-        "Director": "Frank Darabonts",
-        "Description": "Het verhaal van Andy Dufresne, een bankier die onterecht wordt veroordeeld voor moord en zijn ongelooflijke doorzettingsvermogen en vriendschap gebruikt om te overleven in de harde omstandigheden van de Shawshank-gevangenis.",
-        "Showings": {
-            "2022-12-30 12:30": 1,
-            "2023-11-25 11:00": 2,
-            "2024-10-25 15:00": 2
-        }
-    },
-    {
-        "Name": "Spider-man: no way home",
+        "Name": "Film 4",
         "Genre": "Action",
-        "Duration_in_minutes": 148,
-        "Price": 12.5,
-        "Director": "Jon Watts",
-        "Description": "Peter Parker's identiteit als Spider-Man is onthuld, en hij vraagt Doctor Strange om hulp. Dit leidt tot een gevaarlijke reis door verschillende dimensies waarin hij oude vijanden ontmoet en nieuwe bondgenoten vindt.",
-        "Showings": {
-            "2022-12-30 12:30": 2,
-            "2023-10-25 15:00": 1,
-            "2024-11-24 15:00": 2
-        }
+        "Duration_in_minutes": 120,
+        "Price": 15.5,
+        "Director": "Director 4",
+        "Description": "Description for Film 4.",
+        "Showings": [
+            {"Datum": "2023-01-01 13:00", "Zaal": 1},
+            {"Datum": "2023-01-02 15:30", "Zaal": 1}
+        ]
     },
     {
-        "Name": "Forrest Gump",
-        "Genre": "Drama, Romantiek",
-        "Duration_in_minutes": 142,
-        "Price": 12.5,
-        "Director": "Robert Zemeckis",
-        "Description": "Het levensverhaal van Forrest Gump, een man met een laag IQ maar een goed hart, die betrokken raakt bij belangrijke gebeurtenissen in de Amerikaanse geschiedenis.",
-        "Showings": {
-            "2022-12-20 12:30": 1,
-            "2024-11-15 15:02": 1,
-            "2024-12-26 15:30": 2
-        }
+        "Name": "Film 5",
+        "Genre": "Comedy",
+        "Duration_in_minutes": 105,
+        "Price": 12.0,
+        "Director": "Director 5",
+        "Description": "Description for Film 5.",
+        "Showings": [
+            {"Datum": "2023-01-03 14:45", "Zaal": 1},
+            {"Datum": "2023-01-04 16:20", "Zaal": 1}
+        ]
     },
     {
-        "Name": "The Matrix",
-        "Genre": "Sci-Fi, Action",
-        "Duration_in_minutes": 136,
-        "Price": 12.5,
-        "Director": "Lana Wachowski, Lilly Wachowski",
-        "Description": "Een hacker ontdekt dat de wereld waarin hij leeft een simulatie is en sluit zich aan bij een groep rebellen om te vechten tegen de machines die de mensheid onderdrukken.",
-        "Showings": {
-            "2024-05-06 18:00": 1,
-            "2024-05-06 21:00": 1
-        }
+        "Name": "Film 6",
+        "Genre": "Romance",
+        "Duration_in_minutes": 130,
+        "Price": 14.5,
+        "Director": "Director 6",
+        "Description": "Description for Film 6.",
+        "Showings": [
+            {"Datum": "2023-01-05 17:10", "Zaal": 1},
+            {"Datum": "2023-01-06 18:50", "Zaal": 1}
+        ]
+    },
+    {
+        "Name": "Film 7",
+        "Genre": "Thriller",
+        "Duration_in_minutes": 110,
+        "Price": 13.5,
+        "Director": "Director 7",
+        "Description": "Description for Film 7.",
+        "Showings": [
+            {"Datum": "2023-01-07 20:00", "Zaal": 1},
+            {"Datum": "2023-01-08 21:40", "Zaal": 1}
+        ]
+    },
+    {
+        "Name": "Film 8",
+        "Genre": "Horror",
+        "Duration_in_minutes": 95,
+        "Price": 11.5,
+        "Director": "Director 8",
+        "Description": "Description for Film 8.",
+        "Showings": [
+            {"Datum": "2023-01-09 22:30", "Zaal": 1},
+            {"Datum": "2023-01-10 11:20", "Zaal": 1}
+        ]
+    },
+    {
+        "Name": "Film 9",
+        "Genre": "Action",
+        "Duration_in_minutes": 125,
+        "Price": 16.5,
+        "Director": "Director 9",
+        "Description": "Description for Film 9.",
+        "Showings": [
+            {"Datum": "2023-01-11 12:10", "Zaal": 1},
+            {"Datum": "2023-01-12 14:50", "Zaal": 1}
+        ]
+    },
+    {
+        "Name": "Film 10",
+        "Genre": "Comedy",
+        "Duration_in_minutes": 100,
+        "Price": 11.0,
+        "Director": "Director 10",
+        "Description": "Description for Film 10.",
+        "Showings": [
+            {"Datum": "2023-01-13 16:00", "Zaal": 1},
+            {"Datum": "2023-01-14 17:40", "Zaal": 1}
+        ]
     }
-    
 ]
