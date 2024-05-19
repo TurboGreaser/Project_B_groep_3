@@ -10,6 +10,8 @@ public static class AddAccount
     public static string Email;
     public static int Age;
     public static string Password;
+    public static string SecondPassword;
+    public static string SecurityQuestion;
 
     private static string text = File.ReadAllText(jsonfilepath);
     private static List<Accounts> useraccounts = JsonConvert.DeserializeObject<List<Accounts>>(text);
@@ -190,15 +192,16 @@ public static class AddAccount
         string rawPass = Password;
         Password = Stringcode.Base64Encode(Password);
 
-        string SecondPassword = BackupWachtwoord();
-        while (SecondPassword == "0")
+        var backupInfo = BackupWachtwoord();
+        while (backupInfo == (null, null))
         {
-            SecondPassword = BackupWachtwoord();
+            backupInfo = BackupWachtwoord();
         }
-        SecondPassword = Stringcode.Base64Encode(SecondPassword);
+        string securityQuestion = Stringcode.Base64Encode(backupInfo.question);
+        string securityAnswer = backupInfo.answer;
 
         //Stuur deze Info naar de Json class waarin het naar json wordt gestuurd
-        AddAccountToJson addnewacc = new(UserName, Email, Age, Password, SecondPassword);
+        AddAccountToJson addnewacc = new(UserName, Email, Age, Password, securityAnswer, securityQuestion);
         addnewacc.AddToJson();
         return (Email, rawPass);
 
@@ -230,7 +233,7 @@ public static class AddAccount
         return Password1;
     }
 
-    public static string BackupWachtwoord()
+    public static (string question, string answer) BackupWachtwoord()
     {
         Console.Clear();
         Console.WriteLine("Kies een beveilingsvraag voor je back-up wachtwoord:\n");
@@ -244,7 +247,7 @@ public static class AddAccount
             Console.WriteLine("Verkeerde input. Voer een getal in van 1 tot en met 3.");
             Console.WriteLine("\nDruk Enter om verder te gaan.");
             Console.ReadLine();
-            return null;
+            return (string.Empty, string.Empty);
         }
 
         string securityQuestion;
@@ -265,7 +268,8 @@ public static class AddAccount
         }
 
         Console.WriteLine($"Voer je antwoord in op de vraag: {securityQuestion}\n");
-        return Console.ReadLine();
+        string User_Answer = Console.ReadLine();
+        return (securityQuestion, User_Answer);
     }
 
 

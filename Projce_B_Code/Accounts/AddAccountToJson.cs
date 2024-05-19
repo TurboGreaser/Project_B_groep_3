@@ -9,14 +9,17 @@ public class AddAccountToJson
     public int Age;
     public string Password;
     public string SecondPassword;
+    public string SecurityQuestion;
 
-    public AddAccountToJson(string username, string email, int age, string password, string secondpassword)
+    public AddAccountToJson(string username, string email, int age, string password, string secondpassword, string securityQuestion)
     {
         UserName = username;
         Email = email;
         Age = age;
         Password = password;
         SecondPassword = secondpassword;
+        SecurityQuestion = securityQuestion;
+
     }
 
     public void AddToJson()
@@ -31,6 +34,7 @@ public class AddAccountToJson
             Age = Age,
             Password = Password,
             SecondPassword = SecondPassword,
+            SecurityQuestion = SecurityQuestion,
             savedInformationlist = []
         };
 

@@ -5,15 +5,17 @@
     "Age": 0,
     "Password": "blank",
     "SecondPassword": "blank",
+    "SecurityQuestion": "blank",
     "savedInformationlist": null,
     "IsLoggedIn": false
   },
   {
-    "Username": "jij",
-    "Email": "test@gmail.com",
-    "Age": 19,
-    "Password": "VGVzdHdydzEh",
-    "SecondPassword": "dGVzdA==",
+    "Username": "Test123",
+    "Email": "Test123@gmail.com",
+    "Age": 18,
+    "Password": "VGVzdDEyMzQ1IQ==",
+    "SecondPassword": "test",
+    "SecurityQuestion": "Wat is je levensmotto?",
     "savedInformationlist": [],
     "IsLoggedIn": false
   }

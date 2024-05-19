@@ -114,12 +114,12 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
-
 namespace Project_B
 {
     public static class AccountMenuQ
     {
-        private static string jsonFilePath = "Accounts.json";
+        public static string jsonFilePath = "Accounts.json";
+
 
         public static Accounts Choose()
         {
@@ -197,6 +197,8 @@ namespace Project_B
         }
         public static Accounts BackupWachtwoord()
         {
+            string text = File.ReadAllText(jsonFilePath);
+            var useraccounts = JsonConvert.DeserializeObject<List<Accounts>>(text);
             bool Valid = false;
             do
             {
@@ -204,6 +206,16 @@ namespace Project_B
                 try
                 {
                     string email = Console.ReadLine();
+                    foreach(var user in useraccounts)
+                    {
+                        if (user.Email == email)
+                        {
+                            Console.WriteLine("Dit is de vraag die je hebt gekozen!\n");
+                    
+                            Console.WriteLine(user.SecurityQuestion);
+                            Console.WriteLine(" ");
+                        }
+                    }
                     Valid = true;
                     Console.WriteLine("Vul je back-up wachtwoord in.");
                     string password = Console.ReadLine();
