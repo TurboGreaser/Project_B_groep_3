@@ -190,8 +190,15 @@ public static class AddAccount
         string rawPass = Password;
         Password = Stringcode.Base64Encode(Password);
 
+        string SecondPassword = BackupWachtwoord();
+        while (SecondPassword == "0")
+        {
+            SecondPassword = BackupWachtwoord();
+        }
+        SecondPassword = Stringcode.Base64Encode(SecondPassword);
+
         //Stuur deze Info naar de Json class waarin het naar json wordt gestuurd
-        AddAccountToJson addnewacc = new(UserName, Email, Age, Password);
+        AddAccountToJson addnewacc = new(UserName, Email, Age, Password, SecondPassword);
         addnewacc.AddToJson();
         return (Email, rawPass);
 
@@ -222,10 +229,51 @@ public static class AddAccount
         }
         return Password1;
     }
+
+    public static string BackupWachtwoord()
+    {
+        Console.Clear();
+        Console.WriteLine("Kies een beveilingsvraag voor je back-up wachtwoord:\n");
+        Console.WriteLine("1. Wat is je levensmotto?");
+        Console.WriteLine("2. Wat is de naam van je beste jeugd vriend?");
+        Console.WriteLine("3. Wat is je favoriete gerecht?");
+
+        int userInput;
+        if (!int.TryParse(Console.ReadLine(), out userInput) || userInput < 1 || userInput > 3)
+        {
+            Console.WriteLine("Verkeerde input. Voer een getal in van 1 tot en met 3.");
+            Console.WriteLine("\nDruk Enter om verder te gaan.");
+            Console.ReadLine();
+            return null;
+        }
+
+        string securityQuestion;
+        switch (userInput)
+        {
+            case 1:
+                securityQuestion = "Wat is je levensmotto?";
+                break;
+            case 2:
+                securityQuestion = "Wat is de naam van je beste jeugd vriend?";
+                break;
+            case 3:
+                securityQuestion = "Wat is je favoriete gerecht?: ";
+                break;
+            default:
+                securityQuestion = "";
+                break;
+        }
+
+        Console.WriteLine($"Voer je antwoord in op de vraag: {securityQuestion}\n");
+        return Console.ReadLine();
+    }
+
+
     //         else
     //         {
     //             Console.WriteLine("You did not accept the Terms and Conditions and will now be put back to the main menu");
     //             //Gooi uit de class
     //         }
     //     }
+
 }

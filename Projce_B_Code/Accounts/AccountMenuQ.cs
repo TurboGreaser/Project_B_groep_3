@@ -123,7 +123,7 @@ namespace Project_B
 
         public static Accounts Choose()
         {
-            string[] MenuOptions = new string[] { "Maak een account", "Log In", "Doorgaan zonder account" };
+            string[] MenuOptions = new string[] { "Maak een account", "Log In", "Wachtwoord vergeten", "Doorgaan zonder account" };
             int CurrentOption = 0;
 
             while (true)
@@ -163,6 +163,10 @@ namespace Project_B
                         {
                             return Inloggen();
                         }
+                        else if (CurrentOption == 2)
+                        {
+                            return BackupWachtwoord();
+                        }
                         else
                         {
                             return null;
@@ -190,6 +194,28 @@ namespace Project_B
                 catch (Exception) { }
             } while (!Valid);
             return null;
+        }
+        public static Accounts BackupWachtwoord()
+        {
+            bool Valid = false;
+            do
+            {
+                Console.WriteLine("Vul je email in.");
+                try
+                {
+                    string email = Console.ReadLine();
+                    Valid = true;
+                    Console.WriteLine("Vul je back-up wachtwoord in.");
+                    string password = Console.ReadLine();
+                    return ForgotPassword.LoginWithSecondary(email, password);
+                }
+                catch (IOException) { }
+
+                catch (Exception) { }
+            } while (!Valid);
+
+            return null;
+
         }
     }
 }

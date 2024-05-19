@@ -4,111 +4,17 @@
     "Email": "blank",
     "Age": 0,
     "Password": "blank",
-    "savedInformationlist": null
+    "SecondPassword": "blank",
+    "savedInformationlist": null,
+    "IsLoggedIn": false
   },
   {
-    "Username": "Peter",
-    "Email": "Peter2@gmail.com",
-    "Age": 24,
-    "Password": "PeterF",
-    "savedInformationlist": null
-  },
-  {
-    "Username": "i",
-    "Email": "123",
-    "Age": 222,
-    "Password": "123467",
-    "savedInformationlist": []
-  },
-  {
-    "Username": "Mark ",
-    "Email": "MarkSalloum",
-    "Age": 21,
-    "Password": "MDk4OA==",
-    "savedInformationlist": []
-  },
-  {
-    "Username": "test",
-    "Email": "ivan",
+    "Username": "jij",
+    "Email": "test@gmail.com",
     "Age": 19,
-    "Password": "MTk5OQ==",
-    "savedInformationlist": []
-  },
-  {
-    "Username": "pepijn",
-    "Email": "pepijnvanbijs",
-    "Age": 111,
-    "Password": "cGVwaWpuQA==",
-    "savedInformationlist": []
-  },
-  {
-    "Username": "ddd",
-    "Email": "dddd",
-    "Age": 5,
-    "Password": "QEBAQEBA",
-    "savedInformationlist": []
-  },
-  {
-    "Username": "ivan",
-    "Email": "ivan@gamil.com",
-    "Age": 67,
-    "Password": "aXZhbml2YW4xMjM0IQ==",
-    "savedInformationlist": []
-  },
-  {
-    "Username": "ivan1",
-    "Email": "ivan@g.com",
-    "Age": 22,
-    "Password": "MTIzNDU2NyE=",
-    "savedInformationlist": []
-  },
-  {
-    "Username": "ivan2",
-    "Email": "iv@gamil.com",
-    "Age": 65,
-    "Password": "MTIzNDU2NyE=",
-    "savedInformationlist": []
-  },
-  {
-    "Username": "ivan3",
-    "Email": "ivan@gm.com",
-    "Age": 33,
-    "Password": "MTIzNDU2NyE=",
-    "savedInformationlist": []
-  },
-  {
-    "Username": "ivan5",
-    "Email": "ivan@mail.c",
-    "Age": 44,
-    "Password": "MTIzNDU2NyE=",
-    "savedInformationlist": []
-  },
-  {
-    "Username": "ivan6",
-    "Email": "ivan@ggg.com",
-    "Age": 44,
-    "Password": "MTIzNDU2NyE=",
-    "savedInformationlist": []
-  },
-  {
-    "Username": "fff",
-    "Email": "s@g.com",
-    "Age": 22,
-    "Password": "MTIzNDU2Nyo=",
-    "savedInformationlist": []
-  },
-  {
-    "Username": "fffff",
-    "Email": "f@g.com",
-    "Age": 33,
-    "Password": "MTIzNDU2NyE=",
-    "savedInformationlist": []
-  },
-  {
-    "Username": "duwie",
-    "Email": "duwie@outlook.com",
-    "Age": 19,
-    "Password": "U3RhbmlzbGFzIQ==",
-    "savedInformationlist": []
+    "Password": "VGVzdHdydzEh",
+    "SecondPassword": "dGVzdA==",
+    "savedInformationlist": [],
+    "IsLoggedIn": false
   }
 ]
