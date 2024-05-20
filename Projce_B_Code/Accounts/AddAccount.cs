@@ -198,7 +198,7 @@ public static class AddAccount
             backupInfo = BackupWachtwoord();
         }
         string securityQuestion = Stringcode.Base64Encode(backupInfo.question);
-        string securityAnswer = backupInfo.answer;
+        string securityAnswer = Stringcode.Base64Encode(backupInfo.answer);
 
         //Stuur deze Info naar de Json class waarin het naar json wordt gestuurd
         AddAccountToJson addnewacc = new(UserName, Email, Age, Password, securityAnswer, securityQuestion);

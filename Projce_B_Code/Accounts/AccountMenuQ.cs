@@ -211,8 +211,8 @@ namespace Project_B
                         if (user.Email == email)
                         {
                             Console.WriteLine("Dit is de vraag die je hebt gekozen!\n");
-                    
-                            Console.WriteLine(user.SecurityQuestion);
+                            string user_security = Stringcode.Base64Decode(user.SecurityQuestion);
+                            Console.WriteLine(user_security);
                             Console.WriteLine(" ");
                         }
                     }

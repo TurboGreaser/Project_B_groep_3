@@ -10,12 +10,12 @@
     "IsLoggedIn": false
   },
   {
-    "Username": "Test123",
-    "Email": "Test123@gmail.com",
+    "Username": "test",
+    "Email": "test1@gmail.com",
     "Age": 18,
-    "Password": "VGVzdDEyMzQ1IQ==",
-    "SecondPassword": "test",
-    "SecurityQuestion": "Wat is je levensmotto?",
+    "Password": "dGVzdDEyMyE=",
+    "SecondPassword": "dGVzdDEyMyE=",
+    "SecurityQuestion": "V2F0IGlzIGplIGxldmVuc21vdHRvPw==",
     "savedInformationlist": [],
     "IsLoggedIn": false
   }
