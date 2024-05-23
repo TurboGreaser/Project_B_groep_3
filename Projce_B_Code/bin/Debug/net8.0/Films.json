@@ -1,125 +1,301 @@
 [
     {
-        "Name": "test_name",
-        "Genre": "test_genre",
-        "Duration_in_minutes": 75,
-        "Price": 13.5,
-        "Director": "test_director",
-        "Description": "test descrition",
-        "Showings": [
-            {"Datum": "2022-12-30 12:30", "Zaal": 1},
-            {"Datum": "2024-11-25 15:12", "Zaal": 1},
-            {"Datum": "2024-12-25 15:12", "Zaal": 2}
-        ]
-    },
-    {
-        "Name": "The Godfather",
+        "Name": "12 Angry Men",
         "Genre": "Drama",
-        "Duration_in_minutes": 175,
-        "Price": 25.5,
-        "Director": "Francis Ford Coppola",
-        "Description": "Een episch verhaal over de opkomst van de maffia in Amerika, gericht op de familie Corleone en de complexe dynamiek van macht, verraad en loyaliteit.",
+        "Duration_in_minutes": 96,
+        "Price": 10.5,
+        "Director": "Sidney Lumet",
+        "Description": "A jury holdout attempts to prevent a miscarriage of justice by forcing his colleagues to reconsider the evidence.",
         "Showings": [
-            {"Datum": "2022-12-30 12:30", "Zaal": 1},
-            {"Datum": "2024-11-25 15:12", "Zaal": 1},
-            {"Datum": "2024-05-06 15:12", "Zaal": 2}
+            {"Datum": "2022-12-30 14:00", "Zaal": 1},
+            {"Datum": "2024-11-25 18:00", "Zaal": 2},
+            {"Datum": "2024-12-25 20:00", "Zaal": 3}
         ]
     },
     {
-        "Name": "Inception",
-        "Genre": "Sci-Fi, Thriller",
-        "Duration_in_minutes": 148,
-        "Price": 11.5,
-        "Director": "Christopher Nolan",
-        "Description": "Een meesterdief, gespecialiseerd in het stelen van waardevolle geheimen uit het onderbewustzijn tijdens de droomstaat, krijgt een laatste kans om zijn eigen verleden te herstellen door een idee in te planten in het onderbewustzijn van een CEO.",
+        "Name": "Lawrence of Arabia",
+        "Genre": "Adventure/Drama",
+        "Duration_in_minutes": 216,
+        "Price": 13.0,
+        "Director": "David Lean",
+        "Description": "The story of T.E. Lawrence, the English officer who successfully united and led the diverse, often warring, Arab tribes during World War I in order to fight the Turks.",
         "Showings": [
-            {"Datum": "2022-12-30 12:30", "Zaal": 1},
-            {"Datum": "2024-11-25 15:12", "Zaal": 1},
-            {"Datum": "2024-12-25 15:12", "Zaal": 2}
+            {"Datum": "2022-12-31 17:00", "Zaal": 3},
+            {"Datum": "2024-11-26 13:00", "Zaal": 1},
+            {"Datum": "2024-12-26 15:00", "Zaal": 2}
         ]
     },
     {
-        "Name": "Film 4",
-        "Genre": "Action",
-        "Duration_in_minutes": 120,
-        "Price": 15.5,
-        "Director": "Director 4",
-        "Description": "Description for Film 4.",
-        "Showings": [
-            {"Datum": "2023-01-01 13:00", "Zaal": 1},
-            {"Datum": "2023-01-02 15:30", "Zaal": 1}
-        ]
-    },
-    {
-        "Name": "Film 5",
-        "Genre": "Comedy",
-        "Duration_in_minutes": 105,
-        "Price": 12.0,
-        "Director": "Director 5",
-        "Description": "Description for Film 5.",
-        "Showings": [
-            {"Datum": "2023-01-03 14:45", "Zaal": 1},
-            {"Datum": "2023-01-04 16:20", "Zaal": 1}
-        ]
-    },
-    {
-        "Name": "Film 6",
-        "Genre": "Romance",
-        "Duration_in_minutes": 130,
-        "Price": 14.5,
-        "Director": "Director 6",
-        "Description": "Description for Film 6.",
-        "Showings": [
-            {"Datum": "2023-01-05 17:10", "Zaal": 1},
-            {"Datum": "2023-01-06 18:50", "Zaal": 1}
-        ]
-    },
-    {
-        "Name": "Film 7",
-        "Genre": "Thriller",
-        "Duration_in_minutes": 110,
-        "Price": 13.5,
-        "Director": "Director 7",
-        "Description": "Description for Film 7.",
-        "Showings": [
-            {"Datum": "2023-01-07 20:00", "Zaal": 1},
-            {"Datum": "2023-01-08 21:40", "Zaal": 1}
-        ]
-    },
-    {
-        "Name": "Film 8",
-        "Genre": "Horror",
+        "Name": "Dr. Strangelove",
+        "Genre": "Comedy/Drama",
         "Duration_in_minutes": 95,
-        "Price": 11.5,
-        "Director": "Director 8",
-        "Description": "Description for Film 8.",
+        "Price": 9.5,
+        "Director": "Stanley Kubrick",
+        "Description": "An insane general triggers a path to nuclear holocaust that a war room full of politicians and generals frantically try to stop.",
         "Showings": [
-            {"Datum": "2023-01-09 22:30", "Zaal": 1},
-            {"Datum": "2023-01-10 11:20", "Zaal": 1}
+            {"Datum": "2022-12-29 20:00", "Zaal": 2},
+            {"Datum": "2024-11-24 21:00", "Zaal": 1},
+            {"Datum": "2024-12-24 19:00", "Zaal": 3}
         ]
     },
     {
-        "Name": "Film 9",
-        "Genre": "Action",
-        "Duration_in_minutes": 125,
-        "Price": 16.5,
-        "Director": "Director 9",
-        "Description": "Description for Film 9.",
+        "Name": "The Third Man",
+        "Genre": "Film-Noir/Mystery",
+        "Duration_in_minutes": 93,
+        "Price": 8.5,
+        "Director": "Carol Reed",
+        "Description": "Pulp novelist Holly Martins travels to postwar Vienna, only to find himself investigating the mysterious death of an old friend, Harry Lime.",
         "Showings": [
-            {"Datum": "2023-01-11 12:10", "Zaal": 1},
-            {"Datum": "2023-01-12 14:50", "Zaal": 1}
+            {"Datum": "2022-12-28 18:00", "Zaal": 1},
+            {"Datum": "2024-11-23 19:00", "Zaal": 3},
+            {"Datum": "2024-12-23 20:00", "Zaal": 2}
         ]
     },
     {
-        "Name": "Film 10",
-        "Genre": "Comedy",
-        "Duration_in_minutes": 100,
+        "Name": "On the Waterfront",
+        "Genre": "Crime/Drama",
+        "Duration_in_minutes": 108,
         "Price": 11.0,
-        "Director": "Director 10",
-        "Description": "Description for Film 10.",
+        "Director": "Elia Kazan",
+        "Description": "An ex-prize fighter turned longshoreman struggles to stand up to his corrupt union bosses.",
         "Showings": [
-            {"Datum": "2023-01-13 16:00", "Zaal": 1},
-            {"Datum": "2023-01-14 17:40", "Zaal": 1}
+            {"Datum": "2022-12-27 16:00", "Zaal": 3},
+            {"Datum": "2024-11-22 17:00", "Zaal": 2},
+            {"Datum": "2024-12-22 18:00", "Zaal": 1}
+        ]
+    },
+    {
+        "Name": "The Maltese Falcon",
+        "Genre": "Film-Noir/Mystery",
+        "Duration_in_minutes": 100,
+        "Price": 10.0,
+        "Director": "John Huston",
+        "Description": "A private detective takes on a case that involves him with three eccentric criminals, a gorgeous liar, and their quest for a priceless statuette.",
+        "Showings": [
+            {"Datum": "2022-12-26 14:00", "Zaal": 2},
+            {"Datum": "2024-11-21 16:00", "Zaal": 3},
+            {"Datum": "2024-12-21 17:00", "Zaal": 1}
+        ]
+    },
+    {
+        "Name": "Double Indemnity",
+        "Genre": "Crime/Drama",
+        "Duration_in_minutes": 107,
+        "Price": 9.0,
+        "Director": "Billy Wilder",
+        "Description": "An insurance representative lets himself be talked into a murder/insurance fraud scheme that arouses an insurance investigator's suspicions.",
+        "Showings": [
+            {"Datum": "2022-12-25 18:00", "Zaal": 1},
+            {"Datum": "2024-11-20 19:00", "Zaal": 2},
+            {"Datum": "2024-12-20 20:00", "Zaal": 3}
+        ]
+    },
+    {
+        "Name": "The Grapes of Wrath",
+        "Genre": "Drama",
+        "Duration_in_minutes": 129,
+        "Price": 8.0,
+        "Director": "John Ford",
+        "Description": "An Oklahoma family driven off their farm by the Great Depression travel to California to find a new life.",
+        "Showings": [
+            {"Datum": "2022-12-24 13:00", "Zaal": 1},
+            {"Datum": "2024-11-19 14:00", "Zaal": 2},
+            {"Datum": "2024-12-19 15:00", "Zaal": 3}
+        ]
+    },
+    {
+        "Name": "The African Queen",
+        "Genre": "Adventure/Drama",
+        "Duration_in_minutes": 105,
+        "Price": 10.5,
+        "Director": "John Huston",
+        "Description": "In Africa during WWI, a gin-swilling riverboat captain is persuaded by a strait-laced missionary to use his boat to attack an enemy warship.",
+        "Showings": [
+            {"Datum": "2022-12-23 15:00", "Zaal": 2},
+            {"Datum": "2024-11-18 16:00", "Zaal": 3},
+            {"Datum": "2024-12-18 17:00", "Zaal": 1}
+        ]
+    },
+    {
+        "Name": "To Kill a Mockingbird",
+        "Genre": "Crime/Drama",
+        "Duration_in_minutes": 129,
+        "Price": 9.5,
+        "Director": "Robert Mulligan",
+        "Description": "Atticus Finch, a lawyer in the Depression-era South, defends a black man against an undeserved rape charge and his kids against prejudice.",
+        "Showings": [
+            {"Datum": "2022-12-22 12:00", "Zaal": 1},
+            {"Datum": "2024-11-17 13:00", "Zaal": 2},
+            {"Datum": "2024-12-17 14:00", "Zaal": 3}
+        ]
+    },
+    {
+        "Name": "A Streetcar Named Desire",
+        "Genre": "Drama",
+        "Duration_in_minutes": 122,
+        "Price": 11.0,
+        "Director": "Elia Kazan",
+        "Description": "Disturbed Blanche DuBois moves in with her sister in New Orleans and is tormented by her brutish brother-in-law while her reality crumbles around her.",
+        "Showings": [
+            {"Datum": "2022-12-21 19:00", "Zaal": 3},
+            {"Datum": "2024-11-16 20:00", "Zaal": 1},
+            {"Datum": "2024-12-16 21:00", "Zaal": 2}
+        ]
+    },
+    {
+        "Name": "An American in Paris",
+        "Genre": "Drama/Musical",
+        "Duration_in_minutes": 113,
+        "Price": 10.0,
+        "Director": "Vincente Minnelli",
+        "Description": "Three friends struggle to find work in Paris. Things become more complicated when two of them fall in love with the same woman.",
+        "Showings": [
+            {"Datum": "2022-12-20 15:00", "Zaal": 3},
+            {"Datum": "2024-11-15 16:00", "Zaal": 1},
+            {"Datum": "2024-12-15 17:00", "Zaal": 2}
+        ]
+    },
+    {
+        "Name": "Casablanca",
+        "Genre": "Romance/Drama",
+        "Duration_in_minutes": 102,
+        "Price": 12.5,
+        "Director": "Michael Curtiz",
+        "Description": "A cynical expatriate American cafe owner struggles to decide whether or not to help his former lover and her fugitive husband escape the Nazis in French Morocco.",
+        "Showings": [
+            {"Datum": "2022-12-30 19:00", "Zaal": 1},
+            {"Datum": "2024-11-25 20:00", "Zaal": 1},
+            {"Datum": "2024-12-25 18:00", "Zaal": 2}
+        ]
+    },
+    {
+        "Name": "Psycho",
+        "Genre": "Horror/Thriller",
+        "Duration_in_minutes": 109,
+        "Price": 10.0,
+        "Director": "Alfred Hitchcock",
+        "Description": "A Phoenix secretary embezzles $40,000 from her employer's client, goes on the run, and checks into a remote motel run by a young man under the domination of his mother.",
+        "Showings": [
+            {"Datum": "2022-12-31 21:00", "Zaal": 3},
+            {"Datum": "2024-11-26 22:00", "Zaal": 2},
+            {"Datum": "2024-12-26 20:00", "Zaal": 1}
+        ]
+    },
+    {
+        "Name": "Vertigo",
+        "Genre": "Mystery/Romance",
+        "Duration_in_minutes": 128,
+        "Price": 11.0,
+        "Director": "Alfred Hitchcock",
+        "Description": "A former police detective juggles wrestling with his personal demons and becoming obsessed with a hauntingly beautiful woman.",
+        "Showings": [
+            {"Datum": "2022-12-29 18:00", "Zaal": 2},
+            {"Datum": "2024-11-24 19:00", "Zaal": 3},
+            {"Datum": "2024-12-24 21:00", "Zaal": 1}
+        ]
+    },
+    {
+        "Name": "Gone with the Wind",
+        "Genre": "Drama/Romance",
+        "Duration_in_minutes": 238,
+        "Price": 15.0,
+        "Director": "Victor Fleming",
+        "Description": "A manipulative woman and a roguish man conduct a turbulent romance during the American Civil War and Reconstruction periods.",
+        "Showings": [
+            {"Datum": "2022-12-28 14:00", "Zaal": 1},
+            {"Datum": "2024-11-23 16:00", "Zaal": 2},
+            {"Datum": "2024-12-23 17:00", "Zaal": 3}
+        ]
+    },
+    {
+        "Name": "The Wizard of Oz",
+        "Genre": "Adventure/Fantasy",
+        "Duration_in_minutes": 102,
+        "Price": 9.0,
+        "Director": "Victor Fleming",
+        "Description": "Dorothy Gale is swept away from a farm in Kansas to a magical land of Oz in a tornado and embarks on a quest with her new friends to see the Wizard who can help her return home in Kansas and help her friends as well.",
+        "Showings": [
+            {"Datum": "2022-12-27 10:00", "Zaal": 3},
+            {"Datum": "2024-11-22 11:00", "Zaal": 1},
+            {"Datum": "2024-12-22 12:00", "Zaal": 2}
+        ]
+    },
+    {
+        "Name": "Citizen Kane",
+        "Genre": "Drama/Mystery",
+        "Duration_in_minutes": 119,
+        "Price": 12.0,
+        "Director": "Orson Welles",
+        "Description": "Following the death of a publishing tycoon, news reporters scramble to discover the meaning of his final utterance.",
+        "Showings": [
+            {"Datum": "2022-12-26 16:00", "Zaal": 2},
+            {"Datum": "2024-11-21 17:00", "Zaal": 1},
+            {"Datum": "2024-12-21 19:00", "Zaal": 3}
+        ]
+    },
+    {
+        "Name": "It's a Wonderful Life",
+        "Genre": "Drama/Family",
+        "Duration_in_minutes": 130,
+        "Price": 10.0,
+        "Director": "Frank Capra",
+        "Description": "An angel is sent from Heaven to help a desperately frustrated businessman by showing him what life would have been like if he had never existed.",
+        "Showings": [
+            {"Datum": "2022-12-25 20:00", "Zaal": 1},
+            {"Datum": "2024-11-20 18:00", "Zaal": 2},
+            {"Datum": "2024-12-20 20:00", "Zaal": 3}
+        ]
+    },
+    {
+        "Name": "Singin' in the Rain",
+        "Genre": "Comedy/Musical",
+        "Duration_in_minutes": 103,
+        "Price": 8.0,
+        "Director": "Stanley Donen, Gene Kelly",
+        "Description": "A silent film production company and cast make a difficult transition to sound.",
+        "Showings": [
+            {"Datum": "2022-12-24 14:00", "Zaal": 1},
+            {"Datum": "2024-11-19 16:00", "Zaal": 3},
+            {"Datum": "2024-12-19 17:00", "Zaal": 2}
+        ]
+    },
+    {
+        "Name": "Sunset Boulevard",
+        "Genre": "Drama/Film-Noir",
+        "Duration_in_minutes": 110,
+        "Price": 11.5,
+        "Director": "Billy Wilder",
+        "Description": "A screenwriter develops a dangerous relationship with a faded film star determined to make a triumphant return.",
+        "Showings": [
+            {"Datum": "2022-12-23 18:00", "Zaal": 2},
+            {"Datum": "2024-11-18 20:00", "Zaal": 1},
+            {"Datum": "2024-12-18 21:00", "Zaal": 3}
+        ]
+    },
+    {
+        "Name": "Rear Window",
+        "Genre": "Mystery/Thriller",
+        "Duration_in_minutes": 112,
+        "Price": 9.5,
+        "Director": "Alfred Hitchcock",
+        "Description": "A wheelchair-bound photographer spies on his neighbors from his apartment window and becomes convinced one of them has committed murder.",
+        "Showings": [
+            {"Datum": "2022-12-22 16:00", "Zaal": 1},
+            {"Datum": "2024-11-17 18:00", "Zaal": 2},
+            {"Datum": "2024-12-17 19:00", "Zaal": 3}
+        ]
+    },
+    {
+        "Name": "North by Northwest",
+        "Genre": "Adventure/Thriller",
+        "Duration_in_minutes": 136,
+        "Price": 12.0,
+        "Director": "Alfred Hitchcock",
+        "Description": "A New York City advertising executive goes on the run after being mistaken for a government agent by a group of foreign spies.",
+        "Showings": [
+            {"Datum": "2022-12-21 20:00", "Zaal": 3},
+            {"Datum": "2024-11-16 21:00", "Zaal": 1},
+            {"Datum": "2024-12-16 22:00", "Zaal": 2}
         ]
     }
 ]
