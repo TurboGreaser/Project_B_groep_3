@@ -2,10 +2,8 @@
 
 using Newtonsoft.Json;
 
-
 public static class Json_writer
 {
-
     public static void WriteFilmToJSON(Film film, string fileName = "Films_test.json")
     {
         StreamWriter writer = new(fileName);
@@ -216,7 +214,7 @@ public static class Json_writer
     {
         ReservationJsonObj reservation = new()
         {
-            ID = $"{film.Name} {film.Director} {datum} {zaal.ID}",
+            ID = $"{film.Name}|{film.Director}|{datum}|{zaal.ID}",
             Date = datum,
             ZaalID = zaal.ID,
             Seats = new List<int> { ChosenSeat },
@@ -238,7 +236,7 @@ public static class Json_writer
     {
         ReservationJsonObj reservation = new()
         {
-            ID = $"{film.Name} {film.Director} {datum} {zaal.ID}",
+            ID = $"{film.Name}|{film.Director}|{datum}|{zaal.ID}",
             Date = datum,
             ZaalID = zaal.ID,
             Seats = new List<int> { ChosenSeat },
@@ -313,7 +311,7 @@ public static class Json_writer
         // look for reservation with same id
         foreach (ReservationJsonObj reservation in reservations!)
         {
-            if ($"{film.Name} {film.Director} {datum} {zaal.ID}" == reservation.ID)
+            if ($"{film.Name}|{film.Director}|{datum}|{zaal.ID}" == reservation.ID)
             {
                 return reservation;
             }

@@ -77,4 +77,47 @@ public static class MiscFunctions
         }
         return password;
     }
+
+
+    public static void DisplayReservations(string UsersEmail, string filename = "Reservations.json")
+    {
+
+        List<Json_writer.ReservationJsonObj> reservations = JsonReader.ReadReservations(filename);
+        foreach (var reservation in reservations)
+        {
+            int index = 0;
+            foreach (string email in reservation.Emails)
+            {
+                if (email == UsersEmail)
+                {
+                    var parts = reservation.ID.Split('|');
+                    (string title, string director, string dateTime, string zaal) = (parts[0], parts[1], parts[2], parts[3]);
+                    // Print each part of the message with different colors
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.Write("Reservatie op: ");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.Write(dateTime);
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.Write(" | voor de film: ");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.Write(title.PadRight(20));
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.Write(" | door: ");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.Write(director.PadRight(15));
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.Write(" | in zaal: ");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.Write(zaal);
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.Write(" | Gekozen stoel: ");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine(reservation.Seats[index]);
+                }
+                index++;
+
+            }
+        }
+
+    }
 }

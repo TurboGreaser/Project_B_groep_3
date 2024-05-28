@@ -7,9 +7,7 @@ class Program
     {
         // Test reservation cancellation
         // CancelReservation.InfoFromUser("TestEmail1@gmail.com");
-        // MainMenu.ShowMenu();
-        var aa = MiscFunctions.ReadLinePasswordHider();
-        Console.WriteLine(aa);
+        MainMenu.ShowMenu();
     }
 }
 
