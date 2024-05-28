@@ -18,7 +18,7 @@ public static class SaleMovie
         Film movie = films.Find(film => film.Name == movieName);
 
         if (movie == null)
-            return 0; 
+            return 0;
 
         var upcomingShowings = movie.Showings // kijkt hvl film speelt, min -3 uur en plaatst in list
             .Select(showing => DateTime.ParseExact(showing.Datum, "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture).AddHours(-SaleStartHoursBefore))

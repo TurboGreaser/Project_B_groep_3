@@ -20,24 +20,20 @@ public static class Reservation
                 Console.WriteLine("Wilt u nog een account aanmaken, zodat u de volgende keer NOG sneller kunt reserveren?");
                 if (SeatSelection.ChooseOption())
                 {
-                    string answer = Console.ReadLine();
-                    if (answer == "1")
-                    {
-                        AddAccount.MakeAccount();
-                    }
-                    if (answer == "2")
-                    {
-                        Console.WriteLine("Dank u voor het reserveren, tot de volgende keer!");
-                        Console.WriteLine("Klik enter om naar menu te gaan");
-                    }
-                    Console.ReadLine();
+                    AddAccount.MakeAccount();
                 }
             }
+            Console.WriteLine("Dank u voor het reserveren, tot de volgende keer!");
+            Console.WriteLine("Klik enter om naar menu te gaan");
         }
-
-
-
+        Console.ReadLine();
     }
+
+
+
+
+
+
 
     private static Zaal GetZaalFromFilm(Film film, string date)
     {

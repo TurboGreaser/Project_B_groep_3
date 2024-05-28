@@ -9,7 +9,7 @@ namespace Project_B
         public static void View()
         {
             // Controleer of de gebruiker is ingelogd
-            if (LoginAccount.CurrentUser != null && LoginAccount.CurrentUser.IsLoggedIn )
+            if (LoginAccount.CurrentUser != null && LoginAccount.CurrentUser.IsLoggedIn)
             {
                 try
                 {
@@ -17,10 +17,10 @@ namespace Project_B
                     string text = File.ReadAllText(jsonFilePath);
                     // Deserialiseer de JSON-gegevens naar een lijst van Accounts
                     var userAccounts = JsonConvert.DeserializeObject<List<Accounts>>(text);
-                    
+
                     // Zoek het huidige ingelogde account op basis van de e-mail
                     var currentUser = userAccounts.FirstOrDefault(account => account.Email == LoginAccount.CurrentUser.Email);
-                    
+
                     if (currentUser != null)
                     {
                         // Print alle informatie van het huidige ingelogde account

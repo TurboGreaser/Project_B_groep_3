@@ -34,87 +34,87 @@ public static class Json_writer
         bool emptyFile = false;
         double totalPrice = -1;
 
-        if (email == "NoEmail")
+        if (ChosenSeats == null)
         {
-            Console.WriteLine("Je bent niet ingelogd");
-            Console.WriteLine("druk op (enter) en vul je email in of druk op (esc) en log in");
-            ConsoleKeyInfo keyInfo;
-            keyInfo = Console.ReadKey();
-
-            while (true)
+            if (email == "NoEmail")
             {
-                if (keyInfo.Key == ConsoleKey.Escape)
-                {
-                    return -1;
-                }
-                else if (keyInfo.Key == ConsoleKey.Enter)
-                {
-                    Console.Clear();
-                    Console.WriteLine("Vul nu je email in:");
-                    email = Console.ReadLine();
+                Console.WriteLine("Je bent niet ingelogd");
+                Console.WriteLine("druk op (enter) en vul je email in of druk op (esc) en log in");
+                ConsoleKeyInfo keyInfo;
+                keyInfo = Console.ReadKey();
 
-                    if (email != null && email != "")
+                while (true)
+                {
+                    if (keyInfo.Key == ConsoleKey.Escape)
                     {
-                        if (AddAccount.ParseEmail(email) != (null, null, null))
+                        return -1;
+                    }
+                    else if (keyInfo.Key == ConsoleKey.Enter)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Vul nu je email in:");
+                        email = Console.ReadLine();
+
+                        if (email != null && email != "")
                         {
-                            break;
+                            if (AddAccount.ParseEmail(email))
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine("email moet in example@gmail.com formaat zijn");
+                                Console.WriteLine("\nDruk Enter en probeer het opnieuw");
+                                Console.ReadLine();
+                            }
                         }
-                        else
-                        {
-                            Console.WriteLine("email moet in example@gamil.com formaat zijn");
-                            Console.WriteLine("\nDruk Enter en probeer het opnieuw");
-                            Console.ReadLine();
-
-
-                        }
-
                     }
                 }
             }
-        }
-        if (age == 999)
-        {
-            Console.WriteLine("Je bent niet ingelogd");
-            Console.WriteLine("druk op (enter) en vul je leeftijd in in of druk op (esc) en log in");
-            ConsoleKeyInfo keyInfo;
-            keyInfo = Console.ReadKey();
-
-            while (true)
+            if (age == 999)
             {
-                if (keyInfo.Key == ConsoleKey.Escape)
+                Console.WriteLine("Je bent niet ingelogd");
+                Console.WriteLine("druk op (enter) en vul je leeftijd in in of druk op (esc) en log in");
+                ConsoleKeyInfo keyInfo;
+                keyInfo = Console.ReadKey();
+
+                while (true)
                 {
-                    return -1;
-                }
-                else if (keyInfo.Key == ConsoleKey.Enter)
-                {
-                    Console.Clear();
-                    Console.WriteLine("Vul nu je leeftijd in:");
-                    try
+                    if (keyInfo.Key == ConsoleKey.Escape)
                     {
-                        int ageAttempt = Convert.ToInt32(Console.ReadLine());
-                        if (ageAttempt < 0 || ageAttempt > 111)
+                        return -1;
+                    }
+                    else if (keyInfo.Key == ConsoleKey.Enter)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Vul nu je leeftijd in:");
+                        try
                         {
-                            string message = ageAttempt < 0 ? "Leeftijd kan niet negatief zijn" : "leeftijd kan niet boven 111 zijn";
-                            Console.WriteLine(message);
+                            int ageAttempt = Convert.ToInt32(Console.ReadLine());
+                            if (ageAttempt < 0 || ageAttempt > 111)
+                            {
+                                string message = ageAttempt < 0 ? "Leeftijd kan niet negatief zijn" : "leeftijd kan niet boven 111 zijn";
+                                Console.WriteLine(message);
+                                Console.WriteLine("\nDruk Enter en probeer het opnieuw");
+                                Console.ReadLine();
+
+
+                            }
+                            else
+                            {
+                                // valid age
+                                age = ageAttempt;
+                                break;
+                            }
+                        }
+                        catch (Exception)
+                        {
+                            Console.WriteLine("leeftijd moet een nummer zijn");
                             Console.WriteLine("\nDruk Enter en probeer het opnieuw");
                             Console.ReadLine();
 
 
                         }
-                        else
-                        {
-                            // valid age
-                            age = ageAttempt;
-                            break;
-                        }
-                    }
-                    catch (Exception)
-                    {
-                        Console.WriteLine("leeftijd moet een nummer zijn");
-                        Console.WriteLine("\nDruk Enter en probeer het opnieuw");
-                        Console.ReadLine();
-
-
                     }
                 }
             }

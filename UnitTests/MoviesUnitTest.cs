@@ -17,13 +17,16 @@ public class MoviesUnitTest
 
         // create 2 films
         Film film1 = new Film("test_name_1", "test_genre_1", 90, 20.50, "test_director_1", "test_description_1",
-        new Dictionary<string, int> { { "2020-12-20 12:00", 1 }, { "2021-12-30 12:00", 2 } });
+        new List<Showing> { new Showing("2020-12-20 12:00", 1), new Showing("2021-12-30 12:00", 2) });
+
 
         Film film2 = new Film("test_name_2", "test_genre_2", 90, 20.50, "test_director_2", "test_description_2",
-        new Dictionary<string, int> { { "2040-12-30 12:00", 1 }, { "2000-12-30 12:00", 2 } });
+        new List<Showing> { new Showing("2040-12-30 12:00", 1), new Showing("2000-12-30 12:00", 2) });
+
 
         Film film3 = new Film("test_name_3", "test_genre_1", 90, 20.50, "test_director_1", "test_description_1",
-        new Dictionary<string, int> { { "2020-12-20 18:00", 1 }, { "2021-12-30 12:00", 2 } });
+        new List<Showing> { new Showing("2020-12-20 18:00", 1), new Showing("2021-12-30 12:00", 2) });
+
 
         // put the films in  a list
         List<Film> filmsToWrite = new() { film1, film2, film3 };
@@ -35,7 +38,7 @@ public class MoviesUnitTest
         DateTime newtime = new DateTime(2020, 12, 20);
 
         // Movies.ShowMoviesToday(newtime, TestNameFile);
-        List<Project_B.Film> films = Movies.ShowMoviesToday(newtime, TestNameFile);
+        List<Film> films = Movies.ShowMoviesToday(newtime, TestNameFile);
 
         Assert.IsTrue(films[0].Name == film1.Name);
         Assert.IsTrue(films[1].Name == film3.Name);

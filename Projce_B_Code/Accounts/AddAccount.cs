@@ -86,26 +86,16 @@ public static class AddAccount
 
     }
 
-    public static (string recipient, string domain, string topLevelDomain) ParseEmail(string emailAddress)
+    public static bool ParseEmail(string emailAddress)
     {
-        string pattern = @"^.+@.+..+$";
+        string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
         Regex regex = new Regex(pattern);
-
 
         if (regex.IsMatch(emailAddress))
         {
-            string[] splitEmail = emailAddress.Split('@');
-
-            string recipient = splitEmail.First().Trim();
-
-            string domain = splitEmail.Last().Trim();
-
-            string topLevelDomain = domain.Split('.').Last();
-
-
-            return (recipient, domain, topLevelDomain);
+            return true;
         }
-        return (null, null, null);
+        return false;
     }
 
     public static (string, bool) GetEmail()
@@ -126,7 +116,7 @@ public static class AddAccount
 
         }
         var ParsedEmail = ParseEmail(Email);
-        if (ParsedEmail == (null, null, null))
+        if (!ParsedEmail)
         {
             ParsedEmail = ParseEmail(Email);
             Console.WriteLine("De Email moet in deze format zijn: example@email.com");
@@ -212,7 +202,7 @@ public static class AddAccount
         Console.Clear();
         Console.WriteLine("Voer je wachtwoord in");
         Console.WriteLine("Het wachtwoord moet tussen 8 en 20 karakters hebben\nen minimaal een speciale karakter");
-        string Password1 = Console.ReadLine();
+        string Password1 = MiscFunctions.ReadLinePasswordHider();
         string pattern = @"^(?=.*[!@#$%^&*()-=_+[\]{};:'""|<>,./?]).{8,20}$";
         if (!Regex.IsMatch(Password1, pattern))
         {
@@ -222,7 +212,7 @@ public static class AddAccount
             return "0";
         }
         Console.WriteLine("Voer je wachtwoord opnieuw in.");
-        string Password2 = Console.ReadLine();
+        string Password2 = MiscFunctions.ReadLinePasswordHider();
         if (Password1 != Password2)
         {
             Console.WriteLine("Wachtwoorden zijn niet hetzelfde");

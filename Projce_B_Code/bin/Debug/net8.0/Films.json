@@ -297,5 +297,185 @@
             {"Datum": "2024-11-16 21:00", "Zaal": 1},
             {"Datum": "2024-12-16 22:00", "Zaal": 2}
         ]
+    },
+    {
+        "Name": "Film 11",
+        "Genre": "Comedy",
+        "Duration_in_minutes": 110,
+        "Price": 12.5,
+        "Director": "Director 11",
+        "Description": "Description for Film 11.",
+        "Showings": [
+            {
+                "Datum": "2023-01-13 16:00",
+                "Zaal": 2
+            },
+            {
+                "Datum": "2023-01-14 18:30",
+                "Zaal": 2
+            }
+        ]
+    },
+    {
+        "Name": "Film 12",
+        "Genre": "Drama",
+        "Duration_in_minutes": 140,
+        "Price": 18.0,
+        "Director": "Director 12",
+        "Description": "Description for Film 12.",
+        "Showings": [
+            {
+                "Datum": "2023-01-15 15:00",
+                "Zaal": 3
+            },
+            {
+                "Datum": "2023-01-16 17:45",
+                "Zaal": 3
+            }
+        ]
+    },
+    {
+        "Name": "Film 13",
+        "Genre": "Horror",
+        "Duration_in_minutes": 100,
+        "Price": 15.0,
+        "Director": "Director 13",
+        "Description": "Description for Film 13.",
+        "Showings": [
+            {
+                "Datum": "2023-01-17 20:00",
+                "Zaal": 4
+            },
+            {
+                "Datum": "2023-01-18 22:30",
+                "Zaal": 4
+            }
+        ]
+    },
+    {
+        "Name": "Film 14",
+        "Genre": "Sci-Fi",
+        "Duration_in_minutes": 130,
+        "Price": 20.0,
+        "Director": "Director 14",
+        "Description": "Description for Film 14.",
+        "Showings": [
+            {
+                "Datum": "2023-01-19 18:00",
+                "Zaal": 5
+            },
+            {
+                "Datum": "2023-01-20 20:45",
+                "Zaal": 5
+            }
+        ]
+    },
+    {
+        "Name": "Film 15",
+        "Genre": "Romance",
+        "Duration_in_minutes": 95,
+        "Price": 14.0,
+        "Director": "Director 15",
+        "Description": "Description for Film 15.",
+        "Showings": [
+            {
+                "Datum": "2023-01-21 12:30",
+                "Zaal": 6
+            },
+            {
+                "Datum": "2023-01-22 15:15",
+                "Zaal": 6
+            }
+        ]
+    },
+    {
+        "Name": "Film 16",
+        "Genre": "Thriller",
+        "Duration_in_minutes": 105,
+        "Price": 16.0,
+        "Director": "Director 16",
+        "Description": "Description for Film 16.",
+        "Showings": [
+            {
+                "Datum": "2023-01-23 17:00",
+                "Zaal": 7
+            },
+            {
+                "Datum": "2023-01-24 19:45",
+                "Zaal": 7
+            }
+        ]
+    },
+    {
+        "Name": "Film 17",
+        "Genre": "Fantasy",
+        "Duration_in_minutes": 115,
+        "Price": 19.0,
+        "Director": "Director 17",
+        "Description": "Description for Film 17.",
+        "Showings": [
+            {
+                "Datum": "2023-01-25 13:00",
+                "Zaal": 8
+            },
+            {
+                "Datum": "2023-01-26 15:45",
+                "Zaal": 8
+            }
+        ]
+    },
+    {
+        "Name": "Film 18",
+        "Genre": "Animation",
+        "Duration_in_minutes": 90,
+        "Price": 10.0,
+        "Director": "Director 18",
+        "Description": "Description for Film 18.",
+        "Showings": [
+            {
+                "Datum": "2023-01-27 10:30",
+                "Zaal": 9
+            },
+            {
+                "Datum": "2023-01-28 13:15",
+                "Zaal": 9
+            }
+        ]
+    },
+    {
+        "Name": "Film 19",
+        "Genre": "Documentary",
+        "Duration_in_minutes": 85,
+        "Price": 12.0,
+        "Director": "Director 19",
+        "Description": "Description for Film 19.",
+        "Showings": [
+            {
+                "Datum": "2023-01-29 16:00",
+                "Zaal": 10
+            },
+            {
+                "Datum": "2023-01-30 18:45",
+                "Zaal": 10
+            }
+        ]
+    },
+    {
+        "Name": "Film 20",
+        "Genre": "Musical",
+        "Duration_in_minutes": 120,
+        "Price": 17.0,
+        "Director": "Director 20",
+        "Description": "Description for Film 20.",
+        "Showings": [
+            {
+                "Datum": "2023-01-31 19:00",
+                "Zaal": 11
+            },
+            {
+                "Datum": "2023-02-01 21:45",
+                "Zaal": 11
+            }
+        ]
     }
 ]

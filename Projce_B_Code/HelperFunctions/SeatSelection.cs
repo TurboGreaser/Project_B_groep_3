@@ -126,14 +126,15 @@ public static class SeatSelection
         int seat = -1;
         while (seat < 0)
         {
-            // get seat returns -1 if user chooses "nee" bij weet je het zeker
+            // SelectSeat returns -1 if user chooses "nee" bij weet je het zeker
             seat = SelectSeatCode(theathre_size, unavailableSeats);
             unavailableSeats.Add(seat);
-
+            // return null als seat -10 is en seat is -10 als je escape drukt  
             if (seat == -10)
             {
                 return null;
             }
+            // als je c drukt wordt seat -100 dan ga je veder met het reserveer process
             if (seat == -100)
             {
                 if (seats.Count != 0)

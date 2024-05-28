@@ -82,32 +82,32 @@
 
 //???????????????????????????????????????????????????????????????????????????????????????????????????///
 // public static void Choose()
-    // {
-    //     Console.WriteLine("Je hebt 3 opties, antwoord met het getal.\n1 : Maak een account\n2 : Log In\n3 : doorgaan zonder account");
-    //     string answer = Console.ReadLine();
-    //     Console.WriteLine($"Weet je zeker dat je optie {answer} wilt?, Antwoord met 'ja' of 'nee'");
-    //     string yn = Console.ReadLine().ToUpper();
-    //     if (yn == "JA")
-    //     {
-    //         if (answer == "1")
-    //         {
-    //             AddAccount.MakeAccount();
-    //         }
-    //         if (answer == "2")
-    //         {
-    //             Console.WriteLine("Vul je email in.");
-    //             string email = Console.ReadLine();
-    //             Console.WriteLine("Vul je wachtwoord in.");
-    //             string password = Console.ReadLine();
-    //             LoginAccount.Login(email, password);
-    //         }
-    //         else
-    //         {
-    //             return;
-    //         }
-    //     }
-    //     return;
-    // }
+// {
+//     Console.WriteLine("Je hebt 3 opties, antwoord met het getal.\n1 : Maak een account\n2 : Log In\n3 : doorgaan zonder account");
+//     string answer = Console.ReadLine();
+//     Console.WriteLine($"Weet je zeker dat je optie {answer} wilt?, Antwoord met 'ja' of 'nee'");
+//     string yn = Console.ReadLine().ToUpper();
+//     if (yn == "JA")
+//     {
+//         if (answer == "1")
+//         {
+//             AddAccount.MakeAccount();
+//         }
+//         if (answer == "2")
+//         {
+//             Console.WriteLine("Vul je email in.");
+//             string email = Console.ReadLine();
+//             Console.WriteLine("Vul je wachtwoord in.");
+//             string password = Console.ReadLine();
+//             LoginAccount.Login(email, password);
+//         }
+//         else
+//         {
+//             return;
+//         }
+//     }
+//     return;
+// }
 
 
 using Newtonsoft.Json;
@@ -186,7 +186,7 @@ namespace Project_B
                     string email = Console.ReadLine();
                     Valid = true;
                     Console.WriteLine("Vul je wachtwoord in.");
-                    string password = Console.ReadLine();
+                    string password = MiscFunctions.ReadLinePasswordHider();
                     return LoginAccount.Login(email, password);
                 }
                 catch (IOException) { }
@@ -206,7 +206,7 @@ namespace Project_B
                 try
                 {
                     string email = Console.ReadLine();
-                    foreach(var user in useraccounts)
+                    foreach (var user in useraccounts)
                     {
                         if (user.Email == email)
                         {
