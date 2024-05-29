@@ -39,10 +39,10 @@ public static class Json_writer
                 Console.WriteLine("Je bent niet ingelogd");
                 Console.WriteLine("druk op (enter) en vul je email in of druk op (esc) en log in");
                 ConsoleKeyInfo keyInfo;
-                keyInfo = Console.ReadKey();
 
                 while (true)
                 {
+                    keyInfo = Console.ReadKey();
                     if (keyInfo.Key == ConsoleKey.Escape)
                     {
                         return -1;
@@ -74,10 +74,10 @@ public static class Json_writer
                 Console.WriteLine("Je bent niet ingelogd");
                 Console.WriteLine("druk op (enter) en vul je leeftijd in in of druk op (esc) en log in");
                 ConsoleKeyInfo keyInfo;
-                keyInfo = Console.ReadKey();
 
                 while (true)
                 {
+                    keyInfo = Console.ReadKey();
                     if (keyInfo.Key == ConsoleKey.Escape)
                     {
                         return -1;
