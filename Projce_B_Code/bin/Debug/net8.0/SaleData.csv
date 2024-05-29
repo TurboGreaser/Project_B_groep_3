@@ -32,3 +32,7 @@ Date,FilmName,FilmGenre,FilmDurationInMinutes,AmountSpent,SeatCount,Age
 2022-12-30 12:30,The Godfather,Drama,175,51,2,null
 2022-12-30 12:30,Inception,Sci-Fi  Thriller,148,26 45,2,12
 2022-12-30 12:30,The Godfather,Drama,175,30.6,1,0
+2024-11-25 15:12,test_name,test_genre,75,29 7,2,12
+2024-11-23 16:00,Gone with the Wind,Drama/Romance,238,48,3,33
+2023-01-20 20:45,Film 14,Sci-Fi,130,82,4,33
+2023-01-26 15:45,Film 17,Fantasy,115,20 9,1,33

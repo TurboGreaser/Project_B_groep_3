@@ -8,7 +8,6 @@ class Program
         // Test reservation cancellation
         // CancelReservation.InfoFromUser("TestEmail1@gmail.com");
         MainMenu.ShowMenu();
-
     }
 }
 
