@@ -218,7 +218,7 @@ namespace Project_B
                     }
                     Valid = true;
                     Console.WriteLine("Vul je back-up wachtwoord in.");
-                    string password = Console.ReadLine();
+                    string password = MiscFunctions.ReadLinePasswordHider();
                     return ForgotPassword.LoginWithSecondary(email, password);
                 }
                 catch (IOException) { }

@@ -199,7 +199,6 @@ namespace Project_B
                 Console.WriteLine($"Er is een fout opgetreden bij het weergeven van accountgegevens: {ex.Message}");
             }
         Console.ReadLine();
-        MainMenu.ShowMenu();
         }
     }
 }

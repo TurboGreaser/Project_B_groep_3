@@ -23,9 +23,9 @@ class MenuStore
         Console.WriteLine("Nacho's          5,00 Euro");
         Console.WriteLine("Hotdog           3,75 Euro");
         Console.WriteLine("Haribo           1,75 Euro");
-        foreach (MenuItem item in menuItems)
-        {
-            Console.WriteLine(item);
-        }
+        // foreach (MenuItem item in menuItems)
+        // {
+        //     Console.WriteLine(item);
+        // }
     }
 }
