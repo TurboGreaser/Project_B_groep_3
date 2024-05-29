@@ -64,11 +64,11 @@ static class MainMenu
             string[] MenuOptions;
             if (account.Email != "NoEmail")
             {
-                MenuOptions = ["1. Reserveren", "2. Account bekijken", "3. Restrant menu", "4. Quit"];
+                MenuOptions = ["1. Reserveren", "2. Account bekijken", "3. Restaurant menu", "4. Verlaat programma"];
             }
             else
             {
-                MenuOptions = ["1. Reserveren", "2. Aanmelden", "3. Restrant menu", "4. Quit"];
+                MenuOptions = ["1. Reserveren", "2. Aanmelden", "3. Restaurant menu", "4. Verlaat programma"];
             }
             
             Console.Clear();
