@@ -20,7 +20,7 @@ public static class MiscFunctions
                 password = password.Substring(0, password.Length - 1);
                 Console.Write("\b \b");
             }
-            // press any key expet tab or space
+            // press any key except tab or space
             else if (!char.IsControl(keyInfo.KeyChar) && keyInfo.Key != ConsoleKey.Spacebar)
             {
 
@@ -81,6 +81,7 @@ public static class MiscFunctions
 
     public static void DisplayReservations(string UsersEmail, string filename = "Reservations.json")
     {
+        bool hasReservations = false;
 
         List<Json_writer.ReservationJsonObj> reservations = JsonReader.ReadReservations(filename);
         foreach (var reservation in reservations)
@@ -113,10 +114,16 @@ public static class MiscFunctions
                     Console.Write(" | Gekozen stoel: ");
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine(reservation.Seats[index]);
+                    hasReservations = true;
                 }
                 index++;
 
             }
+        }
+
+        if (!hasReservations)
+        {
+            Console.WriteLine("Geen reservaties gevonden");
         }
 
     }

@@ -71,8 +71,8 @@
 //                 // {
 
 //                 // }
-            
-          
+
+
 
 //             }
 //         }
@@ -90,7 +90,7 @@ namespace Project_B
         public static void View()
         {
             // Controleer of de gebruiker is ingelogd
-            if (LoginAccount.CurrentUser != null && LoginAccount.CurrentUser.IsLoggedIn)
+            if (LoginAccount.CurrentUser != null && LoginAccount.CurrentUser.Email != "NoEmail")
             {
                 string[] menuOptions = {
                     "1. Wilt u de accountgegevens zien?",
@@ -147,16 +147,20 @@ namespace Project_B
             {
                 case 1:
                     ShowAccountDetails();
+                    Console.WriteLine("\n Druk op enter  om veder te gaan");
+                    Console.ReadLine();
                     break;
                 case 2:
-
+                    MiscFunctions.DisplayReservations(LoginAccount.CurrentUser.Email);
+                    Console.WriteLine("\n Druk op enter  om veder te gaan");
+                    Console.ReadLine();
                     break;
                 case 3:
                     CancelReservation.InfoFromUser(LoginAccount.CurrentUser.Email);
                     string test = Console.ReadLine();
                     break;
                 case 4:
-                    
+
                     break;
                 default:
                     Console.WriteLine("Ongeldige optie.");
@@ -168,9 +172,9 @@ namespace Project_B
         {
             try
             {
- 
+
                 string text = File.ReadAllText(jsonFilePath);
-      
+
                 var userAccounts = JsonConvert.DeserializeObject<List<Accounts>>(text);
 
 
@@ -178,12 +182,12 @@ namespace Project_B
 
                 if (currentUser != null)
                 {
-                   
+
                     Console.WriteLine("Accountgegevens:");
                     Console.WriteLine($"Gebruikersnaam: {currentUser.Username}");
                     Console.WriteLine($"E-mail: {currentUser.Email}");
                     Console.WriteLine($"Leeftijd: {currentUser.Age}");
-                 
+
                 }
                 else
                 {
