@@ -43,7 +43,11 @@ namespace Project_B
             else
             {
                 Console.WriteLine("Er is geen gebruiker ingelogd.");
+                Console.ReadLine();
+                MainMenu.ShowMenu();
             }
+        Console.ReadLine();
+        MainMenu.ShowMenu();
         }
     }
 }
