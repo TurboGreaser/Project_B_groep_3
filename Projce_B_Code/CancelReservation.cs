@@ -14,7 +14,7 @@ public static class CancelReservation
 
         do
         {
-            Console.WriteLine("Weet u zeker dat u uw reservering wilt annuleren? (ja/nee)");
+            Console.WriteLine("Weet u zeker dat u uw reservering wilt annuleren? (ja/nee)\n");
             enteredChoice = Console.ReadLine().ToLower();
 
             if (enteredChoice == "ja")
@@ -26,11 +26,11 @@ public static class CancelReservation
             }
             else if (enteredChoice != "nee")
             {
-                Console.WriteLine("Typ 'ja' of 'nee'");
+                Console.WriteLine("Typ 'ja' of 'nee'\n");
             }
             else
             {
-                Console.WriteLine("Reservering is geannuleerd");
+                Console.WriteLine("Reservering is geannuleerd\n");
             }
         }
         while (enteredChoice != "ja" && enteredChoice != "nee");
@@ -52,24 +52,24 @@ public static class CancelReservation
 
         if (matchingReservations.Count == 0)
         {
-            Console.WriteLine("Geen reserveringen gevonden voor het opgegeven e-mailadres.");
+            Console.WriteLine("Geen reserveringen gevonden voor het opgegeven e-mailadres.\n");
             return;
         }
 
-        Console.WriteLine("Reserveringen gevonden voor het opgegeven e-mailadres:");
+        Console.WriteLine("Reserveringen gevonden voor het opgegeven e-mailadres:\n");
         for (int i = 0; i < matchingReservations.Count; i++)
         {
-            Console.WriteLine($"{i + 1}. Reservatie ID: {matchingReservations[i].ID}, Zaal: {matchingReservations[i].ZaalID}");
+            Console.WriteLine($"{i + 1}. Reservatie ID: {matchingReservations[i].ID}, Zaal: {matchingReservations[i].ZaalID}\n");
         }
 
-        Console.Write("Geef het nummer van de reservering die u wilt annuleren, of typ '0' om te annuleren: ");
+        Console.Write("Geef het nummer van de reservering die u wilt annuleren, of typ '0' om te annuleren: \n");
 
         
         int selectedOption;
         while (!int.TryParse(Console.ReadLine(), out selectedOption) || selectedOption < 0 || selectedOption > matchingReservations.Count) // verandert naar int en geeft daarna de int door aan selectedoption
         {
-            Console.WriteLine("Ongeldige invoer. Probeer opnieuw.");
-            Console.Write("Geef het nummer van de reservering die u wilt annuleren, of typ '0' om te annuleren: ");
+            Console.WriteLine("Ongeldige invoer. Probeer opnieuw.\n");
+            Console.Write("Geef het nummer van de reservering die u wilt annuleren, of typ '0' om te annuleren: \n");
         }
 
         if (selectedOption == 0)
@@ -79,7 +79,7 @@ public static class CancelReservation
         }
 
         Reservations reservationToRemove = matchingReservations[selectedOption - 1];
-        Console.WriteLine($"U heeft gekozen om reservering {reservationToRemove.ID} te annuleren.");
+        Console.WriteLine($"U heeft gekozen om reservering {reservationToRemove.ID} te annuleren.\n");
         RemoveReservation(reservationToRemove);
     }
 
