@@ -60,7 +60,7 @@ public static class Movies
             }
         }
 
-        Console.WriteLine("Klik enter om verder te gaan");
+        Console.WriteLine("Klik Enter om verder te gaan");
         Console.ReadLine();
     }
 

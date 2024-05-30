@@ -99,7 +99,7 @@ public static class MiscFunctions
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.Write(dateTime);
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.Write(" | voor de film: ");
+                    Console.Write(" | Voor de film: ");
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.Write(title.PadRight(20));
                     Console.ForegroundColor = ConsoleColor.Yellow;
@@ -107,7 +107,7 @@ public static class MiscFunctions
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.Write(director.PadRight(15));
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.Write(" | in zaal: ");
+                    Console.Write(" | In zaal: ");
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.Write(zaal);
                     Console.ForegroundColor = ConsoleColor.Yellow;
@@ -123,7 +123,7 @@ public static class MiscFunctions
 
         if (!hasReservations)
         {
-            Console.WriteLine("Geen reservaties gevonden");
+            Console.WriteLine("Geen reserveringen gevonden");
         }
 
     }

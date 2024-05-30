@@ -37,7 +37,7 @@ public static class Json_writer
             if (email == "NoEmail")
             {
                 Console.WriteLine("Je bent niet ingelogd");
-                Console.WriteLine("druk op (enter) en vul je email in of druk op (esc) en log in");
+                Console.WriteLine("Druk op (Enter) en vul je email in, of druk op (esc) en Log in");
                 ConsoleKeyInfo keyInfo;
 
                 while (true)
@@ -61,7 +61,7 @@ public static class Json_writer
                             }
                             else
                             {
-                                Console.WriteLine("email moet in example@gmail.com formaat zijn");
+                                Console.WriteLine("Email moet in example@gmail.com formaat zijn");
                                 Console.WriteLine("\nDruk Enter en probeer het opnieuw");
                                 Console.ReadLine();
                             }
@@ -72,7 +72,7 @@ public static class Json_writer
             if (age == 999)
             {
                 Console.WriteLine("Je bent niet ingelogd");
-                Console.WriteLine("druk op (enter) en vul je leeftijd in in of druk op (esc) en log in");
+                Console.WriteLine("Druk op (Enter) en vul je leeftijd in, of Druk op (esc) en Log in");
                 ConsoleKeyInfo keyInfo;
 
                 while (true)
@@ -91,7 +91,7 @@ public static class Json_writer
                             int ageAttempt = Convert.ToInt32(Console.ReadLine());
                             if (ageAttempt < 0 || ageAttempt > 111)
                             {
-                                string message = ageAttempt < 0 ? "Leeftijd kan niet negatief zijn" : "leeftijd kan niet boven 111 zijn";
+                                string message = ageAttempt < 0 ? "Leeftijd kan niet negatief zijn" : "Leeftijd kan niet boven 111 zijn";
                                 Console.WriteLine(message);
                                 Console.WriteLine("\nDruk Enter en probeer het opnieuw");
                                 Console.ReadLine();
@@ -107,7 +107,7 @@ public static class Json_writer
                         }
                         catch (Exception)
                         {
-                            Console.WriteLine("leeftijd moet een nummer zijn");
+                            Console.WriteLine("Leeftijd moet een nummer zijn");
                             Console.WriteLine("\nDruk Enter en probeer het opnieuw");
                             Console.ReadLine();
 

@@ -141,7 +141,7 @@ public static class SeatSelection
                 { break; }
                 else
                 {
-                    Console.WriteLine("Je moet een zitplaats kiezen om veder te gaan");
+                    Console.WriteLine("Je moet een zitplaats kiezen om verder te gaan");
                     Console.WriteLine("\nDruk Enter om verder te gaan");
                     Console.ReadLine();
 
@@ -153,7 +153,7 @@ public static class SeatSelection
                 Console.Clear();
 
                 Console.WriteLine($"Je hebt voor stoel {seat} gekozen");
-                Console.WriteLine($"Wil nog een stoel kiezen?");
+                Console.WriteLine($"Wil je nog een stoel kiezen?");
                 // choose ja to choose another seat
                 if (ChooseOption())
                 {

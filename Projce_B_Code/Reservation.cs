@@ -118,7 +118,7 @@ public static class Reservation
             {
                 Console.Clear();
                 Console.WriteLine($"U heeft uw reservering geannuleerd.");
-                Console.WriteLine($"Klik Enter terug te gaan naar het menu");
+                Console.WriteLine($"Klik Enter om terug te gaan naar het menu");
                 return false;
             }
         }
