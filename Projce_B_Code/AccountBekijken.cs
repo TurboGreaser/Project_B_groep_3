@@ -93,9 +93,9 @@ namespace Project_B
             if (LoginAccount.CurrentUser != null && LoginAccount.CurrentUser.Email != "NoEmail")
             {
                 string[] menuOptions = {
-                    "1. Wilt u de accountgegevens zien?",
-                    "2. Wilt u uw reservaties zien?",
-                    "3. Wilt u uw reservaties annuleren?",
+                    "1. Wilt u uw accountgegevens zien?",
+                    "2. Wilt u uw reserveringen zien?",
+                    "3. Wilt u uw reserveringen annuleren?",
                     "4. Wilt u uw favoriete films zien?"
                 };
 
@@ -147,12 +147,12 @@ namespace Project_B
             {
                 case 1:
                     ShowAccountDetails();
-                    Console.WriteLine("\n Druk op enter  om veder te gaan");
+                    Console.WriteLine("\n Druk op Enter  om verder te gaan");
                     Console.ReadLine();
                     break;
                 case 2:
                     MiscFunctions.DisplayReservations(LoginAccount.CurrentUser.Email);
-                    Console.WriteLine("\n Druk op enter  om veder te gaan");
+                    Console.WriteLine("\n Druk op Enter  om verder te gaan");
                     Console.ReadLine();
                     break;
                 case 3:
@@ -196,7 +196,7 @@ namespace Project_B
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Er is een fout opgetreden bij het weergeven van accountgegevens: {ex.Message}");
+                Console.WriteLine($"Er is een fout opgetreden bij het weergeven van de accountgegevens: {ex.Message}");
             }
         Console.ReadLine();
         }

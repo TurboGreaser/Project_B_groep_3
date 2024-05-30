@@ -27,15 +27,15 @@ public class AddFavMovie
         {
             if (acc.Username == Username && acc.Password == Password)
             {
-                Favoriete_Film.Add("titel", movietitel); //Hier wordt de film in een Dict gezet
-                Favoriete_Film.Add("Director", filmdirector);
+                Favoriete_Film.Add("Film titel: ", movietitel); //Hier wordt de film in een Dict gezet
+                Favoriete_Film.Add("Director: ", filmdirector);
                 acc.savedInformationlist.Add(Favoriete_Film); //De list heeft <string, string> dicts
 
                 string jsonttext = JsonConvert.SerializeObject(accounts, Formatting.Indented);
                 File.WriteAllText(JsonFilePath, jsonttext);
 
 
-                Console.WriteLine("Succesvol toegevoegd aan favoriete!");
+                Console.WriteLine("De gekozen film is succesvol toegevoegd aan de favoriete lijst!");
             }
         }
     }

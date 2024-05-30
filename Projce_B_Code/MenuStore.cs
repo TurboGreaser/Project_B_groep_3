@@ -15,7 +15,7 @@ class MenuStore
 
     public static void PrintMenu()
     {
-        Console.WriteLine("----- BIOSCOOP MENU -----");
+        Console.WriteLine("----- RESTAURANT MENU -----");
         Console.WriteLine("Item           Prijs");
         Console.WriteLine("Popcorn Zout     4,50 Euro");
         Console.WriteLine("Popcorn Mix      5,50 Euro");
@@ -23,6 +23,9 @@ class MenuStore
         Console.WriteLine("Nacho's          5,00 Euro");
         Console.WriteLine("Hotdog           3,75 Euro");
         Console.WriteLine("Haribo           1,75 Euro");
+        Console.WriteLine("Cola             1,50 Euro");
+    
+        string a = Console.ReadLine();
         // foreach (MenuItem item in menuItems)
         // {
         //     Console.WriteLine(item);

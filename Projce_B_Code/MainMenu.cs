@@ -29,7 +29,7 @@ static class MainMenu
 
                 Console.ResetColor();
             }
-            Console.WriteLine("\n\nDruk op 'S' om te sorteren       Druk op 'Z' om te zoeken       Druk op 'Esc' om terug naat het menu te gaan");
+            Console.WriteLine("\n\nDruk op 'S' om te sorteren       Druk op 'Z' om te zoeken       Druk op 'Esc' om terug naar het menu te gaan");
             ConsoleKeyInfo KeyInput = Console.ReadKey(true);
             switch (KeyInput.Key)
             {
@@ -64,21 +64,21 @@ static class MainMenu
             string[] MenuOptions;
             if (account.Email != "NoEmail")
             {
-                MenuOptions = ["1. Reserveren", "2. Account bekijken", "3. Restaurant menu", "4. Verlaat programma"];
+                MenuOptions = ["1. Hier kunt u Reserveren", "2. Uw account bekijken", "3. Bekijk hier het Restaurant menu", "4. Klik hier om het Programma te verlaten!"];
             }
             else
             {
-                MenuOptions = ["1. Reserveren", "2. Aanmelden", "3. Restaurant menu", "4. Verlaat programma"];
+                MenuOptions = ["1. Hier kunt u Reserveren", "2. Hier kunt u Registeren/Inloggen/Wachtwoord resetten en Doorgaan zonder account!", "3. Bekijk hier het Restaurant menu", "4. Klik hier om het Programma te verlaten!"];
             }
             
             Console.Clear();
             if (account.Email == "NoEmail")
             {
-                Console.WriteLine($"je bent niet ingelogd");
+                Console.WriteLine($"U bent niet ingelogd");
             }
             else
             {
-                Console.WriteLine($"Je bent ingeloged als {account.Username} met email: ({account.Email})");
+                Console.WriteLine($"U bent ingeloged als {account.Username} met email: ({account.Email})");
             }
             for (int i = 0; i < MenuOptions.Length; i++)
             {
@@ -153,7 +153,7 @@ static class MainMenu
         List<Film> NewList = new();
         do
         {
-            Console.WriteLine("Voer de title van de film in:");
+            Console.WriteLine("Voer de titel van de film in:");
             string? Choice = Console.ReadLine();
             try
             {
@@ -173,7 +173,7 @@ static class MainMenu
     {
         string[] MenuOptions = ["1. Op naam", "2. Op genre", "3. Op duur", "4. Op prijs", "5. Op regisseur", "6. Op beschrijving"];
         int IndexOfCurrentOption = 0;
-        Console.WriteLine("Hoe wilt u de list sorteren");
+        Console.WriteLine("Hoe wilt u de lijst sorteren?");
         while (true)
         {
             Console.Clear();

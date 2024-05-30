@@ -84,7 +84,7 @@ public static class ListFunctions
                 int choice = Convert.ToInt32(Console.ReadLine());
                 if (choice > filmList.Count || choice <= 0)
                 {
-                    Console.WriteLine($"Kies Aub een nummer tussen 1 en {filmList.Count}");
+                    Console.WriteLine($"Kies alsjeblieft een nummer tussen de 1 en {filmList.Count}");
                     continue;
                 }
                 if (choice == null)
@@ -97,7 +97,7 @@ public static class ListFunctions
 
                 if (chosenFilm != null)
                 {
-                    Console.WriteLine($"U hebt voor de film '{chosenFilm.Name}' gekozen");
+                    Console.WriteLine($"U heeft voor de film '{chosenFilm.Name}' gekozen");
                     return chosenFilm;
                 }
                 else

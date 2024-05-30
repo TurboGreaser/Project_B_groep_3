@@ -30,7 +30,7 @@ public static class CancelReservation
             }
             else
             {
-                Console.WriteLine("Reservering is geannuleerd\n");
+                Console.WriteLine("Reservering is succesvol geannuleerd\n");
             }
         }
         while (enteredChoice != "ja" && enteredChoice != "nee");
@@ -59,17 +59,17 @@ public static class CancelReservation
         Console.WriteLine("Reserveringen gevonden voor het opgegeven e-mailadres:\n");
         for (int i = 0; i < matchingReservations.Count; i++)
         {
-            Console.WriteLine($"{i + 1}. Reservatie ID: {matchingReservations[i].ID}, Zaal: {matchingReservations[i].ZaalID}\n");
+            Console.WriteLine($"{i + 1}. Reservering ID: {matchingReservations[i].ID}, Zaal: {matchingReservations[i].ZaalID}\n");
         }
 
-        Console.Write("Geef het nummer van de reservering die u wilt annuleren, of typ '0' om te annuleren: \n");
+        Console.Write("Geef het nummer van de reservering die u wilt annuleren, of typ '0' om de niks te annuleren!: \n");
 
         
         int selectedOption;
         while (!int.TryParse(Console.ReadLine(), out selectedOption) || selectedOption < 0 || selectedOption > matchingReservations.Count) // verandert naar int en geeft daarna de int door aan selectedoption
         {
             Console.WriteLine("Ongeldige invoer. Probeer opnieuw.\n");
-            Console.Write("Geef het nummer van de reservering die u wilt annuleren, of typ '0' om te annuleren: \n");
+            Console.Write("Geef het nummer van de reservering die u wilt annuleren, of typ '0' om de niks te annuleren!: \n");
         }
 
         if (selectedOption == 0)
@@ -101,11 +101,11 @@ public static class CancelReservation
 
             File.WriteAllText(jsonfilepath, updatedJson);
 
-            Console.WriteLine($"Reservatie {reservation.ID} is succesvol geannuleerd!");
+            Console.WriteLine($"Reservering {reservation.ID} is succesvol geannuleerd!");
         }
         else
         {
-            Console.WriteLine($"Reservatie {reservation.ID} kon niet worden gevonden om te annuleren.");
+            Console.WriteLine($"Reservering {reservation.ID} kon niet worden gevonden om te annuleren.");
         }
     }
 

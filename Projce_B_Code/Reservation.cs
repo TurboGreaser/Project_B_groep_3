@@ -5,9 +5,9 @@ public static class Reservation
     {
         Zaal zaal = GetZaalFromFilm(film, date);
         Console.Clear();
-        Console.WriteLine($"Je maakt een reservering voor: {film.Name} door: {film.Director}");
-        Console.WriteLine($"Op {date} in zaal {zaal.ID}");
-        Console.WriteLine($"klik Enter om veder te gaan naar het kiezen van je stoel");
+        Console.WriteLine($"U maakt een reservering voor: {film.Name} door: {film.Director}");
+        Console.WriteLine($"Op {date} in Zaal {zaal.ID}");
+        Console.WriteLine($"Klik Enter om je zitplaats te kiezen!");
         Console.ReadLine();
 
 
@@ -15,7 +15,7 @@ public static class Reservation
         if (price != -1)
         {
             ConfirmationMessage.ShowConfirmationMessage(film, date, email, price);
-            Console.WriteLine("Druk op [Enter] om veder te gaan");
+            Console.WriteLine("Druk op [Enter] om verder te gaan");
             Console.ReadLine();
             if (email == "NoEmail")
             {
@@ -26,7 +26,7 @@ public static class Reservation
                 }
             }
             Console.WriteLine("Dank u voor het reserveren, tot de volgende keer!");
-            Console.WriteLine("Klik enter om naar menu te gaan");
+            Console.WriteLine("Klik Enter om naar het menu te gaan");
         }
         Console.ReadLine();
     }
@@ -54,7 +54,7 @@ public static class Reservation
             }
         }
 
-        Console.WriteLine("Film heeft geen Showings Default zaal wordt gebruikt");
+        Console.WriteLine("Film heeft geen showings, er wordt een standaard zaal gebruikt");
         return zalen[0];
     }
 
@@ -63,15 +63,37 @@ public static class Reservation
         while (true)
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
-            // :C formats the string to print as euro
             Console.Clear();
-            Console.WriteLine("De totale prijs is");
-            Console.WriteLine($"Film: {basePrice * seatCount:C} ({basePrice:C} * {seatCount})");
-            Console.WriteLine($"Luxe Zitplaats: {seatFee * luxurySeatCount:C} ({basePrice * 0.1:C} * {luxurySeatCount})");
-            Console.WriteLine($"onder 18 tarief: {ageFee * seatCount:C} ({basePrice * 0.2:C} * {(ageFee == 0 ? "0" : seatCount)})");
-            Console.WriteLine($"------------------------------------------ +");
-            Console.WriteLine($"Totaal: {basePrice * seatCount + seatFee + ageFee:C}");
+            Console.WriteLine("De totale prijs is: ");
+            
+            double totalPrice = 0;
 
+       
+            if (basePrice > 0 && seatCount > 0)
+            {
+                double baseTotal = basePrice * seatCount;
+                Console.WriteLine($"Film prijs: {baseTotal:C} ");
+                totalPrice += baseTotal;
+            }
+
+    
+            if (seatFee > 0 && luxurySeatCount > 0)
+            {
+                double luxuryTotal = seatFee * luxurySeatCount;
+                Console.WriteLine($"Luxe zitplaats: {luxuryTotal:C} ");
+                totalPrice += luxuryTotal;
+            }
+
+
+            if (ageFee > 0 && seatCount > 0)
+            {
+                double ageTotal = ageFee * seatCount;
+                Console.WriteLine($"Onder 18 tarief: {ageTotal:C} ");
+                totalPrice += ageTotal;
+            }
+
+            Console.WriteLine($"------------------------------------------ +");
+            Console.WriteLine($"Totale prijs: {totalPrice:C}");
 
             Console.WriteLine($"Betalen met:\n");
             int choice = ChooseOption();
@@ -79,39 +101,39 @@ public static class Reservation
             if (choice == 1)
             {
                 Console.Clear();
-                Console.WriteLine($"Ideal Betaling van {basePrice * seatCount + seatFee + ageFee:C} success!");
-                Console.WriteLine($"Klik enter om veder te gaaan");
+                Console.WriteLine($"De betaling met Ideal is succesvol!. U heeft dit bedrag betaald: {totalPrice:C}. Tot gauw!");
+                Console.WriteLine($"Klik Enter om verder te gaan");
                 Console.ReadLine();
                 return true;
-
             }
             else if (choice == 2)
             {
                 Console.Clear();
-                Console.WriteLine($"Betaal: {basePrice * seatCount + seatFee + ageFee:C} aan de balie ");
-                Console.WriteLine($"Klik enter om veder te gaaan");
+                Console.WriteLine($"U heeft gekozen om te betalen op locatie. We vragen aan u om dit bedrag mee te nemen: {totalPrice:C}. Tot gauw! ");
+                Console.WriteLine($"Klik Enter om verder te gaan");
                 Console.ReadLine();
                 return true;
             }
             else if (choice == 3)
             {
                 Console.Clear();
-                Console.WriteLine($"Reservering geanuleerd.");
-                Console.WriteLine($"Klik enter Terug te gaan naar het menu");
+                Console.WriteLine($"U heeft uw reservering geannuleerd.");
+                Console.WriteLine($"Klik Enter terug te gaan naar het menu");
                 return false;
             }
         }
     }
 
 
+
     public static int ChooseOption()
     {
-        Console.WriteLine("Gebruik pijltoetsen om te kiezen:");
+        Console.WriteLine("Gebruik de pijltoetsen om te kiezen:");
         Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine("-> Ideal");
+        Console.WriteLine("-> Met Ideal betalen");
         Console.ForegroundColor = ConsoleColor.White;
-        Console.WriteLine("   Op locatie");
-        Console.WriteLine("   Resevatie annuleren");
+        Console.WriteLine("   Op locatie betalen");
+        Console.WriteLine("   Reservering annuleren");
 
         int selectedIndex = 0;
         int optionCount = 3;
@@ -149,9 +171,9 @@ public static class Reservation
     {
         switch (index)
         {
-            case 0: return "Ideal";
-            case 1: return "Op locatie";
-            case 2: return "Resevatie annuleren";
+            case 0: return "Met Ideal betalen";
+            case 1: return "Op locatie betalen";
+            case 2: return "Reservering annuleren";
             default: return "";
         }
     }

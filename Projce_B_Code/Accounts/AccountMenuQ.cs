@@ -123,7 +123,7 @@ namespace Project_B
 
         public static Accounts Choose()
         {
-            string[] MenuOptions = new string[] { "Maak een account", "Log In", "Wachtwoord vergeten", "Doorgaan zonder account" };
+            string[] MenuOptions = new string[] { "Maak hier een account", "Inloggen", "Wachtwoord Resetten", "Doorgaan zonder account" };
             int CurrentOption = 0;
 
             while (true)

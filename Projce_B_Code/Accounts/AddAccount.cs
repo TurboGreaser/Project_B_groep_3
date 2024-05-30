@@ -18,10 +18,10 @@ public static class AddAccount
 
     public static (string, string) MakeAccount()
     {
-        Console.WriteLine("De terms en conditions zijn als volgt:\nDoor gebruik te maken van deze dienst gaat u akkoord met deze Algemene Voorwaarden.\nIndien u niet akkoord gaat met deze voorwaarden, dient u geen gebruik te maken van de dienst.");
+        Console.WriteLine("De Terms en Conditions zijn als volgt:\nDoor gebruik te maken van deze dienst gaat u akkoord met deze Algemene Voorwaarden.\nIndien u niet akkoord gaat met deze voorwaarden, dient u geen gebruik te maken van de dienst.");
         Console.WriteLine("Druk op een knop om verder te gaan");
         Console.ReadKey(true);
-        Console.WriteLine("Acepteer je de terms en conditions? ");
+        Console.WriteLine("Accepteert u de Terms en Conditions? ");
 
         string[] JaOfNee = ["Ja", "Nee"];
         int CurrentOption = 0;
@@ -70,7 +70,7 @@ public static class AddAccount
     public static (string, bool) GetUserName()
     {
         Console.Clear();
-        Console.WriteLine("Vul je gewilde Gebruikersnaam:");
+        Console.WriteLine("Vul uw gewilde Gebruikersnaam in:");
         string UserName = Console.ReadLine();
         foreach (var user in useraccounts)
         {
@@ -101,7 +101,7 @@ public static class AddAccount
     public static (string, bool) GetEmail()
     {
         Console.Clear();
-        Console.WriteLine("Vul je Email in: ");
+        Console.WriteLine("Vul uw Email in: ");
         Console.WriteLine("De Email moet in deze format zijn: example@email.com");
         string Email = Console.ReadLine();
         foreach (var account in useraccounts)

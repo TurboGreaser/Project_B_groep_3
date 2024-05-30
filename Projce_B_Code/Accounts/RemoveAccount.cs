@@ -6,7 +6,7 @@ public static class RemoveAccount
     public static string jsonfilepath = "Accounts.json";
     public static void GetInfo()
     {
-        Console.WriteLine("Om je accounts weg te halen moet je je email en wachtwoord invoeren");
+        Console.WriteLine("Om je account weg te halen moet je je email en wachtwoord invoeren");
         Console.WriteLine("Wat is je email?");
         string enteredemail = Console.ReadLine();
         Console.WriteLine("Wat is je wachtwoord?");

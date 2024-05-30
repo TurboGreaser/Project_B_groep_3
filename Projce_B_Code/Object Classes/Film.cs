@@ -25,7 +25,7 @@ public class Film
         return
         $"Naam: {Name}\n" +
         $"Lengte: {Duration_in_minutes} min\n" +
-        $"Ganre: {Genre}\n" +
+        $"Genre: {Genre}\n" +
         $"Director: {Director}\n" +
         $"\nBeschrijving:\n{Description}\n" +
         $"\nFilm wordt afgespeeld op deze tijden: {Showings}\n" +
@@ -50,7 +50,7 @@ public class Film
             }
             return formattedShowings;
         }
-        return "geen tijden gevonden";
+        return "Geen tijden gevonden";
     }
 
     public static DateTime StringToDatetime(string dateString)
