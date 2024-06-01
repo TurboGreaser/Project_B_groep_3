@@ -29,7 +29,7 @@ static class MainMenu
 
                 Console.ResetColor();
             }
-            Console.WriteLine("\n\nDruk op 'S' om te sorteren       Druk op 'Z' om te zoeken       Druk op 'Esc' om terug naar het menu te gaan");
+            Console.WriteLine("\n\nDruk op 'S' om de volgorde te veranderen       Druk op 'Z' om te zoeken       Druk op 'Esc' om terug naar het menu te gaan");
             ConsoleKeyInfo KeyInput = Console.ReadKey(true);
             switch (KeyInput.Key)
             {
@@ -40,8 +40,15 @@ static class MainMenu
                     IndexOfCurrentOption = (IndexOfCurrentOption == SortedFilm.Count - 1) ? 0 : IndexOfCurrentOption + 1;
                     break;
                 case ConsoleKey.Enter:
-                    return films[IndexOfCurrentOption];
-
+                    Film ChosenFilm = SortedFilm[IndexOfCurrentOption];
+                    if (ShowDescription(ChosenFilm) is null)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        return ChosenFilm;
+                    }
 
                 case ConsoleKey.S:
                     List<Film> Sorted_List = SortFilmList(SortedFilm);
@@ -171,7 +178,7 @@ static class MainMenu
 
     public static List<Film> SortFilmList(List<Film> filmList)
     {
-        string[] MenuOptions = ["1. Op naam", "2. Op genre", "3. Op duur", "4. Op prijs", "5. Op regisseur", "6. Op beschrijving"];
+        string[] MenuOptions = ["1. Op naam", "2. Op genre", "3. Op duur", "4. Op prijs", "5. Op regisseur"];
         int IndexOfCurrentOption = 0;
         Console.WriteLine("Hoe wilt u de lijst sorteren?");
         while (true)
@@ -248,80 +255,40 @@ static class MainMenu
             }
         }
     }
-    // public static List<Film> SortFilmList(List<Film> filmList)
-    // {
-    //     bool ValidInput = false;
-    //     List<Film> RecentlySortedList = null;
-    //     do
-    //     {
-    //         Console.WriteLine("Hoe wilt u de filmlijst sorteren?");
-    //         Console.WriteLine("1. Op Titel\n2. Op Genre\n3. Op duur\n4. Op Prijs\n5. regisseur\n6. Beschrijving");
-    //         try
-    //         {
-    //             string? Choice = Console.ReadLine();
-    //             string OrderBy = Choice switch
-    //             {
-    //                 "1" => "Name",
-    //                 "2" => "Genre",
-    //                 "3" => "Duration_in_minutes",
-    //                 "4" => "Price",
-    //                 "5" => "Director",
-    //                 "6" => "Description",
-    //                 _ => "Price",
-    //             };
-    //             Console.WriteLine("1. Oplopend\n2. Afnemend");
-    //             string? SortBy = Console.ReadLine();
 
-    //             bool Order = false;
-    //             if (SortBy == "1") { Order = false; }
-    //             else if (SortBy == "2") { Order = true; }
-    //             RecentlySortedList = ListFunctions.SortList(filmList, OrderBy!, Order);
-    //             ListFunctions.Display(RecentlySortedList);
-    //             ValidInput = true;
-    //         }
-    //         catch (IOException) { Console.WriteLine(""); }
-    //         catch (Exception) { Console.WriteLine(""); }
-    //     } while (!ValidInput);
-    //     return RecentlySortedList;
+    public static Film? ShowDescription(Film ChosenFilm)
+    {
+        while (true)
+        {
+            Console.Clear();
+            Console.WriteLine($"{ChosenFilm.CompactInfo()}\n");
+            Console.WriteLine("Druk op 'B' om de beschrijving van deze film te lezen");
+            Console.WriteLine("Druk op 'Enter' om deze film te kiezen");
+            Console.WriteLine("Druk op 'Esc' om terug naar de filmlijst te gaan");
+            ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+            switch (keyInfo.Key)
+            {
+                case ConsoleKey.Escape:
+                    return null;
+                case ConsoleKey.Enter:
+                    return ChosenFilm;
+                case ConsoleKey.B:
+                    Console.WriteLine($"\nFilm: {ChosenFilm.Name}\nBeschrijving: {ChosenFilm.Description}");
+                    Console.WriteLine("\nDruk op 'Enter' om de film te kiezen");
+                    Console.WriteLine("Druk op een andere knop om terug naar de filmlijst te gaan");
+                    if (Console.ReadKey(true).Key == ConsoleKey.Enter)
+                    {
+                        return ChosenFilm;
+                    }
+                    else
+                    {
+                        return null;   
+                    }
+                default:
+                    break;
 
-
-    // }
-
-    // public static Film? Choose(List<Film> filmList)
-    // {
-    //     bool ValidInput = false;
-    //     Film? ChosenFilm = null;
-    //     do
-    //     {
-    //         Console.WriteLine("\n1.Zoek een film   2.Sorteer de lijst   3.Kies een film   4.Terug naar het menu");
-    //         try
-    //         {
-    //             string? Choice = Console.ReadLine();
-    //             switch (Choice)
-    //             {
-    //                 case "1":
-    //                     filmList = SearchForFilm(filmList);
-    //                     ValidInput = false;
-    //                     break;
-    //                 case "2":
-    //                     filmList = SortFilmList(filmList);
-    //                     ValidInput = false;
-    //                     break;
-    //                 case "3":
-    //                     ChosenFilm = ListFunctions.ChooseFilm(filmList);
-    //                     // ShowMenu();
-    //                     ValidInput = true;
-    //                     break;
-    //                 case "4":
-    //                     ShowMenu();
-    //                     break;
-    //                 default:
-    //                     break;
-    //             }
-    //         }
-    //         catch (IOException) { Console.WriteLine(""); }
-    //         catch (Exception) { Console.WriteLine(""); }
-    //     } while (!ValidInput);
-    //     return ChosenFilm;
-    // }
+        }
+        
+        }
+    }
 }
