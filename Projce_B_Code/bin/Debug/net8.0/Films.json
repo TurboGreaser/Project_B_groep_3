@@ -7,9 +7,18 @@
         "Director": "Sidney Lumet",
         "Description": "A jury holdout attempts to prevent a miscarriage of justice by forcing his colleagues to reconsider the evidence.",
         "Showings": [
-            {"Datum": "2022-12-30 14:00", "Zaal": 1},
-            {"Datum": "2024-11-25 18:00", "Zaal": 2},
-            {"Datum": "2024-12-25 20:00", "Zaal": 3}
+            {
+                "Datum": "2022-12-30 14:00",
+                "Zaal": 1
+            },
+            {
+                "Datum": "2024-11-25 18:00",
+                "Zaal": 2
+            },
+            {
+                "Datum": "2024-12-25 20:00",
+                "Zaal": 3
+            }
         ]
     },
     {
@@ -20,9 +29,18 @@
         "Director": "David Lean",
         "Description": "The story of T.E. Lawrence, the English officer who successfully united and led the diverse, often warring, Arab tribes during World War I in order to fight the Turks.",
         "Showings": [
-            {"Datum": "2022-12-31 17:00", "Zaal": 3},
-            {"Datum": "2024-11-26 13:00", "Zaal": 1},
-            {"Datum": "2024-12-26 15:00", "Zaal": 2}
+            {
+                "Datum": "2022-12-31 17:00",
+                "Zaal": 3
+            },
+            {
+                "Datum": "2024-11-26 13:00",
+                "Zaal": 1
+            },
+            {
+                "Datum": "2024-12-26 15:00",
+                "Zaal": 2
+            }
         ]
     },
     {
@@ -33,9 +51,18 @@
         "Director": "Stanley Kubrick",
         "Description": "An insane general triggers a path to nuclear holocaust that a war room full of politicians and generals frantically try to stop.",
         "Showings": [
-            {"Datum": "2022-12-29 20:00", "Zaal": 2},
-            {"Datum": "2024-11-24 21:00", "Zaal": 1},
-            {"Datum": "2024-12-24 19:00", "Zaal": 3}
+            {
+                "Datum": "2022-12-29 20:00",
+                "Zaal": 2
+            },
+            {
+                "Datum": "2024-11-24 21:00",
+                "Zaal": 1
+            },
+            {
+                "Datum": "2024-12-24 19:00",
+                "Zaal": 3
+            }
         ]
     },
     {
@@ -46,9 +73,18 @@
         "Director": "Carol Reed",
         "Description": "Pulp novelist Holly Martins travels to postwar Vienna, only to find himself investigating the mysterious death of an old friend, Harry Lime.",
         "Showings": [
-            {"Datum": "2022-12-28 18:00", "Zaal": 1},
-            {"Datum": "2024-11-23 19:00", "Zaal": 3},
-            {"Datum": "2024-12-23 20:00", "Zaal": 2}
+            {
+                "Datum": "2022-12-28 18:00",
+                "Zaal": 1
+            },
+            {
+                "Datum": "2024-11-23 19:00",
+                "Zaal": 3
+            },
+            {
+                "Datum": "2024-12-23 20:00",
+                "Zaal": 2
+            }
         ]
     },
     {
@@ -59,9 +95,18 @@
         "Director": "Elia Kazan",
         "Description": "An ex-prize fighter turned longshoreman struggles to stand up to his corrupt union bosses.",
         "Showings": [
-            {"Datum": "2022-12-27 16:00", "Zaal": 3},
-            {"Datum": "2024-11-22 17:00", "Zaal": 2},
-            {"Datum": "2024-12-22 18:00", "Zaal": 1}
+            {
+                "Datum": "2022-12-27 16:00",
+                "Zaal": 3
+            },
+            {
+                "Datum": "2024-11-22 17:00",
+                "Zaal": 2
+            },
+            {
+                "Datum": "2024-12-22 18:00",
+                "Zaal": 1
+            }
         ]
     },
     {
@@ -72,9 +117,18 @@
         "Director": "John Huston",
         "Description": "A private detective takes on a case that involves him with three eccentric criminals, a gorgeous liar, and their quest for a priceless statuette.",
         "Showings": [
-            {"Datum": "2022-12-26 14:00", "Zaal": 2},
-            {"Datum": "2024-11-21 16:00", "Zaal": 3},
-            {"Datum": "2024-12-21 17:00", "Zaal": 1}
+            {
+                "Datum": "2022-12-26 14:00",
+                "Zaal": 2
+            },
+            {
+                "Datum": "2024-11-21 16:00",
+                "Zaal": 3
+            },
+            {
+                "Datum": "2024-12-21 17:00",
+                "Zaal": 1
+            }
         ]
     },
     {
@@ -85,9 +139,18 @@
         "Director": "Billy Wilder",
         "Description": "An insurance representative lets himself be talked into a murder/insurance fraud scheme that arouses an insurance investigator's suspicions.",
         "Showings": [
-            {"Datum": "2022-12-25 18:00", "Zaal": 1},
-            {"Datum": "2024-11-20 19:00", "Zaal": 2},
-            {"Datum": "2024-12-20 20:00", "Zaal": 3}
+            {
+                "Datum": "2022-12-25 18:00",
+                "Zaal": 1
+            },
+            {
+                "Datum": "2024-11-20 19:00",
+                "Zaal": 2
+            },
+            {
+                "Datum": "2024-12-20 20:00",
+                "Zaal": 3
+            }
         ]
     },
     {
@@ -98,9 +161,18 @@
         "Director": "John Ford",
         "Description": "An Oklahoma family driven off their farm by the Great Depression travel to California to find a new life.",
         "Showings": [
-            {"Datum": "2022-12-24 13:00", "Zaal": 1},
-            {"Datum": "2024-11-19 14:00", "Zaal": 2},
-            {"Datum": "2024-12-19 15:00", "Zaal": 3}
+            {
+                "Datum": "2022-12-24 13:00",
+                "Zaal": 1
+            },
+            {
+                "Datum": "2024-11-19 14:00",
+                "Zaal": 2
+            },
+            {
+                "Datum": "2024-12-19 15:00",
+                "Zaal": 3
+            }
         ]
     },
     {
@@ -111,9 +183,18 @@
         "Director": "John Huston",
         "Description": "In Africa during WWI, a gin-swilling riverboat captain is persuaded by a strait-laced missionary to use his boat to attack an enemy warship.",
         "Showings": [
-            {"Datum": "2022-12-23 15:00", "Zaal": 2},
-            {"Datum": "2024-11-18 16:00", "Zaal": 3},
-            {"Datum": "2024-12-18 17:00", "Zaal": 1}
+            {
+                "Datum": "2022-12-23 15:00",
+                "Zaal": 2
+            },
+            {
+                "Datum": "2024-11-18 16:00",
+                "Zaal": 3
+            },
+            {
+                "Datum": "2024-12-18 17:00",
+                "Zaal": 1
+            }
         ]
     },
     {
@@ -124,9 +205,18 @@
         "Director": "Robert Mulligan",
         "Description": "Atticus Finch, a lawyer in the Depression-era South, defends a black man against an undeserved rape charge and his kids against prejudice.",
         "Showings": [
-            {"Datum": "2022-12-22 12:00", "Zaal": 1},
-            {"Datum": "2024-11-17 13:00", "Zaal": 2},
-            {"Datum": "2024-12-17 14:00", "Zaal": 3}
+            {
+                "Datum": "2022-12-22 12:00",
+                "Zaal": 1
+            },
+            {
+                "Datum": "2024-11-17 13:00",
+                "Zaal": 2
+            },
+            {
+                "Datum": "2024-12-17 14:00",
+                "Zaal": 3
+            }
         ]
     },
     {
@@ -137,9 +227,18 @@
         "Director": "Elia Kazan",
         "Description": "Disturbed Blanche DuBois moves in with her sister in New Orleans and is tormented by her brutish brother-in-law while her reality crumbles around her.",
         "Showings": [
-            {"Datum": "2022-12-21 19:00", "Zaal": 3},
-            {"Datum": "2024-11-16 20:00", "Zaal": 1},
-            {"Datum": "2024-12-16 21:00", "Zaal": 2}
+            {
+                "Datum": "2022-12-21 19:00",
+                "Zaal": 3
+            },
+            {
+                "Datum": "2024-11-16 20:00",
+                "Zaal": 1
+            },
+            {
+                "Datum": "2024-12-16 21:00",
+                "Zaal": 2
+            }
         ]
     },
     {
@@ -150,9 +249,18 @@
         "Director": "Vincente Minnelli",
         "Description": "Three friends struggle to find work in Paris. Things become more complicated when two of them fall in love with the same woman.",
         "Showings": [
-            {"Datum": "2022-12-20 15:00", "Zaal": 3},
-            {"Datum": "2024-11-15 16:00", "Zaal": 1},
-            {"Datum": "2024-12-15 17:00", "Zaal": 2}
+            {
+                "Datum": "2022-12-20 15:00",
+                "Zaal": 3
+            },
+            {
+                "Datum": "2024-11-15 16:00",
+                "Zaal": 1
+            },
+            {
+                "Datum": "2024-12-15 17:00",
+                "Zaal": 2
+            }
         ]
     },
     {
@@ -163,9 +271,18 @@
         "Director": "Michael Curtiz",
         "Description": "A cynical expatriate American cafe owner struggles to decide whether or not to help his former lover and her fugitive husband escape the Nazis in French Morocco.",
         "Showings": [
-            {"Datum": "2022-12-30 19:00", "Zaal": 1},
-            {"Datum": "2024-11-25 20:00", "Zaal": 1},
-            {"Datum": "2024-12-25 18:00", "Zaal": 2}
+            {
+                "Datum": "2022-12-30 19:00",
+                "Zaal": 1
+            },
+            {
+                "Datum": "2024-11-25 20:00",
+                "Zaal": 1
+            },
+            {
+                "Datum": "2024-12-25 18:00",
+                "Zaal": 2
+            }
         ]
     },
     {
@@ -176,9 +293,18 @@
         "Director": "Alfred Hitchcock",
         "Description": "A Phoenix secretary embezzles $40,000 from her employer's client, goes on the run, and checks into a remote motel run by a young man under the domination of his mother.",
         "Showings": [
-            {"Datum": "2022-12-31 21:00", "Zaal": 3},
-            {"Datum": "2024-11-26 22:00", "Zaal": 2},
-            {"Datum": "2024-12-26 20:00", "Zaal": 1}
+            {
+                "Datum": "2022-12-31 21:00",
+                "Zaal": 3
+            },
+            {
+                "Datum": "2024-11-26 22:00",
+                "Zaal": 2
+            },
+            {
+                "Datum": "2024-12-26 20:00",
+                "Zaal": 1
+            }
         ]
     },
     {
@@ -189,9 +315,18 @@
         "Director": "Alfred Hitchcock",
         "Description": "A former police detective juggles wrestling with his personal demons and becoming obsessed with a hauntingly beautiful woman.",
         "Showings": [
-            {"Datum": "2022-12-29 18:00", "Zaal": 2},
-            {"Datum": "2024-11-24 19:00", "Zaal": 3},
-            {"Datum": "2024-12-24 21:00", "Zaal": 1}
+            {
+                "Datum": "2022-12-29 18:00",
+                "Zaal": 2
+            },
+            {
+                "Datum": "2024-11-24 19:00",
+                "Zaal": 3
+            },
+            {
+                "Datum": "2024-12-24 21:00",
+                "Zaal": 1
+            }
         ]
     },
     {
@@ -202,9 +337,18 @@
         "Director": "Victor Fleming",
         "Description": "A manipulative woman and a roguish man conduct a turbulent romance during the American Civil War and Reconstruction periods.",
         "Showings": [
-            {"Datum": "2022-12-28 14:00", "Zaal": 1},
-            {"Datum": "2024-11-23 16:00", "Zaal": 2},
-            {"Datum": "2024-12-23 17:00", "Zaal": 3}
+            {
+                "Datum": "2022-12-28 14:00",
+                "Zaal": 1
+            },
+            {
+                "Datum": "2024-11-23 16:00",
+                "Zaal": 2
+            },
+            {
+                "Datum": "2024-12-23 17:00",
+                "Zaal": 3
+            }
         ]
     },
     {
@@ -215,9 +359,18 @@
         "Director": "Victor Fleming",
         "Description": "Dorothy Gale is swept away from a farm in Kansas to a magical land of Oz in a tornado and embarks on a quest with her new friends to see the Wizard who can help her return home in Kansas and help her friends as well.",
         "Showings": [
-            {"Datum": "2022-12-27 10:00", "Zaal": 3},
-            {"Datum": "2024-11-22 11:00", "Zaal": 1},
-            {"Datum": "2024-12-22 12:00", "Zaal": 2}
+            {
+                "Datum": "2022-12-27 10:00",
+                "Zaal": 3
+            },
+            {
+                "Datum": "2024-11-22 11:00",
+                "Zaal": 1
+            },
+            {
+                "Datum": "2024-12-22 12:00",
+                "Zaal": 2
+            }
         ]
     },
     {
@@ -228,9 +381,18 @@
         "Director": "Orson Welles",
         "Description": "Following the death of a publishing tycoon, news reporters scramble to discover the meaning of his final utterance.",
         "Showings": [
-            {"Datum": "2022-12-26 16:00", "Zaal": 2},
-            {"Datum": "2024-11-21 17:00", "Zaal": 1},
-            {"Datum": "2024-12-21 19:00", "Zaal": 3}
+            {
+                "Datum": "2022-12-26 16:00",
+                "Zaal": 2
+            },
+            {
+                "Datum": "2024-11-21 17:00",
+                "Zaal": 1
+            },
+            {
+                "Datum": "2024-12-21 19:00",
+                "Zaal": 3
+            }
         ]
     },
     {
@@ -241,9 +403,18 @@
         "Director": "Frank Capra",
         "Description": "An angel is sent from Heaven to help a desperately frustrated businessman by showing him what life would have been like if he had never existed.",
         "Showings": [
-            {"Datum": "2022-12-25 20:00", "Zaal": 1},
-            {"Datum": "2024-11-20 18:00", "Zaal": 2},
-            {"Datum": "2024-12-20 20:00", "Zaal": 3}
+            {
+                "Datum": "2022-12-25 20:00",
+                "Zaal": 1
+            },
+            {
+                "Datum": "2024-11-20 18:00",
+                "Zaal": 2
+            },
+            {
+                "Datum": "2024-12-20 20:00",
+                "Zaal": 3
+            }
         ]
     },
     {
@@ -254,9 +425,18 @@
         "Director": "Stanley Donen, Gene Kelly",
         "Description": "A silent film production company and cast make a difficult transition to sound.",
         "Showings": [
-            {"Datum": "2022-12-24 14:00", "Zaal": 1},
-            {"Datum": "2024-11-19 16:00", "Zaal": 3},
-            {"Datum": "2024-12-19 17:00", "Zaal": 2}
+            {
+                "Datum": "2022-12-24 14:00",
+                "Zaal": 1
+            },
+            {
+                "Datum": "2024-11-19 16:00",
+                "Zaal": 3
+            },
+            {
+                "Datum": "2024-12-19 17:00",
+                "Zaal": 2
+            }
         ]
     },
     {
@@ -267,9 +447,18 @@
         "Director": "Billy Wilder",
         "Description": "A screenwriter develops a dangerous relationship with a faded film star determined to make a triumphant return.",
         "Showings": [
-            {"Datum": "2022-12-23 18:00", "Zaal": 2},
-            {"Datum": "2024-11-18 20:00", "Zaal": 1},
-            {"Datum": "2024-12-18 21:00", "Zaal": 3}
+            {
+                "Datum": "2022-12-23 18:00",
+                "Zaal": 2
+            },
+            {
+                "Datum": "2024-11-18 20:00",
+                "Zaal": 1
+            },
+            {
+                "Datum": "2024-12-18 21:00",
+                "Zaal": 3
+            }
         ]
     },
     {
@@ -280,9 +469,18 @@
         "Director": "Alfred Hitchcock",
         "Description": "A wheelchair-bound photographer spies on his neighbors from his apartment window and becomes convinced one of them has committed murder.",
         "Showings": [
-            {"Datum": "2022-12-22 16:00", "Zaal": 1},
-            {"Datum": "2024-11-17 18:00", "Zaal": 2},
-            {"Datum": "2024-12-17 19:00", "Zaal": 3}
+            {
+                "Datum": "2022-12-22 16:00",
+                "Zaal": 1
+            },
+            {
+                "Datum": "2024-11-17 18:00",
+                "Zaal": 2
+            },
+            {
+                "Datum": "2024-12-17 19:00",
+                "Zaal": 3
+            }
         ]
     },
     {
@@ -293,188 +491,61 @@
         "Director": "Alfred Hitchcock",
         "Description": "A New York City advertising executive goes on the run after being mistaken for a government agent by a group of foreign spies.",
         "Showings": [
-            {"Datum": "2022-12-21 20:00", "Zaal": 3},
-            {"Datum": "2024-11-16 21:00", "Zaal": 1},
-            {"Datum": "2024-12-16 22:00", "Zaal": 2}
-        ]
-    },
-    {
-        "Name": "Film 11",
-        "Genre": "Comedy",
-        "Duration_in_minutes": 110,
-        "Price": 12.5,
-        "Director": "Director 11",
-        "Description": "Description for Film 11.",
-        "Showings": [
             {
-                "Datum": "2023-01-13 16:00",
-                "Zaal": 2
+                "Datum": "2022-12-21 20:00",
+                "Zaal": 3
             },
             {
-                "Datum": "2023-01-14 18:30",
+                "Datum": "2024-11-16 21:00",
+                "Zaal": 1
+            },
+            {
+                "Datum": "2024-12-16 22:00",
                 "Zaal": 2
             }
         ]
     },
     {
-        "Name": "Film 12",
-        "Genre": "Drama",
-        "Duration_in_minutes": 140,
-        "Price": 18.0,
-        "Director": "Director 12",
-        "Description": "Description for Film 12.",
+        "Name": "Rear Window",
+        "Genre": "Mystery",
+        "Duration_in_minutes": 112,
+        "Price": 10.5,
+        "Director": "Alfred Hitchcock",
+        "Description": "A wheelchair-bound photographer spies on his neighbors from his apartment window and becomes convinced one of them has committed murder.",
         "Showings": [
             {
-                "Datum": "2023-01-15 15:00",
+                "Datum": "2023-01-20 19:00",
+                "Zaal": 1
+            },
+            {
+                "Datum": "2023-04-15 21:00",
+                "Zaal": 2
+            },
+            {
+                "Datum": "2024-06-10 17:00",
                 "Zaal": 3
-            },
-            {
-                "Datum": "2023-01-16 17:45",
-                "Zaal": 3
             }
         ]
     },
     {
-        "Name": "Film 13",
-        "Genre": "Horror",
-        "Duration_in_minutes": 100,
-        "Price": 15.0,
-        "Director": "Director 13",
-        "Description": "Description for Film 13.",
-        "Showings": [
-            {
-                "Datum": "2023-01-17 20:00",
-                "Zaal": 4
-            },
-            {
-                "Datum": "2023-01-18 22:30",
-                "Zaal": 4
-            }
-        ]
-    },
-    {
-        "Name": "Film 14",
-        "Genre": "Sci-Fi",
-        "Duration_in_minutes": 130,
-        "Price": 20.0,
-        "Director": "Director 14",
-        "Description": "Description for Film 14.",
-        "Showings": [
-            {
-                "Datum": "2023-01-19 18:00",
-                "Zaal": 5
-            },
-            {
-                "Datum": "2023-01-20 20:45",
-                "Zaal": 5
-            }
-        ]
-    },
-    {
-        "Name": "Film 15",
-        "Genre": "Romance",
-        "Duration_in_minutes": 95,
-        "Price": 14.0,
-        "Director": "Director 15",
-        "Description": "Description for Film 15.",
-        "Showings": [
-            {
-                "Datum": "2023-01-21 12:30",
-                "Zaal": 6
-            },
-            {
-                "Datum": "2023-01-22 15:15",
-                "Zaal": 6
-            }
-        ]
-    },
-    {
-        "Name": "Film 16",
-        "Genre": "Thriller",
-        "Duration_in_minutes": 105,
-        "Price": 16.0,
-        "Director": "Director 16",
-        "Description": "Description for Film 16.",
-        "Showings": [
-            {
-                "Datum": "2023-01-23 17:00",
-                "Zaal": 7
-            },
-            {
-                "Datum": "2023-01-24 19:45",
-                "Zaal": 7
-            }
-        ]
-    },
-    {
-        "Name": "Film 17",
-        "Genre": "Fantasy",
-        "Duration_in_minutes": 115,
-        "Price": 19.0,
-        "Director": "Director 17",
-        "Description": "Description for Film 17.",
-        "Showings": [
-            {
-                "Datum": "2023-01-25 13:00",
-                "Zaal": 8
-            },
-            {
-                "Datum": "2023-01-26 15:45",
-                "Zaal": 8
-            }
-        ]
-    },
-    {
-        "Name": "Film 18",
-        "Genre": "Animation",
-        "Duration_in_minutes": 90,
+        "Name": "On the Waterfront",
+        "Genre": "Crime",
+        "Duration_in_minutes": 108,
         "Price": 10.0,
-        "Director": "Director 18",
-        "Description": "Description for Film 18.",
+        "Director": "Elia Kazan",
+        "Description": "An ex-prize fighter turned longshoreman struggles to stand up to his corrupt union bosses.",
         "Showings": [
             {
-                "Datum": "2023-01-27 10:30",
-                "Zaal": 9
+                "Datum": "2023-06-15 17:00",
+                "Zaal": 1
             },
             {
-                "Datum": "2023-01-28 13:15",
-                "Zaal": 9
-            }
-        ]
-    },
-    {
-        "Name": "Film 19",
-        "Genre": "Documentary",
-        "Duration_in_minutes": 85,
-        "Price": 12.0,
-        "Director": "Director 19",
-        "Description": "Description for Film 19.",
-        "Showings": [
-            {
-                "Datum": "2023-01-29 16:00",
-                "Zaal": 10
+                "Datum": "2023-09-25 20:00",
+                "Zaal": 2
             },
             {
-                "Datum": "2023-01-30 18:45",
-                "Zaal": 10
-            }
-        ]
-    },
-    {
-        "Name": "Film 20",
-        "Genre": "Musical",
-        "Duration_in_minutes": 120,
-        "Price": 17.0,
-        "Director": "Director 20",
-        "Description": "Description for Film 20.",
-        "Showings": [
-            {
-                "Datum": "2023-01-31 19:00",
-                "Zaal": 11
-            },
-            {
-                "Datum": "2023-02-01 21:45",
-                "Zaal": 11
+                "Datum": "2024-11-30 19:00",
+                "Zaal": 3
             }
         ]
     }
