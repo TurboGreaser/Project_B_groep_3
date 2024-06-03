@@ -91,11 +91,15 @@ static class MainMenu
             Console.ResetColor();
             if (account.Email == "NoEmail")
             {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine($"U bent niet ingelogd");
+                Console.ResetColor();
             }
             else
             {
+                Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine($"U bent ingeloged als {account.Username} met email: ({account.Email})");
+                Console.ResetColor();
             }
             for (int i = 0; i < MenuOptions.Length; i++)
             {
