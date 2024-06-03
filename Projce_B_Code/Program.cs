@@ -7,6 +7,7 @@ class Program
     {
         // Test reservation cancellation
         // CancelReservation.InfoFromUser("TestEmail1@gmail.com");
+        // MainMenu.Display_Todays_Films();
         MainMenu.ShowMenu();
     }
 }

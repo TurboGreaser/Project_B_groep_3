@@ -1,3 +1,5 @@
+using Project_B;
+
 class MenuStore
 {
     public static List<MenuItem> menuItems;
@@ -15,7 +17,7 @@ class MenuStore
 
     public static void PrintMenu()
     {
-        Console.WriteLine("----- RESTAURANT MENU -----");
+        FormattedOutput.Display_RestaurantMenu();
         Console.WriteLine("Item           Prijs");
         Console.WriteLine("Popcorn Zout     4,50 Euro");
         Console.WriteLine("Popcorn Mix      5,50 Euro");

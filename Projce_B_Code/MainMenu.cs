@@ -13,6 +13,11 @@ static class MainMenu
         while (true)
         {
             Console.Clear();
+            FormattedOutput.Display_FilmList();
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine("\n\nDruk op 'S' om de volgorde van films te veranderen   Druk op 'Z' om te zoeken   Druk op 'Esc' om terug naar het menu te gaan");
+            Console.WriteLine("kies de film om te reserveren/ de beschrijving te zien\n\n");
+            Console.ResetColor();
             foreach (Film f in SortedFilm)
             {
                 int index = SortedFilm.IndexOf(f);
@@ -29,7 +34,6 @@ static class MainMenu
 
                 Console.ResetColor();
             }
-            Console.WriteLine("\n\nDruk op 'S' om de volgorde te veranderen       Druk op 'Z' om te zoeken       Druk op 'Esc' om terug naar het menu te gaan");
             ConsoleKeyInfo KeyInput = Console.ReadKey(true);
             switch (KeyInput.Key)
             {
@@ -71,14 +75,20 @@ static class MainMenu
             string[] MenuOptions;
             if (account.Email != "NoEmail")
             {
-                MenuOptions = ["1. Hier kunt u Reserveren", "2. Uw account bekijken", "3. Bekijk hier het Restaurant menu", "4. Klik hier om het Programma te verlaten!"];
+                MenuOptions = ["1. Hier kunt u Reserveren/ films bekijken", "2. Uw account bekijken", "3. Bekijk hier het Restaurant menu", "4. Klik hier om het Programma te verlaten!"];
             }
             else
             {
-                MenuOptions = ["1. Hier kunt u Reserveren", "2. Hier kunt u Registeren/Inloggen/Wachtwoord resetten en Doorgaan zonder account!", "3. Bekijk hier het Restaurant menu", "4. Klik hier om het Programma te verlaten!"];
+                MenuOptions = ["1. Hier kunt u Reserveren/ films bekijken", "2. Hier kunt u Registeren/Inloggen/Wachtwoord resetten en Doorgaan zonder account!", "3. Bekijk hier het Restaurant menu", "4. Klik hier om het Programma te verlaten!"];
             }
-            
+
             Console.Clear();
+            FormattedOutput.Display_Title();
+            FormattedOutput.Display_Todays_Films();
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine("Gebruik de pijltjes om naar beneden/ boven te gaan.");
+            Console.WriteLine("Gebruik 'Enter' om te kiezen");
+            Console.ResetColor();
             if (account.Email == "NoEmail")
             {
                 Console.WriteLine($"U bent niet ingelogd");
@@ -262,9 +272,11 @@ static class MainMenu
         {
             Console.Clear();
             Console.WriteLine($"{ChosenFilm.CompactInfo()}\n");
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine("Druk op 'B' om de beschrijving van deze film te lezen");
             Console.WriteLine("Druk op 'Enter' om deze film te kiezen");
             Console.WriteLine("Druk op 'Esc' om terug naar de filmlijst te gaan");
+            Console.ResetColor();
             ConsoleKeyInfo keyInfo = Console.ReadKey(true);
             switch (keyInfo.Key)
             {
@@ -274,21 +286,24 @@ static class MainMenu
                     return ChosenFilm;
                 case ConsoleKey.B:
                     Console.WriteLine($"\nFilm: {ChosenFilm.Name}\nBeschrijving: {ChosenFilm.Description}");
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
                     Console.WriteLine("\nDruk op 'Enter' om de film te kiezen");
                     Console.WriteLine("Druk op een andere knop om terug naar de filmlijst te gaan");
+                    Console.ResetColor();
                     if (Console.ReadKey(true).Key == ConsoleKey.Enter)
                     {
                         return ChosenFilm;
                     }
                     else
                     {
-                        return null;   
+                        return null;
                     }
                 default:
                     break;
 
-        }
-        
+            }
+
         }
     }
+    
 }

@@ -104,7 +104,7 @@ namespace Project_B
                 while (true)
                 {
                     Console.Clear();
-
+                    FormattedOutput.DisplayRegister();
                     for (int i = 0; i < menuOptions.Length; i++)
                     {
                         if (i == indexOfCurrentOption)
