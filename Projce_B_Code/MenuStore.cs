@@ -26,8 +26,9 @@ class MenuStore
         Console.WriteLine("Hotdog           3,75 Euro");
         Console.WriteLine("Haribo           1,75 Euro");
         Console.WriteLine("Cola             1,50 Euro");
-    
-        string a = Console.ReadLine();
+        
+        Console.WriteLine("Druk op een knop om terug naar het menu te gaan");
+        Console.ReadLine();
         // foreach (MenuItem item in menuItems)
         // {
         //     Console.WriteLine(item);
