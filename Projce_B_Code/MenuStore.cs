@@ -17,6 +17,7 @@ class MenuStore
 
     public static void PrintMenu()
     {
+        Console.Clear();
         FormattedOutput.Display_RestaurantMenu();
         Console.WriteLine("Item           Prijs");
         Console.WriteLine("Popcorn Zout     4,50 Euro");
@@ -26,9 +27,10 @@ class MenuStore
         Console.WriteLine("Hotdog           3,75 Euro");
         Console.WriteLine("Haribo           1,75 Euro");
         Console.WriteLine("Cola             1,50 Euro");
-        
+        Console.ForegroundColor = ConsoleColor.DarkGreen;
         Console.WriteLine("Druk op een knop om terug naar het menu te gaan");
-        Console.ReadLine();
+        Console.ResetColor();
+        Console.ReadKey(true);
         // foreach (MenuItem item in menuItems)
         // {
         //     Console.WriteLine(item);
