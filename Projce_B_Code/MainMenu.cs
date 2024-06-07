@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 namespace Project_B;
-static class MainMenu
+public static class MainMenu
 
 {
     public static List<Film> films = JsonReader.ReadFilmJson();
