@@ -48,5 +48,15 @@
     "SecurityQuestion": "V2F0IGlzIGRlIG5hYW0gdmFuIGplIGJlc3RlIGpldWdkIHZyaWVuZD8=",
     "savedInformationlist": [],
     "IsLoggedIn": false
+  },
+  {
+    "Username": "markie",
+    "Email": "test@test.com",
+    "Age": 23,
+    "Password": "MTIzNDU2Nzg5IQ==",
+    "SecondPassword": "Z2VlbiBpZGVl",
+    "SecurityQuestion": "V2F0IGlzIGplIGxldmVuc21vdHRvPw==",
+    "savedInformationlist": [],
+    "IsLoggedIn": false
   }
 ]
