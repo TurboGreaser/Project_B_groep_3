@@ -34,9 +34,13 @@ public class Film
         $"{FormatShowings()}\n";
     }
 
-    public string CompactInfo()
+    public string CompactInfo(int spacingName = 0, int spacingGenre = 0)
     {
-        return $"{Name} | {Director} | {Genre} | {Duration_in_minutes} | {Price} euro";
+        string name = $"{Name}".PadRight(spacingName);
+        string genre = $"{Genre}".PadRight(spacingGenre);
+        string duration = $"{Duration_in_minutes}".PadRight(5);
+        string price = $"{Price:C}".PadRight(5);
+        return $"{name} | {genre} | {duration} | {price} ";
     }
 
     private string FormatShowings()

@@ -52,9 +52,12 @@ public static class ListFunctions
 
     public static void Display(List<Film> Filmlist)
     {
+        int LongestName = Filmlist.Max(film => film.Name.Length);
+        int LongestGenre = Filmlist.Max(film => film.Genre.Length);
         foreach (Film film in Filmlist)
         {
-            Console.WriteLine($"{Filmlist.IndexOf(film) + 1}. {film.CompactInfo()}");
+            string i = $"{Filmlist.IndexOf(film) + 1}.".PadRight(3);
+            Console.WriteLine($"{i} {film.CompactInfo(LongestName, LongestGenre)}");
         }
     }
 

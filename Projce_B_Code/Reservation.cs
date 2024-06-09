@@ -62,13 +62,13 @@ public static class Reservation
     {
         while (true)
         {
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
+            // Console.OutputEncoding = System.Text.Encoding.UTF8;
             Console.Clear();
             Console.WriteLine("De totale prijs is: ");
-            
+
             double totalPrice = 0;
 
-       
+
             if (basePrice > 0 && seatCount > 0)
             {
                 double baseTotal = basePrice * seatCount;
@@ -76,7 +76,7 @@ public static class Reservation
                 totalPrice += baseTotal;
             }
 
-    
+
             if (seatFee > 0 && luxurySeatCount > 0)
             {
                 double luxuryTotal = seatFee * luxurySeatCount;

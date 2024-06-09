@@ -18,18 +18,23 @@ public static class MainMenu
             Console.WriteLine("\n\nDruk op 'S' om de volgorde van films te veranderen   Druk op 'Z' om te zoeken   Druk op 'Esc' om terug naar het menu te gaan");
             Console.WriteLine("kies de film om te reserveren/ de beschrijving te zien\n\n");
             Console.ResetColor();
+            int LongestName = SortedFilm.Max(film => film.Name.Length);
+            int LongestGenre = SortedFilm.Max(film => film.Genre.Length);
+
             foreach (Film f in SortedFilm)
             {
                 int index = SortedFilm.IndexOf(f);
                 if (index == IndexOfCurrentOption)
                 {
                     Console.ForegroundColor = ConsoleColor.DarkGreen;
-                    Console.Write($"{index + 1}. {f.CompactInfo()}   <-- \n");
+                    string i = $"{index + 1}.".PadRight(3);
+                    Console.Write($"{i} {f.CompactInfo(LongestName, LongestGenre)}   <-- \n");
 
                 }
                 else
                 {
-                    Console.WriteLine($"{index + 1}. {f.CompactInfo()}");
+                    string i = $"{index + 1}.".PadRight(3);
+                    Console.WriteLine($"{i} {f.CompactInfo(LongestName, LongestGenre)}");
                 }
 
                 Console.ResetColor();
@@ -309,5 +314,5 @@ public static class MainMenu
 
         }
     }
-    
+
 }

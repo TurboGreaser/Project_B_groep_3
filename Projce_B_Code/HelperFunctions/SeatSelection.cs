@@ -21,7 +21,7 @@ public static class SeatSelection
             Console.WriteLine("Kies een stoel met de pijtjes toetsen, Rood = Bezet");
             Console.WriteLine("Druk op (Esc) om terug te gaan naar het menu");
             Console.WriteLine("Druk op (Enter) om een stoel te kiezen");
-            Console.WriteLine("Druk op (C) om verder te gaan naar betalen ");
+            Console.WriteLine("Druk op (B) om verder te gaan naar betalen ");
 
             for (int i = 0; i < size; i++)
             {
@@ -63,7 +63,7 @@ public static class SeatSelection
                         Console.Clear();
                         return -10;
                     }
-                case ConsoleKey.C:
+                case ConsoleKey.B:
                     {
                         Console.Clear();
                         return -100;
@@ -86,7 +86,7 @@ public static class SeatSelection
 
                 case ConsoleKey.Enter:
                     int selectedSeat = selectedIndex + 1;
-                    Console.Clear();
+                    // Console.Clear();
 
                     if (unavailableSeats.Contains(selectedSeat))
                     {
@@ -95,8 +95,8 @@ public static class SeatSelection
                     }
                     else
                     {
-                        Console.Clear();
-                        Console.WriteLine($"Je hebt gekozen voor de zitplaats {selectedSeat}");
+                        // Console.Clear();
+                        Console.WriteLine($"Je hebt gekozen voor de stoel {selectedSeat}");
                         Console.WriteLine("Weet je het zeker?");
                         if (ChooseOption())
                         {
@@ -115,9 +115,6 @@ public static class SeatSelection
             continue;
         } while (selecting_seat);
         return selectedIndex + 1;
-
-
-
     }
 
     public static List<int> SelectSeat(int theathre_size, List<int> unavailableSeats)
@@ -150,20 +147,22 @@ public static class SeatSelection
             else if (seat != -1)
             {
                 seats.Add(seat);
-                Console.Clear();
+                // set seat to -1 to continue loop
+                seat = -1;
+                // Console.Clear();
 
-                Console.WriteLine($"Je hebt voor stoel {seat} gekozen");
-                Console.WriteLine($"Wil je nog een stoel kiezen?");
-                // choose ja to choose another seat
-                if (ChooseOption())
-                {
-                    // set seat to -1 to continue loop
-                    seat = -1;
-                }
-                else
-                {
-                    break;
-                }
+                // Console.WriteLine($"Je hebt voor stoel {seat} gekozen");
+                // Console.WriteLine($"Wil je nog een stoel kiezen?");
+                // // choose ja to choose another seat
+                // if (ChooseOption())
+                // {
+                //     // set seat to -1 to continue loop
+                //     seat = -1;
+                // }
+                // else
+                // {
+                //     break;
+                // }
             }
         }
         Console.ForegroundColor = ConsoleColor.DarkGreen;

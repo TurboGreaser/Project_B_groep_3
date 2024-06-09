@@ -84,9 +84,11 @@ public static class MiscFunctions
         bool hasReservations = false;
 
         List<Json_writer.ReservationJsonObj> reservations = JsonReader.ReadReservations(filename);
+        int LongestTitle = FindLongestTitle(reservations);
         foreach (var reservation in reservations)
         {
             int index = 0;
+
             foreach (string email in reservation.Emails)
             {
                 if (email == UsersEmail)
@@ -101,11 +103,7 @@ public static class MiscFunctions
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.Write(" | Voor de film: ");
                     Console.ForegroundColor = ConsoleColor.White;
-                    Console.Write(title.PadRight(20));
-                    Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.Write(" | door: ");
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.Write(director.PadRight(15));
+                    Console.Write(title.PadRight(LongestTitle));
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.Write(" | In zaal: ");
                     Console.ForegroundColor = ConsoleColor.White;
@@ -126,5 +124,20 @@ public static class MiscFunctions
             Console.WriteLine("Geen reserveringen gevonden");
         }
 
+    }
+
+    private static int FindLongestTitle(List<Json_writer.ReservationJsonObj> reservations)
+    {
+        int LongestTitle = 0;
+        foreach (var reservation in reservations)
+        {
+            var parts = reservation.ID.Split('|');
+            (string title, string director, string dateTime, string zaal) = (parts[0], parts[1], parts[2], parts[3]);
+            if (title.Length > LongestTitle)
+            {
+                LongestTitle = title.Length;
+            }
+        }
+        return LongestTitle;
     }
 }
