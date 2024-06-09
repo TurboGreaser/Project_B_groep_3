@@ -1,7 +1,8 @@
 using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.IO;
 namespace Project_B;
-//using System.Collections.Generic;
-//using System.IO;
 
 public static class CancelReservation
 {
@@ -30,21 +31,19 @@ public static class CancelReservation
             }
             else
             {
-                Console.WriteLine("Reservering is succesvol geannuleerd\n");
+                Console.WriteLine("Reservering is niet geannuleerd\n");
             }
         }
         while (enteredChoice != "ja" && enteredChoice != "nee");
-
     }
 
     public static void DisplayReservationsForEmail(List<Reservations> reservations, string email)
     {
         List<Reservations> matchingReservations = new List<Reservations>();
 
-        
-        foreach (var reservation in reservations)// alle reserveringen
+        foreach (var reservation in reservations)
         {
-            if (reservation.Emails.Contains(email)) // emil adres toevoegen aan list
+            if (reservation.Emails.Contains(email))
             {
                 matchingReservations.Add(reservation);
             }
@@ -57,51 +56,129 @@ public static class CancelReservation
         }
 
         Console.WriteLine("Reserveringen gevonden voor het opgegeven e-mailadres:\n");
-        for (int i = 0; i < matchingReservations.Count; i++)
+
+        int indexOfCurrentOption = 0;
+
+        while (true)
         {
-            Console.WriteLine($"{i + 1}. Reservering ID: {matchingReservations[i].ID}, Zaal: {matchingReservations[i].ZaalID}\n");
+            Console.Clear();
+            for (int i = 0; i < matchingReservations.Count; i++)
+            {
+                if (i == indexOfCurrentOption)
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
+                    Console.Write("--> ");
+                }
+                else
+                {
+                    Console.Write("    ");
+                }
+                Console.WriteLine($"{i + 1}. Reservering ID: {matchingReservations[i].ID}, Zaal: {matchingReservations[i].ZaalID}");
+                Console.ResetColor();
+            }
+
+            Console.WriteLine("\nGebruik de pijltjestoetsen om een reservering te selecteren en druk op Enter om te annuleren, of typ '0' om niets te annuleren.");
+
+            ConsoleKeyInfo keyInput = Console.ReadKey(true);
+            switch (keyInput.Key)
+            {
+                case ConsoleKey.UpArrow:
+                    indexOfCurrentOption = (indexOfCurrentOption == 0) ? matchingReservations.Count - 1 : indexOfCurrentOption - 1;
+                    break;
+                case ConsoleKey.DownArrow:
+                    indexOfCurrentOption = (indexOfCurrentOption == matchingReservations.Count - 1) ? 0 : indexOfCurrentOption + 1;
+                    break;
+                case ConsoleKey.Enter:
+                    Reservations reservationToModify = matchingReservations[indexOfCurrentOption];
+                    HandleSeatSelection(reservationToModify, email);
+                    return;
+                case ConsoleKey.D0:
+                    Console.WriteLine("Annulering geannuleerd.");
+                    return;
+            }
         }
-
-        Console.Write("Geef het nummer van de reservering die u wilt annuleren, of typ '0' om de niks te annuleren!: \n");
-
-        
-        int selectedOption;
-        while (!int.TryParse(Console.ReadLine(), out selectedOption) || selectedOption < 0 || selectedOption > matchingReservations.Count) // verandert naar int en geeft daarna de int door aan selectedoption
-        {
-            Console.WriteLine("Ongeldige invoer. Probeer opnieuw.\n");
-            Console.Write("Geef het nummer van de reservering die u wilt annuleren, of typ '0' om de niks te annuleren!: \n");
-        }
-
-        if (selectedOption == 0)
-        {
-            Console.WriteLine("Reservering geannuleerd.");
-            return;
-        }
-
-        Reservations reservationToRemove = matchingReservations[selectedOption - 1];
-        Console.WriteLine($"U heeft gekozen om reservering {reservationToRemove.ID} te annuleren.\n");
-        RemoveReservation(reservationToRemove);
     }
 
+    public static void HandleSeatSelection(Reservations reservation, string email)
+    {
+        List<int> userSeats = GetSeatsForEmail(reservation, email);
 
-    public static void RemoveReservation(Reservations reservation)
+        if (userSeats.Count == 1)
+        {
+            RemoveSeatFromReservation(reservation, email, userSeats[0]);
+        }
+        else
+        {
+            int indexOfCurrentOption = 0;
+
+            while (true)
+            {
+                Console.Clear();
+                Console.WriteLine($"Kies een stoel om te annuleren voor reservering {reservation.ID}:");
+
+                for (int i = 0; i < userSeats.Count; i++)
+                {
+                    if (i == indexOfCurrentOption)
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkGreen;
+                        Console.Write("--> ");
+                    }
+                    else
+                    {
+                        Console.Write("    ");
+                    }
+                    Console.WriteLine($"{i + 1}. Stoel: {userSeats[i]}");
+                    Console.ResetColor();
+                }
+
+                Console.WriteLine("\nGebruik de pijltjestoetsen om een stoel te selecteren en druk op Enter om te annuleren, of typ '0' om niets te annuleren.");
+
+                ConsoleKeyInfo keyInput = Console.ReadKey(true);
+                switch (keyInput.Key)
+                {
+                    case ConsoleKey.UpArrow:
+                        indexOfCurrentOption = (indexOfCurrentOption == 0) ? userSeats.Count - 1 : indexOfCurrentOption - 1;
+                        break;
+                    case ConsoleKey.DownArrow:
+                        indexOfCurrentOption = (indexOfCurrentOption == userSeats.Count - 1) ? 0 : indexOfCurrentOption + 1;
+                        break;
+                    case ConsoleKey.Enter:
+                        RemoveSeatFromReservation(reservation, email, userSeats[indexOfCurrentOption]);
+                        return;
+                    case ConsoleKey.D0:
+                        Console.WriteLine("Annulering geannuleerd.");
+                        return;
+                }
+            }
+        }
+    }
+
+    public static void RemoveSeatFromReservation(Reservations reservation, string email, int seatToRemove)
     {
         string text = File.ReadAllText(jsonfilepath);
         var reservations = JsonConvert.DeserializeObject<List<Reservations>>(text);
 
-        // Find the index of the reservation to remove
-        int indexToRemove = reservations.FindIndex(r => r.ID == reservation.ID);
+        int reservationIndex = reservations.FindIndex(r => r.ID == reservation.ID);
 
-        if (indexToRemove != -1)
+        if (reservationIndex != -1)
         {
-            // verwijderd van list
-            reservations.RemoveAt(indexToRemove);
+            // Remove the specific seat
+            reservations[reservationIndex].Seats.Remove(seatToRemove);
+
+            // Remove the email only if the email had no more seats reserved
+            int emailIndex = reservation.Emails.IndexOf(email);
+            reservation.Emails.RemoveAt(emailIndex);
+
+            if (reservations[reservationIndex].Emails.Count == 0)
+            {
+                reservations.RemoveAt(reservationIndex);
+                Console.WriteLine($"Reservering {reservation.ID} volledig geannuleerd omdat er geen e-mails meer zijn.");
+            }
 
             string updatedJson = JsonConvert.SerializeObject(reservations, Formatting.Indented);
-
             File.WriteAllText(jsonfilepath, updatedJson);
 
-            Console.WriteLine($"Reservering {reservation.ID} is succesvol geannuleerd!");
+            Console.WriteLine($"Stoel {seatToRemove} voor reservering {reservation.ID} is succesvol geannuleerd!");
         }
         else
         {
@@ -109,7 +186,20 @@ public static class CancelReservation
         }
     }
 
+    private static List<int> GetSeatsForEmail(Reservations reservation, string email)
+    {
+        List<int> seatsForEmail = new List<int>();
 
+        for (int i = 0; i < reservation.Emails.Count; i++)
+        {
+            if (reservation.Emails[i] == email)
+            {
+                seatsForEmail.Add(reservation.Seats[i]);
+            }
+        }
+
+        return seatsForEmail;
+    }
     public static double GetMoviePrice(string movieName)
     {
         string text = File.ReadAllText(jsonfilepathfilms);
