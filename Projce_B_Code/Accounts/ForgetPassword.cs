@@ -13,7 +13,9 @@ public static class ForgotPassword
             if (user.SecondPassword == Stringcode.Base64Encode(secondarypassword) && user.Email == email)
             {
 
-
+                Console.WriteLine("Voer nu je nieuwe wachtwoord in!\n");
+                Console.WriteLine("\n");
+                Console.ReadLine();
                 string new_password = AddAccount.Wachtwoord();
 
                 while (new_password == "0")
@@ -24,7 +26,10 @@ public static class ForgotPassword
                 user.Password = Stringcode.Base64Encode(new_password);
                 string json = JsonConvert.SerializeObject(useraccounts, Formatting.Indented);
                 File.WriteAllText(jsonfilepath, json);
+                Console.WriteLine("\n");
+                Console.WriteLine("\n");
                 Console.WriteLine("Wachtwoord succesvol gewijzigd!");
+                Console.ReadLine();
                 return user;
             }
 
