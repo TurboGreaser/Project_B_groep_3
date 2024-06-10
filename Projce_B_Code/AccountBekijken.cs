@@ -96,7 +96,7 @@ namespace Project_B
                     "1. Wilt u uw accountgegevens zien?",
                     "2. Wilt u uw reserveringen zien?",
                     "3. Wilt u uw reserveringen annuleren?",
-                    "4. Wilt u uw favoriete films zien?"
+                    "5. Wilt u uw account verwijderen?"
                 };
 
                 int indexOfCurrentOption = 0;
@@ -160,7 +160,7 @@ namespace Project_B
                     string test = Console.ReadLine();
                     break;
                 case 4:
-
+                    RemoveAccount.GetInfo();
                     break;
                 default:
                     Console.WriteLine("Ongeldige optie.");

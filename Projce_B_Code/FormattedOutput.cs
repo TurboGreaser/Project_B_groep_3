@@ -16,7 +16,7 @@ public static class FormattedOutput
 
     public static void Display_Todays_Films()
     {
-        DateTime DateOfToday = DateTime.Now.Date; // Use only the date part for comparison
+        DateTime DateOfToday = DateTime.Now.Date;
         string Films2Day = "";
 
         foreach (Film f in MainMenu.films)

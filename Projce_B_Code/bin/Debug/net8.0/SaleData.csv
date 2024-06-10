@@ -40,3 +40,5 @@ Date,FilmName,FilmGenre,FilmDurationInMinutes,AmountSpent,SeatCount,Age
 2023-02-01 21:45,Film 20,Musical,120,18 7,1,20
 2022-12-20 15:00,An American in Paris,Drama/Musical,113,10,1,21
 2022-12-21 20:00,North by Northwest,Adventure/Thriller,136,50 4,4,55
+2022-12-28 18:00,The Third Man,Film-Noir/Mystery,93,44.2,5,55
+2022-12-28 18:00,The Third Man,Film-Noir/Mystery,93,8.5,1,55
