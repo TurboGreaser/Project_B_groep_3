@@ -84,7 +84,7 @@ public static class MainMenu
             }
             else
             {
-                MenuOptions = ["1. Hier kunt u Reserveren/ films bekijken", "2. Hier kunt u Registeren/Inloggen/Wachtwoord resetten en Doorgaan zonder account!", "3. Bekijk hier het Restaurant menu", "4. Klik hier om het Programma te verlaten!"];
+                MenuOptions = ["1. Hier kunt u Reserveren/ films bekijken", "2. Hier kunt u Registeren/Inloggen/Wachtwoord resetten", "3. Bekijk hier het Restaurant menu", "4. Klik hier om het Programma te verlaten!"];
             }
 
             Console.Clear();
