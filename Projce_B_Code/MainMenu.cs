@@ -80,7 +80,7 @@ public static class MainMenu
             string[] MenuOptions;
             if (account.Email != "NoEmail")
             {
-                MenuOptions = ["1. Hier kunt u Reserveren/ films bekijken", "2. Uw account bekijken", "3. Bekijk hier het Restaurant menu", "4. Klik hier om het Programma te verlaten!"];
+                MenuOptions = ["1. Hier kunt u Reserveren/ films bekijken", "2. Uw account bekijken / Reserveringen bekijken / Reserveringen annuleren / Favoriete films bekijken", "3. Bekijk hier het Restaurant menu", "4. Klik hier om het Programma te verlaten!"];
             }
             else
             {
