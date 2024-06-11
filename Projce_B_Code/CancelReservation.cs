@@ -164,6 +164,7 @@ public static class CancelReservation
         {
             // Remove the specific seat
             reservations[reservationIndex].Seats.Remove(seatToRemove);
+            reservations[reservationIndex].Emails.Remove(email);
 
             // Remove the email only if the email had no more seats reserved
             int emailIndex = reservation.Emails.IndexOf(email);
