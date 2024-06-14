@@ -38,5 +38,7 @@ public static class RemoveAccount
         {
             Console.WriteLine("Account met email en wachtwoord is niet gevonden");
         }
+        Console.WriteLine("Druk op Enter om verder te gaan");
+        Console.ReadLine();
     }
 }

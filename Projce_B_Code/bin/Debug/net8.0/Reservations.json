@@ -45,5 +45,24 @@
             "ivan@g.com",
             "ivan@g.com"
         ]
+    },
+    {
+        "ID": "The Third Man|Carol Reed|2022-12-28 18:00|1",
+        "Date": "2022-12-28 18:00",
+        "ZaalID": 1,
+        "Seats": [
+            25,
+            8,
+            41,
+            22,
+            81
+        ],
+        "Emails": [
+            "Test1@gmail.com",
+            "Test1@gmail.com",
+            "Test1@gmail.com",
+            "Test1@gmail.com",
+            "Test1@gmail.com"
+        ]
     }
 ]

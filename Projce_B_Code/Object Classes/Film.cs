@@ -38,7 +38,7 @@ public class Film
     {
         string name = $"{Name}".PadRight(spacingName);
         string genre = $"{Genre}".PadRight(spacingGenre);
-        string duration = $"{Duration_in_minutes}".PadRight(5);
+        string duration = $"{Duration_in_minutes}".PadRight(4) + " min";
         string price = $"{Price:C}".PadRight(5);
         return $"{name} | {genre} | {duration} | {price} ";
     }

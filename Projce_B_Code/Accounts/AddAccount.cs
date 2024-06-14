@@ -25,9 +25,16 @@ public static class AddAccount
 
         string[] JaOfNee = new string[] { "Ja", "Nee" };
         int CurrentOption = 0;
+
+
+
+
         while (true)
         {
             Console.Clear();
+            Console.WriteLine("De Terms en Conditions zijn als volgt:\nDoor gebruik te maken van deze dienst gaat u akkoord met deze Algemene Voorwaarden.\nIndien u niet akkoord gaat met deze voorwaarden, dient u geen gebruik te maken van de dienst.");
+            // Console.WriteLine("Druk op een knop om verder te gaan");
+            Console.WriteLine("\nAccepteert u de Terms en Conditions? ");
             for (int i = 0; i < 2; i++)
             {
                 if (i == CurrentOption)
@@ -132,23 +139,33 @@ public static class AddAccount
     public static int GetAge()
     {
         Console.Clear();
-        Console.WriteLine("Vul je leeftijd in");
-        int Age = Convert.ToInt32(Console.ReadLine());
-        if (Age < 0)
+        try
         {
-            Console.WriteLine("Leeftijd mag niet kleiner dan 0 zijn");
+            Console.WriteLine("Vul je leeftijd in");
+            int Age = Convert.ToInt32(Console.ReadLine());
+            if (Age < 0)
+            {
+                Console.WriteLine("Leeftijd mag niet kleiner dan 0 zijn");
+                Console.WriteLine("\nDruk Enter om verder te gaan");
+                Console.ReadLine();
+                return -1;
+            }
+            if (Age > 111)
+            {
+                Console.WriteLine("Leeftijd mag niet groter dan 111 zijn");
+                Console.WriteLine("\nDruk Enter om verder te gaan");
+                Console.ReadLine();
+                return -1;
+            }
+            return Age;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Leeftijd moet een nummer zijn/mag niet leeg gelaten worden");
             Console.WriteLine("\nDruk Enter om verder te gaan");
             Console.ReadLine();
             return -1;
         }
-        if (Age > 111)
-        {
-            Console.WriteLine("Leeftijd mag niet groter dan 111 zijn");
-            Console.WriteLine("\nDruk Enter om verder te gaan");
-            Console.ReadLine();
-            return -1;
-        }
-        return Age;
 
     }
 
@@ -226,41 +243,98 @@ public static class AddAccount
     public static (string question, string answer) BackupWachtwoord()
     {
         Console.Clear();
-        Console.WriteLine("Kies een beveilingsvraag voor je back-up wachtwoord:\n");
-        Console.WriteLine("1. Wat is je levensmotto?");
-        Console.WriteLine("2. Wat is de naam van je beste jeugd vriend?");
-        Console.WriteLine("3. Wat is je favoriete gerecht?");
 
-        int userInput;
-        if (!int.TryParse(Console.ReadLine(), out userInput) || userInput < 1 || userInput > 3)
+        string[] questions =
         {
-            Console.WriteLine("Verkeerde input. Voer een getal in van 1 tot en met 3.");
-            Console.WriteLine("\nDruk Enter om verder te gaan.");
-            Console.ReadLine();
-            return (string.Empty, string.Empty);
-        }
+            "Wat is je levensmotto?",
+            "Wat is de naam van je beste jeugd vriend?",
+            "Wat is je favoriete gerecht?"
+        };
 
-        string securityQuestion;
-        switch (userInput)
+        int selectedIndex = 0;
+        ConsoleKey key;
+
+        do
         {
-            case 1:
-                securityQuestion = "Wat is je levensmotto?";
-                break;
-            case 2:
-                securityQuestion = "Wat is de naam van je beste jeugd vriend?";
-                break;
-            case 3:
-                securityQuestion = "Wat is je favoriete gerecht?: ";
-                break;
-            default:
-                securityQuestion = "";
-                break;
-        }
+            Console.Clear();
+            Console.WriteLine("Kies een beveilingsvraag voor je back-up wachtwoord:\n");
 
+            for (int i = 0; i < questions.Length; i++)
+            {
+                if (i == selectedIndex)
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine($"--> {questions[i]}");
+                    Console.ResetColor();
+                }
+                else
+                {
+                    Console.WriteLine($"    {questions[i]}");
+                }
+            }
+
+            key = Console.ReadKey(true).Key;
+
+            if (key == ConsoleKey.UpArrow)
+            {
+                selectedIndex = (selectedIndex > 0) ? selectedIndex - 1 : questions.Length - 1;
+            }
+            else if (key == ConsoleKey.DownArrow)
+            {
+                selectedIndex = (selectedIndex < questions.Length - 1) ? selectedIndex + 1 : 0;
+            }
+
+        } while (key != ConsoleKey.Enter);
+
+        string securityQuestion = questions[selectedIndex];
+
+        Console.Clear();
         Console.WriteLine($"Voer je antwoord in op de vraag: {securityQuestion}\n");
-        string User_Answer = Console.ReadLine();
-        return (securityQuestion, User_Answer);
+        string userAnswer = Console.ReadLine();
+
+        return (securityQuestion, userAnswer);
     }
+
+    // public static (string question, string answer) BackupWachtwoord1()
+    // {
+    //     Console.Clear();
+    //     Console.WriteLine("Kies een beveilingsvraag voor je back-up wachtwoord:\n");
+    //     Console.WriteLine("1. Wat is je levensmotto?");
+    //     Console.WriteLine("2. Wat is de naam van je beste jeugd vriend?");
+    //     Console.WriteLine("3. Wat is je favoriete gerecht?");
+
+    //     int userInput;
+    //     if (!int.TryParse(Console.ReadLine(), out userInput) || userInput < 1 || userInput > 3)
+    //     {
+    //         Console.WriteLine("Verkeerde input. Voer een getal in van 1 tot en met 3.");
+    //         Console.WriteLine("\nDruk Enter om verder te gaan.");
+    //         Console.ReadLine();
+    //         return (string.Empty, string.Empty);
+    //     }
+
+    //     string securityQuestion;
+    //     switch (userInput)
+    //     {
+    //         case 1:
+    //             securityQuestion = "Wat is je levensmotto?";
+    //             break;
+    //         case 2:
+    //             securityQuestion = "Wat is de naam van je beste jeugd vriend?";
+    //             break;
+    //         case 3:
+    //             securityQuestion = "Wat is je favoriete gerecht?: ";
+    //             break;
+    //         default:
+    //             securityQuestion = "";
+    //             break;
+    //     }
+
+    //     Console.WriteLine($"Voer je antwoord in op de vraag: {securityQuestion}\n");
+    //     string User_Answer = Console.ReadLine();
+    //     return (securityQuestion, User_Answer);
+    // }
+
+
 
 
     //         else
