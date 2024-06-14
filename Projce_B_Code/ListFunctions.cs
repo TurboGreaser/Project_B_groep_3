@@ -52,8 +52,8 @@ public static class ListFunctions
 
     public static void Display(List<Film> Filmlist)
     {
-        int LongestName = Filmlist.Max(film => film.Name.Length);
-        int LongestGenre = Filmlist.Max(film => film.Genre.Length);
+        int LongestName = Filmlist.Any() ? Filmlist.Max(film => film.Name.Length) : 0;
+        int LongestGenre = Filmlist.Any() ? Filmlist.Max(film => film.Genre.Length) : 0;
         foreach (Film film in Filmlist)
         {
             string i = $"{Filmlist.IndexOf(film) + 1}.".PadRight(3);

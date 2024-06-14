@@ -23,7 +23,7 @@ public static class AddAccount
         Console.ReadKey(true);
         Console.WriteLine("Accepteert u de Terms en Conditions? ");
 
-        string[] JaOfNee = ["Ja", "Nee"];
+        string[] JaOfNee = new string[] { "Ja", "Nee" };
         int CurrentOption = 0;
         while (true)
         {

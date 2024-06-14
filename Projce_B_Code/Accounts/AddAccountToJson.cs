@@ -35,7 +35,7 @@ public class AddAccountToJson
             Password = Password,
             SecondPassword = SecondPassword,
             SecurityQuestion = SecurityQuestion,
-            savedInformationlist = []
+            savedInformationlist = new List<Dictionary<string, string>>()
         };
 
         accounts.Add(newAccount);

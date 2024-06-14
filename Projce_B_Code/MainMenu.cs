@@ -77,14 +77,20 @@ public static class MainMenu
         int IndexOfCurrentOption = 0;
         while (true)
         {
-            string[] MenuOptions;
+            string[] MenuOptions = new string[] { };
             if (account.Email != "NoEmail")
             {
-                MenuOptions = ["1. Hier kunt u Reserveren/ films bekijken", "2. Uw account bekijken", "3. Bekijk hier het Restaurant menu", "4. Klik hier om het Programma te verlaten!"];
+                MenuOptions = new string[]
+                {
+                    "1. Hier kunt u Reserveren/ films bekijken",
+                    "2. Uw account bekijken",
+                    "3. Bekijk hier het Restaurant menu",
+                    "4. Klik hier om het Programma te verlaten!"
+                };
             }
             else
             {
-                MenuOptions = ["1. Hier kunt u Reserveren/ films bekijken", "2. Hier kunt u Registeren/Inloggen/Wachtwoord resetten en Doorgaan zonder account!", "3. Bekijk hier het Restaurant menu", "4. Klik hier om het Programma te verlaten!"];
+                MenuOptions = new string[] { "1. Hier kunt u Reserveren/ films bekijken", "2. Hier kunt u Registeren/Inloggen/Wachtwoord resetten en Doorgaan zonder account!", "3. Bekijk hier het Restaurant menu", "4. Klik hier om het Programma te verlaten!" };
             }
 
             Console.Clear();
@@ -197,7 +203,7 @@ public static class MainMenu
 
     public static List<Film> SortFilmList(List<Film> filmList)
     {
-        string[] MenuOptions = ["1. Op naam", "2. Op genre", "3. Op duur", "4. Op prijs", "5. Op regisseur"];
+        string[] MenuOptions = new string[] { "1. Op naam", "2. Op genre", "3. Op duur", "4. Op prijs", "5. Op regisseur" };
         int IndexOfCurrentOption = 0;
         Console.WriteLine("Hoe wilt u de lijst sorteren?");
         while (true)
@@ -238,7 +244,7 @@ public static class MainMenu
 
     public static bool Asc()
     {
-        string[] MenuOptions = ["1. Aflopend", "2. Oplopend"];
+        string[] MenuOptions = new string[] { "1. Aflopend", "2. Oplopend" };
         int CurrentOption = 0;
         while (true)
         {
